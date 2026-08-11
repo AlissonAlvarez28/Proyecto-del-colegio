@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Comentarios | I.G.T. Francisco Miranda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Outfit', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="sticky top-0 z-40 bg-slate-900 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="inicio.html" class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">FM</div>
+                    <div>
+                        <span class="block font-black text-lg leading-tight">I.G.T. FRANCISCO MIRANDA</span>
+                        <span class="block text-xs font-semibold text-amber-400 uppercase tracking-wider">Zambrano, Honduras</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+                    <a href="inicio.html" class="hover:text-amber-400 transition-colors">Inicio</a>
+                    <a href="oferta_academica.html" class="hover:text-amber-400 transition-colors">Oferta Académica</a>
+                    <a href="personal.html" class="hover:text-amber-400 transition-colors">Autoridades e Institucional</a>
+                    <a href="estudiantes.html" class="hover:text-amber-400 transition-colors">Estudiantes</a>
+                    <a href="blog.html" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Blog y Comentarios</a>
+                    <a href="compras.html" class="hover:text-amber-400 transition-colors">Compras</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO DE LA PÁGINA -->
+    <header class="bg-slate-900 text-white py-12 border-b border-slate-800 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Comunidad & Novedades</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold mt-3">Blog y Redes Sociales</h1>
+            <p class="text-slate-400 text-sm sm:text-base mt-3">Sigue de cerca las actividades, eventos, talleres y noticias del instituto. ¡Conéctate a nuestras redes oficiales y déjanos tus comentarios!</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full space-y-12">
+
+        <!-- CONEXIÓN CON REDES SOCIALES OFICIALES -->
+        <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-xs font-bold text-amber-600 uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Redes Oficiales</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Conéctate en Vivo con Nosotros</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">Sigue nuestras cuentas oficiales para ver fotografías, transmisiones en vivo de la Banda Latina, ferias técnicas y anuncios urgentes.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- Tarjeta Facebook -->
+                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" rel="noopener noreferrer" 
+                   class="group bg-gradient-to-br from-blue-600 to-blue-800 text-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <i class="fa-brands fa-facebook text-4xl text-white"></i>
+                            <span class="bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Oficial</span>
+                        </div>
+                        <h3 class="text-xl font-black">Facebook</h3>
+                        <p class="text-xs text-blue-100 mt-1">Página Oficial del I.G.T. Francisco Miranda en Facebook. Comunicados, álbumes de fotos e información institucional.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                        <span>Ir a Facebook</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Tarjeta Instagram -->
+                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" rel="noopener noreferrer" 
+                   class="group bg-gradient-to-br from-purple-600 via-pink-600 to-amber-500 text-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <i class="fa-brands fa-instagram text-4xl text-white"></i>
+                            <span class="bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">@igt_franciscomiranda</span>
+                        </div>
+                        <h3 class="text-xl font-black">Instagram</h3>
+                        <p class="text-xs text-pink-100 mt-1">Galería visual, historias de talleres, actividades extracurriculares y presentación de proyectos estudiantiles.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/20 flex items-center justify-between text-xs font-bold">
+                        <span>Ver en Instagram</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Tarjeta TikTok -->
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" 
+                   class="group bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 text-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all flex flex-col justify-between hover:-translate-y-1 border border-slate-800">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <i class="fa-brands fa-tiktok text-4xl text-amber-400"></i>
+                            <span class="bg-amber-500/20 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Canal Oficial</span>
+                        </div>
+                        <h3 class="text-xl font-black">TikTok</h3>
+                        <p class="text-xs text-slate-300 mt-1">Videos cortos de la Banda Latina, prácticas en laboratorios de informática, madera, estructuras y vida estudiantil.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-amber-400">
+                        <span>Ver Videos en TikTok</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE BLOG INSTITUCIONAL -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 border-b border-slate-200 pb-4">
+                <div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Publicaciones Recientes</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Blog de Noticias y Logros</h2>
+                </div>
+                <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-newspaper text-amber-500 mr-1"></i> Actualizado periódicamente</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Entrada 1 -->
+                <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
+                            <i class="fa-solid fa-drum-steelpan text-5xl text-amber-400/30"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Banda Latina FM</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase"><i class="fa-regular fa-calendar mr-1"></i> Ciclo Lectivo 2026</span>
+                            <h3 class="font-black text-slate-900 text-lg mt-1 leading-snug">Ensayos e preparativos de la Banda Latina Francisco Miranda</h3>
+                            <p class="text-xs text-slate-600 mt-2 line-clamp-3">Los estudiantes del área musical intensifican sus prácticas para las próximas presentaciones locales e intercolegiales bajo la dirección del equipo docente.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
+                        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                            Ver detalles en Facebook <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Entrada 2 -->
+                <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
+                            <i class="fa-solid fa-laptop-code text-5xl text-amber-400/30"></i>
+                            <span class="absolute top-4 left-4 bg-blue-600 text-white font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Informática & Robótica</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase"><i class="fa-regular fa-calendar mr-1"></i> Áreas Técnicas</span>
+                            <h3 class="font-black text-slate-900 text-lg mt-1 leading-snug">Nuevos proyectos en los laboratorios de programación</h3>
+                            <p class="text-xs text-slate-600 mt-2 line-clamp-3">Estudiantes del Bachillerato en Informática desarrollan sitios web, soluciones lógicas y maquetas interactivas en sus clases prácticas.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
+                        <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                            Ver fotos en Instagram <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Entrada 3 -->
+                <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
+                            <i class="fa-solid fa-screwdriver-wrench text-5xl text-amber-400/30"></i>
+                            <span class="absolute top-4 left-4 bg-emerald-600 text-white font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Talleres Industriales</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase"><i class="fa-regular fa-calendar mr-1"></i> Formación Práctica</span>
+                            <h3 class="font-black text-slate-900 text-lg mt-1 leading-snug">Prácticas de Estructuras Metálicas, Madera y Agroindustria</h3>
+                            <p class="text-xs text-slate-600 mt-2 line-clamp-3">Avances de los alumnos en los talleres de carpintería, soldadura y preparación agroindustrial en el campus de Zambrano.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
+                        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                            Ver publicaciones <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE COMENTARIOS Y COMUNIDAD -->
+        <section class="grid lg:grid-cols-12 gap-8 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+            
+            <!-- FORMULARIO DE COMENTARIOS -->
+            <div class="lg:col-span-5 space-y-4">
+                <div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Participa</span>
+                    <h2 class="text-2xl font-black text-slate-900 mt-2">Déjanos tu Comentario</h2>
+                    <p class="text-xs text-slate-500 mt-1">¿Eres estudiante, padre de familia, exalumno o vecino de Zambrano? Déjanos un mensaje, pregunta o felicitación para la institución.</p>
+                </div>
+
+                <form id="form-comentario" onsubmit="publicarComentario(event)" class="space-y-4 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre Completo *</label>
+                        <input type="text" id="nombre-usuario" required placeholder="Ej: María José Rodríguez" 
+                               class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Rol / Relación con el Instituto *</label>
+                        <select id="rol-usuario" required class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Padre de Familia">Padre / Tutor de Familia</option>
+                            <option value="Exalumno">Exalumno / Graduado</option>
+                            <option value="Docente / Personal">Docente / Personal</option>
+                            <option value="Visitante">Visitante / Comunidad de Zambrano</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tu Mensaje o Comentario *</label>
+                        <textarea id="texto-comentario" required rows="4" placeholder="Escribe tu mensaje, sugerencia o saludo..." 
+                                  class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-amber-500 text-slate-950 font-bold text-xs uppercase rounded-xl hover:bg-amber-600 transition-colors shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Publicar Comentario
+                    </button>
+                </form>
+            </div>
+
+            <!-- LISTA DE COMENTARIOS PUBLICADOS -->
+            <div class="lg:col-span-7 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4 border-b border-slate-200 pb-3">
+                        <h3 class="font-black text-slate-900 text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-amber-500"></i> Comentarios de la Comunidad
+                        </h3>
+                        <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full" id="total-comentarios">3 Comentarios</span>
+                    </div>
+
+                    <!-- Contenedor dinámico de comentarios -->
+                    <div id="lista-comentarios" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                        <!-- Comentario Ejemplo 1 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Carlos Mendoza</h4>
+                                    <span class="inline-block bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded-md">Padre de Familia</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 font-semibold"><i class="fa-regular fa-clock"></i> Reciente</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Excelente labor de los docentes y la directiva del instituto. Los talleres técnicos están aportando mucho al futuro de nuestros jóvenes en Zambrano.</p>
+                        </div>
+
+                        <!-- Comentario Ejemplo 2 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Andrea Gutiérrez</h4>
+                                    <span class="inline-block bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded-md">Estudiante de Informática</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 font-semibold"><i class="fa-regular fa-clock"></i> Hace 1 día</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Orgullosa de formar parte del Bachillerato Técnico en Informática. ¡Saludos a todos los compañeros y profesores!</p>
+                        </div>
+
+                        <!-- Comentario Ejemplo 3 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Roberto Valladares</h4>
+                                    <span class="inline-block bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded-md">Exalumno</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 font-semibold"><i class="fa-regular fa-clock"></i> Hace 2 días</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Grandes recuerdos de mi paso por el Francisco Miranda. La formación en los talleres me sirvió enormemente en mi carrera profesional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-400 text-center">
+                    Los comentarios son moderados para mantener un ambiente de respeto y convivencia institucional.
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <div class="flex justify-center gap-6 text-lg text-amber-400">
+                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-amber-300 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-amber-300 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com" target="_blank" class="hover:text-amber-300 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <p class="font-bold text-slate-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
+            <p>Zambrano, Francisco Morazán, Honduras &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE COMENTARIOS DINÁMICOS -->
+    <script>
+        // Array inicial de comentarios
+        let listaComentariosData = [
+            {
+                nombre: "Carlos Mendoza",
+                rol: "Padre de Familia",
+                mensaje: "Excelente labor de los docentes y la directiva del instituto. Los talleres técnicos están aportando mucho al futuro de nuestros jóvenes en Zambrano.",
+                tiempo: "Hace 1 hora",
+                estiloRol: "bg-amber-100 text-amber-900"
+            },
+            {
+                nombre: "Andrea Gutiérrez",
+                rol: "Estudiante de Informática",
+                mensaje: "Orgullosa de formar parte del Bachillerato Técnico en Informática. ¡Saludos a todos los compañeros y profesores!",
+                tiempo: "Hace 1 día",
+                estiloRol: "bg-blue-100 text-blue-900"
+            },
+            {
+                nombre: "Roberto Valladares",
+                rol: "Exalumno",
+                mensaje: "Grandes recuerdos de mi paso por el Francisco Miranda. La formación en los talleres me sirvió enormemente en mi carrera profesional.",
+                tiempo: "Hace 2 días",
+                estiloRol: "bg-emerald-100 text-emerald-900"
+            }
+        ];
+
+        // Cargar comentarios guardados previamente en LocalStorage si existen
+        function cargarComentarios() {
+            const guardados = localStorage.getItem('igt_comentarios');
+            if (guardados) {
+                listaComentariosData = JSON.parse(guardados);
+            }
+            renderizarComentarios();
+        }
+
+        // Renderizar comentarios en la pantalla
+        function renderizarComentarios() {
+            const contenedor = document.getElementById('lista-comentarios');
+            const contador = document.getElementById('total-comentarios');
+            contenedor.innerHTML = '';
+
+            contador.textContent = `${listaComentariosData.length} Comentarios`;
+
+            listaComentariosData.forEach(com => {
+                const item = document.createElement('div');
+                item.className = "p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 animate-fadeIn";
+                item.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">${escapeHTML(com.nombre)}</h4>
+                            <span class="inline-block ${com.estiloRol || 'bg-slate-200 text-slate-800'} text-[10px] font-bold px-2 py-0.5 rounded-md">${escapeHTML(com.rol)}</span>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-semibold"><i class="fa-regular fa-clock"></i> ${com.tiempo}</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">${escapeHTML(com.mensaje)}</p>
+                `;
+                contenedor.appendChild(item);
+            });
+        }
+
+        // Publicar nuevo comentario
+        function publicarComentario(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre-usuario').value.trim();
+            const rol = document.getElementById('rol-usuario').value;
+            const mensaje = document.getElementById('texto-comentario').value.trim();
+
+            if (!nombre || !mensaje) return;
+
+            // Determinar estilo según el rol
+            let estiloRol = "bg-slate-200 text-slate-800";
+            if (rol.includes('Estudiante')) estiloRol = "bg-blue-100 text-blue-900";
+            else if (rol.includes('Padre')) estiloRol = "bg-amber-100 text-amber-900";
+            else if (rol.includes('Exalumno')) estiloRol = "bg-emerald-100 text-emerald-900";
+            else if (rol.includes('Docente')) estiloRol = "bg-purple-100 text-purple-900";
+
+            const nuevoComentario = {
+                nombre: nombre,
+                rol: rol,
+                mensaje: mensaje,
+                tiempo: "Justo ahora",
+                estiloRol: estiloRol
+            };
+
+            // Agregar al inicio del listado
+            listaComentariosData.unshift(nuevoComentario);
+
+            // Guardar en LocalStorage
+            localStorage.setItem('igt_comentarios', JSON.stringify(listaComentariosData));
+
+            // Actualizar vista y limpiar formulario
+            renderizarComentarios();
+            document.getElementById('form-comentario').reset();
+        }
+
+        // Función para evitar inyección de código
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        window.addEventListener('DOMContentLoaded', cargarComentarios);
+    </script>
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Estudiantil y Horarios | I.G.T. Francisco Miranda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Outfit', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @media print {
+            nav, footer, .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .print-area { width: 100% !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <nav class="sticky top-0 z-40 bg-slate-900 text-white shadow-xl no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="inicio.html" class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl">FM</div>
+                    <div>
+                        <span class="block font-black text-lg leading-tight">I.G.T. FRANCISCO MIRANDA</span>
+                        <span class="block text-xs font-semibold text-amber-400 uppercase">Zambrano, Honduras</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+                    <a href="inicio.html" class="hover:text-amber-400">Inicio</a>
+                    <a href="oferta_academica.html" class="hover:text-amber-400">Oferta Académica</a>
+                    <a href="personal.html" class="hover:text-amber-400">Autoridades y Personal</a>
+                    <a href="estudiantes.html" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Estudiantes</a>
+                     <a href="blog.html" class="hover:text-amber-400 transition-colors">Blog y Comentarios</a>
+                    <a href="compras.html" class="hover:text-amber-400">Compras</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-slate-900 text-white py-10 border-b border-slate-800 text-center no-print">
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Portal Estudiantil 2026</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mt-1">Área de Estudiantes & Horarios</h1>
+        <p class="text-slate-400 text-sm mt-2 max-w-2xl mx-auto">Selecciona la pestaña correspondiente para revisar información del plantel o consultar los horarios oficiales en formato de texto.</p>
+        
+        <div class="flex justify-center gap-3 mt-8">
+            <button id="tab-btn-info" onclick="cambiarApartado('info')" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-slate-950 shadow-lg flex items-center gap-2">
+                <i class="fa-solid fa-user-graduate"></i> Información Estudiantil
+            </button>
+            <button id="tab-btn-horarios" onclick="cambiarApartado('horarios')" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-calendar-days"></i> Horarios de Clases (Texto HTML)
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full">
+
+        <section id="apartado-info" class="space-y-10">
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-black text-slate-900 mb-2 flex items-center gap-3">
+                    <i class="fa-solid fa-bullhorn text-amber-500"></i> Avisos e Información Importante
+                </h2>
+                <p class="text-slate-600 text-sm mb-6">Lineamientos y directrices generales para todos los alumnos matriculados en el ciclo lectivo 2026.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-5 bg-amber-50 border border-amber-200 rounded-2xl">
+                        <div class="w-10 h-10 bg-amber-500 text-slate-950 rounded-xl flex items-center justify-center font-bold mb-3">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">Uso del Uniforme</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Es obligatorio asistir con el uniforme diario (camisa blanca con escudo y pantalón/falda azul marino) o uniforme de educación física según corresponda.</p>
+                    </div>
+
+                    <div class="p-5 bg-blue-50 border border-blue-200 rounded-2xl">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-bold mb-3">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">Puntualidad e Ingreso</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Jornada Matutina: 7:00 AM a 12:15 PM. Jornada Vespertina: 12:30 PM a 5:30 PM. Se solicita estar 10 minutos antes del timbre de entrada.</p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-50 border border-emerald-200 rounded-2xl">
+                        <div class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold mb-3">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">Trámites y Certificaciones</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Las constancias de estudio y certificaciones de estudio se solicitan en la Secretaría General en horario de atención administrativa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 text-white p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-book-bookmark text-amber-400"></i> Reglamento Interno
+                    </h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-4">Conoce los derechos, deberes y código de convivencia de nuestra comunidad educativa.</p>
+                    <ul class="text-xs space-y-2 text-slate-300 mb-6">
+                        <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Respeto a docentes, compañeros y personal institucional.</li>
+                        <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Cuidado de laboratorios, talleres y áreas verdes.</li>
+                        <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Prohibición de uso de celulares en horas de clase sin autorización docente.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-amber-500"></i> Calendario Académico
+                    </h3>
+                    <div class="space-y-3 text-xs text-slate-600">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold text-slate-800">I Parcial:</span>
+                            <span>Febrero – Abril 2026</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold text-slate-800">II Parcial:</span>
+                            <span>Abril – Junio 2026</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold text-slate-800">III Parcial:</span>
+                            <span>Julio – Septiembre 2026</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-slate-800">IV Parcial:</span>
+                            <span>Septiembre – Noviembre 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="apartado-horarios" class="hidden space-y-8">
+            
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm no-print">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl font-black text-slate-900">Consulta de Horarios Institucionales 2026</h2>
+                        <p class="text-xs text-slate-500">Selecciona el nivel o curso para visualizar su tabla de clases detallada.</p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <label for="selector-curso" class="text-xs font-bold text-slate-700">Seleccionar Curso:</label>
+                        <select id="selector-curso" onchange="mostrarHorario(this.value)" class="bg-slate-100 border border-slate-300 font-bold text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <optgroup label="Tercer Ciclo">
+                                <option value="7mo1">Séptimo 1 (Matutina)</option>
+                                <option value="7mo2">Séptimo 2 (Matutina)</option>
+                                <option value="7mo3">Séptimo 3 (Matutina)</option>
+                                <option value="7mo4">Séptimo 4 (Vespertina)</option>
+                                <option value="8vo1">Octavo 1 (Matutina)</option>
+                                <option value="8vo2">Octavo 2 (Matutina)</option>
+                                <option value="8vo3">Octavo 3 (Matutina)</option>
+                                <option value="8vo4">Octavo 4 (Vespertina)</option>
+                                <option value="9no1">Noveno 1 (Matutina)</option>
+                                <option value="9no2">Noveno 2 (Matutina)</option>
+                                <option value="9no3">Noveno 3 (Vespertina)</option>
+                            </optgroup>
+                            <optgroup label="Educación Media / BTP">
+                                <option value="10mo1">Décimo 1 (Matutina)</option>
+                                <option value="10mo2">Décimo 2 (Vespertina)</option>
+                                <option value="10mo3">Décimo 3 (Vespertina)</option>
+                                <option value="11fin">Undécimo Finanzas (11º BTP)</option>
+                                <option value="11inf">Undécimo Informática (11º BTP)</option>
+                                <option value="11agr">Undécimo Agroindustria (11º BTP)</option>
+                                <option value="12fin">Duodécimo Finanzas (12º BTP)</option>
+                                <option value="12inf">Duodécimo Informática (12º BTP)</option>
+                                <option value="12agr">Duodécimo Agroindustria (12º BTP)</option>
+                            </optgroup>
+                        </select>
+                        <button onclick="window.print()" class="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-print"></i> Imprimir / Guardar PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contenedor-horario-tabla" class="print-area bg-white rounded-3xl border border-slate-200 p-6 shadow-sm overflow-hidden">
+                </div>
+
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-center text-xs no-print">
+        <p class="font-bold text-slate-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
+        <p class="mt-1">Zambrano, Francisco Morazán, Honduras &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Cambiar entre Pestaña Información Estudiantil y Pestaña Horarios
+        function cambiarApartado(apartado) {
+            const secInfo = document.getElementById('apartado-info');
+            const secHorarios = document.getElementById('apartado-horarios');
+            const btnInfo = document.getElementById('tab-btn-info');
+            const btnHorarios = document.getElementById('tab-btn-horarios');
+
+            if (apartado === 'info') {
+                secInfo.classList.remove('hidden');
+                secHorarios.classList.add('hidden');
+
+                btnInfo.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-slate-950 shadow-lg flex items-center gap-2";
+                btnHorarios.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2";
+            } else {
+                secInfo.classList.add('hidden');
+                secHorarios.classList.remove('hidden');
+
+                btnHorarios.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-slate-950 shadow-lg flex items-center gap-2";
+                btnInfo.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2";
+
+                // Cargar el horario predeterminado si no está cargado
+                if(!document.getElementById('contenedor-horario-tabla').innerHTML.trim()) {
+                    mostrarHorario('7mo1');
+                }
+            }
+        }
+
+        // Base de Datos de Horarios en Texto para las 20 Secciones
+        const datosHorarios = {
+            "7mo1": {
+                titulo: "Séptimo Grado - Sección 1",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "07:45 - 08:30", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "08:30 - 09:15", lun: "Matemáticas", mar: "Español", mie: "Tecnología", jue: "Educación Física", vie: "Ciencias Naturales" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Ciencias Naturales", mar: "Inglés", mie: "Español", jue: "Ed. Artística", vie: "Matemáticas" },
+                    { hora: "10:15 - 11:00", lun: "Estudios Sociales", mar: "Tecnología", mie: "Matemáticas", jue: "Ed. Artística", vie: "Español" },
+                    { hora: "11:00 - 11:45", lun: "Tecnología", mar: "Ciencias Naturales", mie: "Estudios Sociales", jue: "Español", vie: "Valores/Cívica" },
+                    { hora: "11:45 - 12:15", lun: "Orientación", mar: "Estudios Sociales", mie: "Ed. Física", jue: "Matemáticas", vie: "Taller Tecnológico" }
+                ]
+            },
+            "7mo2": {
+                titulo: "Séptimo Grado - Sección 2",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Matemáticas", mar: "Español", mie: "Estudios Sociales", jue: "Ciencias Naturales", vie: "Tecnología" },
+                    { hora: "07:45 - 08:30", lun: "Matemáticas", mar: "Español", mie: "Estudios Sociales", jue: "Ciencias Naturales", vie: "Tecnología" },
+                    { hora: "08:30 - 09:15", lun: "Español", mar: "Ciencias Naturales", mie: "Matemáticas", jue: "Inglés", vie: "Educación Física" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Inglés", mar: "Matemáticas", mie: "Español", jue: "Tecnología", vie: "Estudios Sociales" },
+                    { hora: "10:15 - 11:00", lun: "Ciencias Naturales", mar: "Estudios Sociales", mie: "Ed. Artística", jue: "Español", vie: "Matemáticas" },
+                    { hora: "11:00 - 11:45", lun: "Estudios Sociales", mar: "Ed. Artística", mie: "Inglés", jue: "Matemáticas", vie: "Ciencias Naturales" },
+                    { hora: "11:45 - 12:15", lun: "Ed. Física", mar: "Orientación", mie: "Ciencias Naturales", jue: "Valores", vie: "Español" }
+                ]
+            },
+            "7mo3": {
+                titulo: "Séptimo Grado - Sección 3",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Ciencias Naturales", mar: "Inglés", mie: "Matemáticas", jue: "Español", vie: "Estudios Sociales" },
+                    { hora: "07:45 - 08:30", lun: "Ciencias Naturales", mar: "Inglés", mie: "Matemáticas", jue: "Español", vie: "Estudios Sociales" },
+                    { hora: "08:30 - 09:15", lun: "Estudios Sociales", mar: "Matemáticas", mie: "Español", jue: "Tecnología", vie: "Ed. Artística" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Español", mar: "Ciencias Naturales", mie: "Estudios Sociales", jue: "Matemáticas", vie: "Tecnología" },
+                    { hora: "10:15 - 11:00", lun: "Matemáticas", mar: "Español", mie: "Ciencias Naturales", jue: "Ed. Física", vie: "Inglés" },
+                    { hora: "11:00 - 11:45", lun: "Inglés", mar: "Tecnología", mie: "Ed. Artística", jue: "Ciencias Naturales", vie: "Matemáticas" },
+                    { hora: "11:45 - 12:15", lun: "Tecnología", mar: "Ed. Física", mie: "Valores", jue: "Estudios Sociales", vie: "Orientación" }
+                ]
+            },
+            "7mo4": {
+                titulo: "Séptimo Grado - Sección 4",
+                jornada: "Vespertina (12:30 PM - 05:30 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "12:30 - 01:15", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "01:15 - 02:00", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "02:00 - 02:45", lun: "Matemáticas", mar: "Español", mie: "Tecnología", jue: "Educación Física", vie: "Ciencias Naturales" },
+                    { hora: "02:45 - 03:00", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "03:00 - 03:45", lun: "Ciencias Naturales", mar: "Inglés", mie: "Español", jue: "Ed. Artística", vie: "Matemáticas" },
+                    { hora: "03:45 - 04:30", lun: "Estudios Sociales", mar: "Tecnología", mie: "Matemáticas", jue: "Ed. Artística", vie: "Español" },
+                    { hora: "04:30 - 05:30", lun: "Tecnología", mar: "Ciencias Naturales", mie: "Estudios Sociales", jue: "Valores/Cívica", vie: "Orientación" }
+                ]
+            },
+            "8vo1": {
+                titulo: "Octavo Grado - Sección 1",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Español", jue: "Inglés", vie: "Estudios Sociales" },
+                    { hora: "07:45 - 08:30", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Español", jue: "Inglés", vie: "Estudios Sociales" },
+                    { hora: "08:30 - 09:15", lun: "Español", mar: "Matemáticas", mie: "Estudios Sociales", jue: "Tecnología", vie: "Educación Física" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Ciencias Naturales", mar: "Español", mie: "Matemáticas", jue: "Ed. Artística", vie: "Inglés" },
+                    { hora: "10:15 - 11:00", lun: "Estudios Sociales", mar: "Tecnología", mie: "Ciencias Naturales", jue: "Matemáticas", vie: "Español" },
+                    { hora: "11:00 - 11:45", lun: "Inglés", mar: "Estudios Sociales", mie: "Tecnología", jue: "Ciencias Naturales", vie: "Matemáticas" },
+                    { hora: "11:45 - 12:15", lun: "Ed. Artística", mar: "Ed. Física", mie: "Orientación", jue: "Valores", vie: "Tecnología" }
+                ]
+            },
+            "8vo2": {
+                titulo: "Octavo Grado - Sección 2",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Español", mar: "Estudios Sociales", mie: "Matemáticas", jue: "Tecnología", vie: "Ciencias Naturales" },
+                    { hora: "07:45 - 08:30", lun: "Español", mar: "Estudios Sociales", mie: "Matemáticas", jue: "Tecnología", vie: "Ciencias Naturales" },
+                    { hora: "08:30 - 09:15", lun: "Ciencias Naturales", mar: "Inglés", mie: "Español", jue: "Matemáticas", vie: "Estudios Sociales" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Inglés", jue: "Español", vie: "Ed. Artística" },
+                    { hora: "10:15 - 11:00", lun: "Inglés", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Ed. Física" },
+                    { hora: "11:00 - 11:45", lun: "Estudios Sociales", mar: "Tecnología", mie: "Ed. Artística", jue: "Inglés", vie: "Español" },
+                    { hora: "11:45 - 12:15", lun: "Tecnología", mar: "Valores", mie: "Orientación", jue: "Ed. Física", vie: "Matemáticas" }
+                ]
+            },
+            "8vo3": {
+                titulo: "Octavo Grado - Sección 3",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Inglés", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Español", vie: "Tecnología" },
+                    { hora: "07:45 - 08:30", lun: "Inglés", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Español", vie: "Tecnología" },
+                    { hora: "08:30 - 09:15", lun: "Matemáticas", mar: "Español", mie: "Estudios Sociales", jue: "Ciencias Naturales", vie: "Inglés" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Español", mar: "Tecnología", mie: "Matemáticas", jue: "Estudios Sociales", vie: "Ciencias Naturales" },
+                    { hora: "10:15 - 11:00", lun: "Ciencias Naturales", mar: "Estudios Sociales", mie: "Ed. Física", jue: "Matemáticas", vie: "Español" },
+                    { hora: "11:00 - 11:45", lun: "Estudios Sociales", mar: "Ed. Artística", mie: "Inglés", jue: "Tecnología", vie: "Valores" },
+                    { hora: "11:45 - 12:15", lun: "Ed. Artística", mar: "Orientación", mie: "Ed. Física", jue: "Ciencias Naturales", vie: "Matemáticas" }
+                ]
+            },
+            "8vo4": {
+                titulo: "Octavo Grado - Sección 4",
+                jornada: "Vespertina (12:30 PM - 05:30 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "12:30 - 01:15", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Español", jue: "Inglés", vie: "Estudios Sociales" },
+                    { hora: "01:15 - 02:00", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Español", jue: "Inglés", vie: "Estudios Sociales" },
+                    { hora: "02:00 - 02:45", lun: "Español", mar: "Matemáticas", mie: "Estudios Sociales", jue: "Tecnología", vie: "Educación Física" },
+                    { hora: "02:45 - 03:00", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "03:00 - 03:45", lun: "Ciencias Naturales", mar: "Español", mie: "Matemáticas", jue: "Ed. Artística", vie: "Inglés" },
+                    { hora: "03:45 - 04:30", lun: "Estudios Sociales", mar: "Tecnología", mie: "Ciencias Naturales", jue: "Matemáticas", vie: "Español" },
+                    { hora: "04:30 - 05:30", lun: "Inglés", mar: "Estudios Sociales", mie: "Orientación", jue: "Valores", vie: "Tecnología" }
+                ]
+            },
+            "9no1": {
+                titulo: "Noveno Grado - Sección 1",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "07:45 - 08:30", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "08:30 - 09:15", lun: "Ciencias Naturales", mar: "Español", mie: "Matemáticas", jue: "Tecnología", vie: "Estudios Sociales" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Inglés", jue: "Español", vie: "Tecnología" },
+                    { hora: "10:15 - 11:00", lun: "Estudios Sociales", mar: "Tecnología", mie: "Español", jue: "Matemáticas", vie: "Ed. Física" },
+                    { hora: "11:00 - 11:45", lun: "Tecnología", mar: "Inglés", mie: "Estudios Sociales", jue: "Ciencias Naturales", vie: "Ed. Artística" },
+                    { hora: "11:45 - 12:15", lun: "Inglés", mar: "Ed. Artística", mie: "Ed. Física", jue: "Orientación", vie: "Valores" }
+                ]
+            },
+            "9no2": {
+                titulo: "Noveno Grado - Sección 2",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Español", jue: "Inglés", vie: "Estudios Sociales" },
+                    { hora: "07:45 - 08:30", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Español", jue: "Inglés", vie: "Estudios Sociales" },
+                    { hora: "08:30 - 09:15", lun: "Español", mar: "Estudios Sociales", mie: "Tecnología", jue: "Matemáticas", vie: "Ciencias Naturales" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Ciencias Naturales", mar: "Español", mie: "Matemáticas", jue: "Tecnología", vie: "Inglés" },
+                    { hora: "10:15 - 11:00", lun: "Inglés", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Español", vie: "Ed. Artística" },
+                    { hora: "11:00 - 11:45", lun: "Estudios Sociales", mar: "Tecnología", mie: "Inglés", jue: "Estudios Sociales", vie: "Ed. Física" },
+                    { hora: "11:45 - 12:15", lun: "Tecnología", mar: "Ed. Artística", mie: "Orientación", jue: "Ed. Física", vie: "Valores" }
+                ]
+            },
+            "9no3": {
+                titulo: "Noveno Grado - Sección 3",
+                jornada: "Vespertina (12:30 PM - 05:30 PM)",
+                modalidad: "Tercer Ciclo de Educación Básica",
+                horario: [
+                    { hora: "12:30 - 01:15", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "01:15 - 02:00", lun: "Español", mar: "Matemáticas", mie: "Ciencias Naturales", jue: "Estudios Sociales", vie: "Inglés" },
+                    { hora: "02:00 - 02:45", lun: "Ciencias Naturales", mar: "Español", mie: "Matemáticas", jue: "Tecnología", vie: "Estudios Sociales" },
+                    { hora: "02:45 - 03:00", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "03:00 - 03:45", lun: "Matemáticas", mar: "Ciencias Naturales", mie: "Inglés", jue: "Español", vie: "Tecnología" },
+                    { hora: "03:45 - 04:30", lun: "Estudios Sociales", mar: "Tecnología", mie: "Español", jue: "Matemáticas", vie: "Ed. Física" },
+                    { hora: "04:30 - 05:30", lun: "Tecnología", mar: "Inglés", mie: "Orientación", jue: "Valores", vie: "Ed. Artística" }
+                ]
+            },
+            "10mo1": {
+                titulo: "Décimo Grado - Sección 1",
+                jornada: "Matutina (07:00 AM - 12:15 PM)",
+                modalidad: "BTP / Educación Media (Tronco Común)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Matemáticas I", mar: "Español I", mie: "Física I", jue: "Química I", vie: "Inglés Técnico I" },
+                    { hora: "07:45 - 08:30", lun: "Matemáticas I", mar: "Español I", mie: "Física I", jue: "Química I", vie: "Inglés Técnico I" },
+                    { hora: "08:30 - 09:15", lun: "Física I", mar: "Matemáticas I", mie: "Informática Básica", jue: "Sociología", vie: "Español I" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Química I", mar: "Biología I", mie: "Matemáticas I", jue: "Informática Básica", vie: "Física I" },
+                    { hora: "10:15 - 11:00", lun: "Español I", mar: "Química I", mie: "Biología I", jue: "Filosofía", vie: "Matemáticas I" },
+                    { hora: "11:00 - 11:45", lun: "Inglés Técnico I", mar: "Sociología", mie: "Filosofía", jue: "Ed. Física y Deportes", vie: "Biología I" },
+                    { hora: "11:45 - 12:15", lun: "Orientación Vocacional", mar: "Informática Básica", mie: "Psicología", jue: "Proyectos y Talleres", vie: "Valores Cívicos" }
+                ]
+            },
+            "10mo2": {
+                titulo: "Décimo Grado - Sección 2",
+                jornada: "Vespertina (12:30 PM - 05:30 PM)",
+                modalidad: "BTP / Educación Media (Tronco Común)",
+                horario: [
+                    { hora: "12:30 - 01:15", lun: "Español I", mar: "Matemáticas I", mie: "Química I", jue: "Física I", vie: "Informática Básica" },
+                    { hora: "01:15 - 02:00", lun: "Español I", mar: "Matemáticas I", mie: "Química I", jue: "Física I", vie: "Informática Básica" },
+                    { hora: "02:00 - 02:45", lun: "Matemáticas I", mar: "Física I", mie: "Español I", jue: "Biología I", vie: "Inglés Técnico I" },
+                    { hora: "02:45 - 03:00", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "03:00 - 03:45", lun: "Biología I", mar: "Química I", mie: "Matemáticas I", jue: "Sociología", vie: "Español I" },
+                    { hora: "03:45 - 04:30", lun: "Física I", mar: "Biología I", mie: "Filosofía", jue: "Matemáticas I", vie: "Química I" },
+                    { hora: "04:30 - 05:30", lun: "Informática Básica", mar: "Inglés Técnico I", mie: "Sociología", jue: "Orientación", vie: "Ed. Física" }
+                ]
+            },
+            "10mo3": {
+                titulo: "Décimo Grado - Sección 3",
+                jornada: "Vespertina (12:30 PM - 05:30 PM)",
+                modalidad: "BTP / Educación Media (Tronco Común)",
+                horario: [
+                    { hora: "12:30 - 01:15", lun: "Química I", mar: "Física I", mie: "Matemáticas I", jue: "Español I", vie: "Biología I" },
+                    { hora: "01:15 - 02:00", lun: "Química I", mar: "Física I", mie: "Matemáticas I", jue: "Español I", vie: "Biología I" },
+                    { hora: "02:00 - 02:45", lun: "Inglés Técnico I", mar: "Matemáticas I", mie: "Física I", jue: "Informática Básica", vie: "Sociología" },
+                    { hora: "02:45 - 03:00", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "03:00 - 03:45", lun: "Español I", mar: "Biología I", mie: "Química I", jue: "Filosofía", vie: "Matemáticas I" },
+                    { hora: "03:45 - 04:30", lun: "Matemáticas I", mar: "Español I", mie: "Informática Básica", jue: "Física I", vie: "Química I" },
+                    { hora: "04:30 - 05:30", lun: "Filosofía", mar: "Sociología", mie: "Inglés Técnico I", jue: "Ed. Física", vie: "Orientación" }
+                ]
+            },
+            "11fin": {
+                titulo: "Undécimo Grado - BTP en Contabilidad y Finanzas",
+                jornada: "Matutina / Extendida (07:00 AM - 01:00 PM)",
+                modalidad: "Bachillerato Técnico Profesional en Finanzas (11º)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Contabilidad General I", mar: "Legislación Mercantil", mie: "Contabilidad I", jue: "Administración I", vie: "Economía" },
+                    { hora: "07:45 - 08:30", lun: "Contabilidad General I", mar: "Legislación Mercantil", mie: "Contabilidad I", jue: "Administración I", vie: "Economía" },
+                    { hora: "08:30 - 09:15", lun: "Matemática Financiera", mar: "Contabilidad I", mie: "Informática Aplicada", jue: "Contabilidad I", vie: "Mercadotecnia" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Informática Aplicada", mar: "Matemática Financiera", mie: "Matemática Financiera", jue: "Legislación Laboral", vie: "Contabilidad I" },
+                    { hora: "10:15 - 11:00", lun: "Administración I", mar: "Informática Aplicada", mie: "Economía", jue: "Matemática Financiera", vie: "Finanzas Privadas" },
+                    { hora: "11:00 - 11:45", lun: "Inglés Técnico Finanzas", mar: "Finanzas Privadas", mie: "Inglés Técnico Finanzas", jue: "Finanzas Privadas", vie: "Ética Profesional" },
+                    { hora: "11:45 - 01:00", lun: "Taller Contable", mar: "Taller Contable", mie: "Laboratorio Computación", jue: "Laboratorio Computación", vie: "Orientación Profesional" }
+                ]
+            },
+            "11inf": {
+                titulo: "Undécimo Grado - BTP en Informática",
+                jornada: "Matutina / Extendida (07:00 AM - 01:00 PM)",
+                modalidad: "Bachillerato Técnico Profesional en Informática (11º)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Laboratorio de Informática I", mar: "Programación I", mie: "Mantenimiento y Reparación", jue: "Redes de Información I", vie: "Diseño Web I" },
+                    { hora: "07:45 - 08:30", lun: "Laboratorio de Informática I", mar: "Programación I", mie: "Mantenimiento y Reparación", jue: "Redes de Información I", vie: "Diseño Web I" },
+                    { hora: "08:30 - 09:15", lun: "Programación I", mar: "Laboratorio Informática I", mie: "Programación I", jue: "Diseño Web I", vie: "Redes de Información I" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Ofimática Avanzada", mar: "Mantenimiento Hardware", mie: "Laboratorio Informática I", jue: "Programación I", vie: "Sistemas Operativos" },
+                    { hora: "10:15 - 11:00", lun: "Inglés Técnico Informática", mar: "Redes de Información I", mie: "Diseño Web I", jue: "Ofimática Avanzada", vie: "Programación I" },
+                    { hora: "11:00 - 11:45", lun: "Mantenimiento Hardware", mar: "Inglés Técnico Informática", mie: "Sistemas Operativos", jue: "Ética e Informática", vie: "Laboratorio Informática I" },
+                    { hora: "11:45 - 01:00", lun: "Taller de Programación", mar: "Taller de Redes", mie: "Taller de Mantenimiento", jue: "Práctica Informática", vie: "Lógica de Programación" }
+                ]
+            },
+            "11agr": {
+                titulo: "Undécimo Grado - BTP en Agroindustria",
+                jornada: "Matutina / Campo (07:00 AM - 01:00 PM)",
+                modalidad: "Bachillerato Técnico Profesional en Agroindustria (11º)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Química Agroindustrial", mar: "Procesamiento de Alimentos I", mie: "Procesos Agrícolas", jue: "Biología Aplicada", vie: "Control de Calidad I" },
+                    { hora: "07:45 - 08:30", lun: "Química Agroindustrial", mar: "Procesamiento de Alimentos I", mie: "Procesos Agrícolas", jue: "Biología Aplicada", vie: "Control de Calidad I" },
+                    { hora: "08:30 - 09:15", lun: "Procesamiento de Alimentos I", mar: "Química Agroindustrial", mie: "Maquinaria Agroindustrial", jue: "Procesos Pecuarios", vie: "Seguridad e Higiene" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Procesos Agrícolas", mar: "Procesos Pecuarios", mie: "Procesamiento Alimentos I", jue: "Microbiología Alimentos", vie: "Gestión Ambiental" },
+                    { hora: "10:15 - 11:00", lun: "Microbiología Alimentos", mar: "Maquinaria Agroindustrial", mie: "Seguridad e Higiene", jue: "Procesamiento Alimentos I", vie: "Inglés Técnico Agro" },
+                    { hora: "11:00 - 11:45", lun: "Inglés Técnico Agro", mar: "Gestión Ambiental", mie: "Control de Calidad I", jue: "Química Agroindustrial", vie: "Procesos Agrícolas" },
+                    { hora: "11:45 - 01:00", lun: "Práctica de Planta/Campo", mar: "Práctica de Planta/Campo", mie: "Taller de Lacteos/Cárnicos", jue: "Taller de Granos/Frutas", vie: "Proyectos Agropecuarios" }
+                ]
+            },
+            "12fin": {
+                titulo: "Duodécimo Grado - BTP en Contabilidad y Finanzas",
+                jornada: "Matutina / Práctica (07:00 AM - 01:00 PM)",
+                modalidad: "Bachillerato Técnico Profesional en Finanzas (12º)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Contabilidad Bancaria", mar: "Auditoría I", mie: "Contabilidad de Costos", jue: "Finanzas Públicas", vie: "Formulación de Proyectos" },
+                    { hora: "07:45 - 08:30", lun: "Contabilidad Bancaria", mar: "Auditoría I", mie: "Contabilidad de Costos", jue: "Finanzas Públicas", vie: "Formulación de Proyectos" },
+                    { hora: "08:30 - 09:15", lun: "Contabilidad de Costos", mar: "Contabilidad Bancaria", mie: "Auditoría I", jue: "Sistemas Tributarios", vie: "Banca y Seguros" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Auditoría I", mar: "Contabilidad de Costos", mie: "Software Contable Avanzado", jue: "Formulación de Proyectos", vie: "Contabilidad Bancaria" },
+                    { hora: "10:15 - 11:00", lun: "Sistemas Tributarios", mar: "Software Contable Avanzado", mie: "Finanzas Públicas", jue: "Auditoría I", vie: "Ética Financiera" },
+                    { hora: "11:00 - 11:45", lun: "Software Contable Avanzado", mar: "Banca y Seguros", mie: "Bancaria y Financiera", jue: "Contabilidad de Costos", vie: "Evaluación de Proyectos" },
+                    { hora: "11:45 - 01:00", lun: "Seminario de Investigación", mar: "Práctica Contable Virtual", mie: "Taller de Auditoría", jue: "Preparación PPS/TES", vie: "Orientación Práctica Profesional" }
+                ]
+            },
+            "12inf": {
+                titulo: "Duodécimo Grado - BTP en Informática",
+                jornada: "Matutina / Práctica (07:00 AM - 01:00 PM)",
+                modalidad: "Bachillerato Técnico Profesional en Informática (12º)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Programación II", mar: "Bases de Datos I", mie: "Laboratorio de Informática II", jue: "Redes de Información II", vie: "Diseño Web II" },
+                    { hora: "07:45 - 08:30", lun: "Programación II", mar: "Bases de Datos I", mie: "Laboratorio de Informática II", jue: "Redes de Información II", vie: "Diseño Web II" },
+                    { hora: "08:30 - 09:15", lun: "Bases de Datos I", mar: "Programación II", mie: "Diseño Web II", jue: "Laboratorio Informática II", vie: "Análisis y Diseño Sistemas" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Laboratorio Informática II", mar: "Redes de Información II", mie: "Programación II", jue: "Bases de Datos I", vie: "Mantenimiento Avanzado" },
+                    { hora: "10:15 - 11:00", lun: "Redes de Información II", mar: "Diseño Web II", mie: "Bases de Datos I", jue: "Análisis y Diseño Sistemas", vie: "Programación II" },
+                    { hora: "11:00 - 11:45", lun: "Análisis y Diseño Sistemas", mar: "Mantenimiento Avanzado", mie: "Gestión de Proyectos TI", jue: "Gestión de Proyectos TI", vie: "Seguridad Informática" },
+                    { hora: "11:45 - 01:00", lun: "Taller de Desarrollo Software", mar: "Taller de Bases de Datos", mie: "Taller de Redes y Servidores", jue: "Preparación PPS/TES", vie: "Orientación Práctica Profesional" }
+                ]
+            },
+            "12agr": {
+                titulo: "Duodécimo Grado - BTP en Agroindustria",
+                jornada: "Matutina / Campo (07:00 AM - 01:00 PM)",
+                modalidad: "Bachillerato Técnico Profesional en Agroindustria (12º)",
+                horario: [
+                    { hora: "07:00 - 07:45", lun: "Procesamiento de Alimentos II", mar: "Control de Calidad II", mie: "Diseño y Gestión de Plantas", jue: "Comercialización Agropecuaria", vie: "Análisis Químico Alimentario" },
+                    { hora: "07:45 - 08:30", lun: "Procesamiento de Alimentos II", mar: "Control de Calidad II", mie: "Diseño y Gestión de Plantas", jue: "Comercialización Agropecuaria", vie: "Análisis Químico Alimentario" },
+                    { hora: "08:30 - 09:15", lun: "Control de Calidad II", mar: "Procesamiento de Alimentos II", mie: "Análisis Químico Alimentario", jue: "Tecnología de Granos/Semillas", vie: "Procesamiento de Cárnicos" },
+                    { hora: "09:15 - 09:30", lun: "RECESO", mar: "RECESO", mie: "RECESO", jue: "RECESO", vie: "RECESO" },
+                    { hora: "09:30 - 10:15", lun: "Procesamiento de Lácteos", mar: "Análisis Químico Alimentario", mie: "Procesamiento de Alimentos II", jue: "Control de Calidad II", vie: "Biotecnología Agroindustrial" },
+                    { hora: "10:15 - 11:00", lun: "Tecnología de Frutas/Hortalizas", mar: "Diseño y Gestión de Plantas", mie: "Procesamiento de Lácteos", jue: "Procesamiento de Cárnicos", vie: "Proyectos Agroindustriales" },
+                    { hora: "11:00 - 11:45", lun: "Proyectos Agroindustriales", mar: "Comercialización Agropecuaria", mie: "Biotecnología Agroindustrial", jue: "Empaque y Embalaje", vie: "Gestión e Inocuidad (HACCP)" },
+                    { hora: "11:45 - 01:00", lun: "Práctica Industrial de Planta", mar: "Práctica Industrial de Planta", mie: "Taller de Innovación Alimentaria", jue: "Preparación PPS/TES", vie: "Orientación Práctica Profesional" }
+                ]
+            }
+        };
+
+        // Función para renderizar la tabla del horario seleccionado
+        function mostrarHorario(clave) {
+            const datos = datosHorarios[clave];
+            if (!datos) return;
+
+            let htmlTabla = `
+                <div class="border-b border-slate-200 pb-4 mb-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">${datos.modalidad}</span>
+                            <h3 class="text-2xl font-black text-slate-900">${datos.titulo}</h3>
+                        </div>
+                        <span class="px-3 py-1 bg-amber-100 text-amber-900 font-bold text-xs rounded-lg self-start md:self-auto">${datos.jornada}</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[650px]">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs font-bold uppercase tracking-wider">
+                                <th class="p-3.5 rounded-tl-xl border-b border-slate-800">Hora / Periodo</th>
+                                <th class="p-3.5 border-b border-slate-800">Lunes</th>
+                                <th class="p-3.5 border-b border-slate-800">Martes</th>
+                                <th class="p-3.5 border-b border-slate-800">Miércoles</th>
+                                <th class="p-3.5 border-b border-slate-800">Jueves</th>
+                                <th class="p-3.5 rounded-tr-xl border-b border-slate-800">Viernes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-xs text-slate-700 font-semibold">
+            `;
+
+            datos.horario.forEach((f, idx) => {
+                const esReceso = f.lun === "RECESO";
+                if (esReceso) {
+                    htmlTabla += `
+                        <tr class="bg-amber-100/70 text-amber-950 font-bold text-center">
+                            <td class="p-2.5 font-bold border-r border-amber-200 text-left">${f.hora}</td>
+                            <td colspan="5" class="p-2.5 tracking-widest uppercase">*** RECESO Y DESCANSO ESTUDIANTIL ***</td>
+                        </tr>
+                    `;
+                } else {
+                    const bgFila = idx % 2 === 0 ? "bg-white" : "bg-slate-50";
+                    htmlTabla += `
+                        <tr class="${bgFila} hover:bg-amber-50/50 transition-colors">
+                            <td class="p-3 font-bold text-slate-900 border-r border-slate-200 bg-slate-100/50">${f.hora}</td>
+                            <td class="p-3 border-r border-slate-100">${f.lun}</td>
+                            <td class="p-3 border-r border-slate-100">${f.mar}</td>
+                            <td class="p-3 border-r border-slate-100">${f.mie}</td>
+                            <td class="p-3 border-r border-slate-100">${f.jue}</td>
+                            <td class="p-3">${f.vie}</td>
+                        </tr>
+                    `;
+                }
+            });
+
+            htmlTabla += `
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                    <p><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i> Horario oficial sujeto a ajustes por la Dirección y Secretaría del centro académico.</p>
+                    <button onclick="window.print()" class="no-print font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                        <i class="fa-solid fa-file-arrow-down"></i> Exportar a PDF / Imprimir
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('contenedor-horario-tabla').innerHTML = htmlTabla;
+        }
+
+        // Cargar por defecto el primer horario al iniciar
+        window.addEventListener('DOMContentLoaded', () => {
+            mostrarHorario('7mo1');
+        });
+    </script>
+</body>
+</html>

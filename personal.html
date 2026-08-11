@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoridades y Personal | I.G.T. Francisco Miranda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Outfit', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <nav class="sticky top-0 z-40 bg-slate-900 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="inicio.html" class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">FM</div>
+                    <div>
+                        <span class="block font-black text-lg leading-tight">I.G.T. FRANCISCO MIRANDA</span>
+                        <span class="block text-xs font-semibold text-amber-400 uppercase tracking-wider">Zambrano, Honduras</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+                    <a href="inicio.html" class="hover:text-amber-400 transition-colors">Inicio</a>
+                    <a href="oferta_academica.html" class="hover:text-amber-400 transition-colors">Oferta Académica</a>
+                    <a href="personal.html" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Autoridades e Institucional</a>
+                    <a href="estudiantes.html" class="hover:text-amber-400 transition-colors">Estudiantes</a>
+                    <a href="compras.html" class="hover:text-amber-400 transition-colors">Compras</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-slate-900 text-white py-12 border-b border-slate-800 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Portal Institucional 2026</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold mt-3">Autoridades y Personal</h1>
+            <p class="text-slate-400 text-sm sm:text-base mt-3">Conoce al equipo directivo, cuerpo docente, equipo de consejería y personal administrativo del Instituto Gubernamental Técnico Francisco Miranda.</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full space-y-8">
+
+        <!-- RESUMEN / ESTADÍSTICAS RÁPIDAS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-users"></i></div>
+                <div>
+                    <span class="block text-xl font-black text-slate-900" id="stat-total">0</span>
+                    <span class="text-[11px] text-slate-500 font-semibold uppercase">Total Personal</span>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <div>
+                    <span class="block text-xl font-black text-slate-900" id="stat-docentes">0</span>
+                    <span class="text-[11px] text-slate-500 font-semibold uppercase">Docentes</span>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-user-shield"></i></div>
+                <div>
+                    <span class="block text-xl font-black text-slate-900" id="stat-admin">0</span>
+                    <span class="text-[11px] text-slate-500 font-semibold uppercase">Dirección & Admin</span>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-hand-sparkles"></i></div>
+                <div>
+                    <span class="block text-xl font-black text-slate-900" id="stat-mantenimiento">0</span>
+                    <span class="text-[11px] text-slate-500 font-semibold uppercase">Aseo / Vigilancia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+            <div class="flex flex-col lg:flex-row gap-4 justify-between items-center">
+                <div class="relative w-full lg:w-96">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+                    <input type="text" id="input-buscar" onkeyup="filtrarPersonal()" placeholder="Buscar por nombre, cargo, materia o ubicación..." 
+                           class="w-full pl-11 pr-4 py-2.5 bg-slate-100 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all">
+                </div>
+
+                <div class="flex flex-wrap gap-2 w-full lg:w-auto justify-center">
+                    <button onclick="filtrarCategoria('todos', this)" class="btn-categoria active-cat px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow">Todos</button>
+                    <button onclick="filtrarCategoria('direccion', this)" class="btn-categoria px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">Dirección</button>
+                    <button onclick="filtrarCategoria('secretaria', this)" class="btn-categoria px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">Secretaría y Admin</button>
+                    <button onclick="filtrarCategoria('consejeria', this)" class="btn-categoria px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">Consejería</button>
+                    <button onclick="filtrarCategoria('docentes', this)" class="btn-categoria px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">Docentes</button>
+                    <button onclick="filtrarCategoria('mantenimiento', this)" class="btn-categoria px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">Aseo y Mantenimiento</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="grid-personal" class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+        <p class="font-bold text-slate-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
+        <p class="mt-1">Zambrano, Francisco Morazán, Honduras &copy; 2026</p>
+    </footer>
+
+    <script>
+        const personal = [
+            // DIRECCIÓN Y SUBDIRECCIÓN
+            {
+                nombre: "Juan Carlos Herrera Espinoza",
+                cargo: "Director de la Institución",
+                titulos: "Nació el 12 de enero de 1977 y labora en la institución desde 2007. Es Maestro en Educación Primaria y Licenciado en Ciencias con Orientación en Matemática por la UPNFM, y actualmente finaliza su tesis de Maestría en Matemática Educativa. Se le reconoce por liderar la transformación y fortalecimiento del instituto.",
+                materia: "Dirección Institucional & Administración",
+                experiencia: "18 años como Director desde 2007",
+                categoria: "direccion",
+                foto: "img.png/Juan Carlois.jpeg",
+                correo: "direccion@igtfm.edu.hn",
+                ubicacion: "Edificio Principal - Dirección",
+                horario: "Lun - Vie: 7:00 AM - 1:00 PM"
+            },
+            {
+                nombre: "Juan Andrés Izaguirre Gonzáles",
+                cargo: "Subdirector",
+                titulos: "Asumió el cargo el 1 de septiembre de 2020. Cuenta con Maestría en Educación Primaria, Licenciatura en Pedagogía y Ciencias de la Educación, y estudios en la carrera de Derecho.",
+                materia: "Supervisión Docente y Gestión Administrativa",
+                experiencia: "5 años en la institución",
+                categoria: "direccion",
+                foto: "img.png/Juan Izaguirre.png",
+                correo: "subdireccion@igtfm.edu.hn",
+                ubicacion: "Edificio Principal - Subdirección",
+                horario: "Lun - Vie: 7:00 AM - 1:00 PM"
+            },
+
+            // SECRETARÍA Y ADMINISTRACIÓN
+            {
+                nombre: "Lesby Elieth Medina Agurcia",
+                cargo: "Secretaria General",
+                titulos: "Licenciada en Pedagogía (Planeamiento y Administración). Secretaria General desde 2003. Ha sido clave en la gestión académica, la creación de nuevas carreras (Informática, Agroindustria) y la administración de beneficios sociales para el personal.",
+                materia: "Atención a estudiantes y padres de familia",
+                experiencia: "Secretaria General desde 2003",
+                categoria: "secretaria",
+                foto: "img.png/Elieth Medina.jpeg",
+                correo: "secretaria@igtfm.edu.hn",
+                ubicacion: "Oficina de Secretaría General",
+                horario: "Lun - Vie: 7:00 AM - 12:00 PM"
+            },
+            {
+                nombre: "Marisabel Rosales",
+                cargo: "Asistente de Orientación",
+                titulos: "Licenciada en Pedagogía y Ciencias de la Educación. Encargada del acompañamiento psicopedagógico, liderazgo del gobierno estudiantil, escuela para padres y campañas de prevención de violencia.",
+                materia: "Acompañamiento Psicopedagógico",
+                experiencia: "Personal de Orientación",
+                categoria: "secretaria",
+                foto: "img.png/Marisabel Rosales.jpg",
+                correo: "asistencia.secretaria@igtfm.edu.hn",
+                ubicacion: "Oficina de Orientación",
+                horario: "Lun - Vie: 7:00 AM - 1:00 PM"
+            },
+            {
+                nombre: "Katia Patricia Osorto Galo",
+                cargo: "Asistente Administrativo y Docente",
+                titulos: "Con más de 30 años de trayectoria. Combina su labor como asistente de secretaría (desde 2016) con la docencia de inglés (desde 2004) y educación primaria.",
+                materia: "Atención Institucional",
+                experiencia: "Más de 30 años de trayectoria",
+                categoria: "secretaria",
+                foto: "img.png/Katia Patricia Osorto Galo.jpeg",
+                correo: "administracion@igtfm.edu.hn",
+                ubicacion: "Modulo Administrativo",
+                horario: "Lun - Vie: 7:00 AM - 1:00 PM"
+            },
+
+            // CONSEJEROS
+            {
+                nombre: "Junior Josué López Montes",
+                cargo: "Jefe Consejero de Estudiantes",
+                titulos: "Se destaca por su continua continuidad en estudios superiores y su formación profesional constante dentro del ámbito educativo de la institución.",
+                materia: "Consejería y Orientación Estudiantil",
+                experiencia: "Formación profesional constante",
+                categoria: "consejeria",
+                foto: "img.png/Junior Josue Lopez Montes.png",
+                correo: "consejeria.jefe@igtfm.edu.hn",
+                ubicacion: "Oficina de Consejería Estudiantil",
+                horario: "Jornada Completa"
+            },
+            {
+                nombre: "Marlon Noel Izaguirre Velásquez",
+                cargo: "Consejero de Estudiantes",
+                titulos: "Licenciado en Educación Comercial. Docente de Informática y Agroindustria, y Consejero Estudiantil desde 2020. Líder en proyectos de infraestructura (cafetería, kiosko) y extensión comunitaria (T.E.S.).",
+                materia: "Orden, Disciplina y Acompañamiento",
+                experiencia: "17 años en la institución",
+                categoria: "consejeria",
+                foto: "img.png/Marlon Izaguirre.png",
+                correo: "consejeria.marlon@igtfm.edu.hn",
+                ubicacion: "Oficina de Consejería Estudiantil",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Irma Yolanda Erazo Lagos",
+                cargo: "Consejera de Estudiantes",
+                titulos: "Licenciada en Pedagogía y Perito Mercantil. Se desempeña como Consejera de Estudiantes enfocándose en disciplina, rendimiento académico y asistencia. Cuenta con trayectoria en trabajo social y participación política.",
+                materia: "Mantener el orden y atención estudiantil",
+                experiencia: "2 años en la institución",
+                categoria: "consejeria",
+                foto: "img.png/Irma Yolanda Erazo Lagos.jpeg",
+                correo: "consejeria.irma@igtfm.edu.hn",
+                ubicacion: "Oficina de Consejería Estudiantil",
+                horario: "Jornada Matutina"
+            },
+
+            // DOCENTES DE INFORMÁTICA
+            {
+                nombre: "Wilmer Javier Aguilar Domínguez",
+                cargo: "Docente de Informática",
+                titulos: "Licenciado en Informática Educativa con especialidad en Robótica. Encargado de la carrera de Informática, fundador del laboratorio de robótica y gestor de éxitos institucionales en ferias de ciencias.",
+                materia: "Carrera de Informática y Programación",
+                experiencia: "15 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Wilmer Javier Aguilar Dominguez.jpeg",
+                correo: "wilmer.aguilar@igtfm.edu.hn",
+                ubicacion: "Laboratorio de Computación #1",
+                horario: "Clases Presenciales & Taller"
+            },
+
+            // DOCENTES MATEMÁTICAS & CIENCIAS
+            {
+                nombre: "Ana Gabriela Simona Zelaya",
+                cargo: "Docente de Matemáticas",
+                titulos: "Nacida el 31 de julio de 1990 (35 años), es Licenciada en Matemáticas por la UPNFM. Con 12 años de trayectoria en el centro (2014-2026), imparte Matemáticas, Física y Dibujo Técnico. Ampliamente reconocida por impulsar el talento juvenil como tutora y jurado en las Olimpiadas de Matemáticas a nivel nacional.",
+                materia: "Matemáticas, Física y Dibujo Técnico",
+                experiencia: "12 años de trayectoria (2014-2026)",
+                categoria: "docentes",
+                foto: "img.png/Ana Simons.png",
+                correo: "ana.zelaya@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 2",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Fredis Armando Domínguez Medina",
+                cargo: "Docente de Matemáticas y Administración",
+                titulos: "Cuenta con 19 años en la institución. Posee una Licenciatura en Matemática por la UPNFM y una Licenciatura en Economía por la UNAH. Ejerce como docente de matemáticas y cumple funciones administrativas.",
+                materia: "Matemáticas y Área de Administración",
+                experiencia: "19 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Fredy Dominguez.jpeg",
+                correo: "fredis.dominguez@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 1",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Celeste María Machuca Tejada",
+                cargo: "Docente de Ciencias Naturales",
+                titulos: "Profesora y Licenciada en Ciencias Naturales con orientación en Química, Física y Biología, y especialista en Tecnología y Alimentos. Con 9 años de servicio, asiste y coordina el laboratorio de ciencias.",
+                materia: "Ciencias Naturales, Química, Física y Biología",
+                experiencia: "9 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Ceteste Machuca.jpg",
+                correo: "celeste.machuca@igtfm.edu.hn",
+                ubicacion: "Laboratorio de Ciencias",
+                horario: "Jornada Matutina"
+            },
+
+            // BTP FINANZAS / CONTABILIDAD / ADMINISTRACIÓN
+            {
+                nombre: "Fátima Yaneth Rodríguez",
+                cargo: "Docente BTP Contaduría y Finanzas",
+                titulos: "Con 56 años de edad y 18 años de servicio en el instituto. Imparte asignaturas del área comercial como Administración General, Gestión Empresarial, Economía y Legislación. Además, coordina el programa TES y apoya en funciones de consejería estudiantil.",
+                materia: "Administración, Economía, Contabilidad, Auditoría",
+                experiencia: "18 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Profe Fátima.jpg",
+                correo: "fatima.rodriguez@igtfm.edu.hn",
+                ubicacion: "Aula BTP Finanzas",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Suyapa Janeth Pineda López",
+                cargo: "Docente Comercial",
+                titulos: "Docente de las asignaturas de Legislación Mercantil, Aduanas, Contaduría de Costos e Informática Contable. Enfocándose en fortalecer los conocimientos jurídicos, administrativos, contables y tecnológicos para el ámbito empresarial.",
+                materia: "Legislación Mercantil, Aduanas, Contabilidad de Costos",
+                experiencia: "3 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Suyapa Janeth Pineda Lopez.png",
+                correo: "suyapa.pineda@igtfm.edu.hn",
+                ubicacion: "Aula BTP Comercio",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "María De La Paz Álvarez Yanes",
+                cargo: "Coordinadora de Prácticas Profesionales",
+                titulos: "Licenciada por la UPNFM. Maestra de Educación Media en Comercio y actualmente coordinadora de prácticas profesionales del Instituto Técnico Francisco Miranda.",
+                materia: "Contabilidad, Adm. Financiera, Tributaria, Servicio al Cliente",
+                experiencia: "Coordinadora de Prácticas Profesionales",
+                categoria: "docentes",
+                foto: "img.png/Maria de la paz Álvarez.png",
+                correo: "maria.alvarez@igtfm.edu.hn",
+                ubicacion: "Coordinación de Prácticas",
+                horario: "Jornada Matutina"
+            },
+
+            // BTP AGROINDUSTRIA & HOGAR
+            {
+                nombre: "Miriam Janeth Torres Castillo",
+                cargo: "Coordinadora BTP Agroindustria",
+                titulos: "Ingeniera Industrial. Docente del área de Ciencias Naturales y carrera de Ingeniería en Producción Industrial. Se enfoca en la sostenibilidad agroindustrial, investigación y transferencia tecnológica.",
+                materia: "Coordinación Académica y BTP Agroindustria",
+                experiencia: "Ingeniera Industrial especializada en Agroindustria",
+                categoria: "docentes",
+                foto: "img.png/Miriam Janeth Ortez Novoa.png",
+                correo: "miriam.torres@igtfm.edu.hn",
+                ubicacion: "Coordinación Agroindustrial",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Francis Elizabeth Moncada Silva",
+                cargo: "Docente Taller de Hogar",
+                titulos: "Nacida el 8 de abril de 1970, con 21 años de servicio en la institución. Es Licenciada en Taller de Hogar (Belleza, Cosmetología, Corte, Nutrición y Alimentos) por la UPNFM.",
+                materia: "Nutrición, Taller de Hogar y Corte y Confección",
+                experiencia: "21 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Profe Francis.jpg",
+                correo: "francis.moncada@igtfm.edu.hn",
+                ubicacion: "Taller de Hogar y Nutrición",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Luis Eduardo Salgado Benítez",
+                cargo: "Docente del Área Agroindustrial",
+                titulos: "Ingeniero Agrónomo. Docente del área agroindustrial con proyectos activos de siembra (maíz y frijol), crianza de animales (cerdos y gallinas) y planes a futuro en sistemas de acuaponía.",
+                materia: "Ciencias Agroindustriales",
+                experiencia: "Docente especializado en Agroindustria",
+                categoria: "docentes",
+                foto: "img.png/Luis Salgado.png",
+                correo: "luis.salgado@igtfm.edu.hn",
+                ubicacion: "Área Agroindustrial",
+                horario: "Jornada Matutina"
+            },
+
+            // CIENCIAS SOCIALES & IDIOMAS
+            {
+                nombre: "Wendy Patricia Andino Amador",
+                cargo: "Docente de Ciencias Sociales",
+                titulos: "Licenciada en Educación Primaria y Ciencias Sociales con Maestría en Administración de Proyectos. Reconocida por su gestión en el 'Movimiento Juventud' y el proyecto '¡Viva la Juventud!'",
+                materia: "Sociología, Historia de Honduras, Cívica",
+                experiencia: "11 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Wendy Patricia Andino Amador.jpeg",
+                correo: "wendy.andino@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 1",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Jenny Roseli Sosa Chávez",
+                cargo: "Docente de Inglés",
+                titulos: "Docente con más de 17 años de experiencia (en la institución desde marzo de 2009). Licenciada en la Enseñanza del Inglés por la UPNFM, Perito Mercantil y Contador Público.",
+                materia: "Idioma Inglés Institucional",
+                experiencia: "17 años de experiencia general",
+                categoria: "docentes",
+                foto: "img.png/Jenny Sosa.png",
+                correo: "jenny.sosa@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 3",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Mayra Alejandra Martínez Aguilar",
+                cargo: "Docente de Español",
+                titulos: "Licenciada en Letras y Lenguas Españolas (Español) por la UPNFM. Se especializa en el fortalecimiento de la oratoria, expresión oral y técnicas de comunicación efectiva.",
+                materia: "Lengua Española y Literatura",
+                experiencia: "11 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Docente Mayra Alejandra Martines Aguilar.jpg",
+                correo: "mayra.martinez@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 2",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Ada Lizeth Ordóñez Martínez",
+                cargo: "Docente de Español y Directora de Fútbol Femenino",
+                titulos: "Licenciada en la Enseñanza del Español y con una Maestría en Lenguas y Cultura por la UNAH. Más de 20 años de experiencia docente e investigativa en el instituto. Dirige el equipo de fútbol femenino.",
+                materia: "Lengua Española, Literatura y Educación Física",
+                experiencia: "Más de 20 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Ada Lizeth Ordóñez.png",
+                correo: "ada.ordonez@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 2",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Karen Leticia Sánchez Bautista",
+                cargo: "Docente de Ciencias Sociales",
+                titulos: "Licenciada en Ciencias Sociales con 27 años de experiencia (25 en esta institución). Graduada de la Escuela Normal Mixta Pedro Nufio. Ha liderado eventos cívicos como el Día de las Américas y de la Independencia.",
+                materia: "Ciencias Sociales, Ed. Cívica, Psicología, Filosofía",
+                experiencia: "25 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Karen Sanchez.png",
+                correo: "karen.sanchez@igtfm.edu.hn",
+                ubicacion: "Edificio de Aulas 1",
+                horario: "Jornada Matutina"
+            },
+
+            // ARTES & BANDA
+            {
+                nombre: "Gabriela Arely Beltrán Rodríguez",
+                cargo: "Docente Ed. Artística",
+                titulos: "Nacida el 5 de diciembre de 1992 y vinculada al centro desde el 1 de abril de 2024. Cuenta con 14 años de trayectoria docente. Profesora de Educación Artística especializada en Artes Musicales por la UPNFM.",
+                materia: "Educación Artística con orientación Musical",
+                experiencia: "14 años de trayectoria docente",
+                categoria: "docentes",
+                foto: "img.png/Gabriela Rodriguez.jpeg",
+                correo: "gabriela.beltran@igtfm.edu.hn",
+                ubicacion: "Salón de Música y Arte",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "José Manuel Pineda Gámez",
+                cargo: "Director Banda Latina FM",
+                titulos: "Ingresó en 2013. Maestro de Educación Primaria en Educación Musical por la Escuela Nacional de Música, Licenciado en Artes con orientación en Música por la UPNFM y pasante de Maestría en Gestión Cultural.",
+                materia: "Director Artístico de la Banda Francisco Miranda",
+                experiencia: "12 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/manuel pineda.jpg",
+                correo: "manuel.pineda@igtfm.edu.hn",
+                ubicacion: "Salón Recreativo / Banda Latina",
+                horario: "Horario Ensayo y Clases"
+            },
+
+            // TALLERES & DIBUJO TÉCNICO
+            {
+                nombre: "Enedas Alfonso Berríos Alvarado",
+                cargo: "Docente Taller de Madera",
+                titulos: "Maestro de Educación Primaria, Bachiller en Educación, Licenciado en Educación Básica y en Educación Técnica Industrial. Con 16 años como docente y una antigüedad total de 31 años.",
+                materia: "Taller de Madera y Carpintería",
+                experiencia: "31 años de antigüedad total",
+                categoria: "docentes",
+                foto: "img.png/Enedas Berrios.jpeg",
+                correo: "enedas.berrios@igtfm.edu.hn",
+                ubicacion: "Área de Talleres - Madera",
+                horario: "Jornada Taller"
+            },
+            {
+                nombre: "Cloevin Fabricio Yánez Santos",
+                cargo: "Docente Estructuras Metálicas",
+                titulos: "Maestro de Educación Primaria, Licenciado en Educación Tecnológica con orientación en Mecánica Industrial y Maestría en Proyectos. Reconocido como Docente del Año (2018), instructor certificado por el INFOP.",
+                materia: "Taller de Estructuras Metálicas",
+                experiencia: "Docente del Año 2018",
+                categoria: "docentes",
+                foto: "img.png/Fabrio yanez.png",
+                correo: "cloevin.yanez@igtfm.edu.hn",
+                ubicacion: "Área de Talleres - Estructuras Metálicas",
+                horario: "Jornada Taller"
+            },
+            {
+                nombre: "Vanessa Lizeth Galindo Velásquez",
+                cargo: "Docente Estructuras Metálicas",
+                titulos: "Licenciada en Educación Técnica Industrial (Metal Mecánica). Imparte Estructuras Metálicas y Dibujo Técnico. Destaca por su enfoque en proyectos institucionales de reciclaje.",
+                materia: "Estructuras Metálicas y Dibujo Técnico",
+                experiencia: "3 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Vanessa Lizeth galindo Velasquez.png",
+                correo: "vanessa.galindo@igtfm.edu.hn",
+                ubicacion: "Área de Talleres - Estructuras",
+                horario: "Jornada Taller"
+            },
+            {
+                nombre: "Heydy Vanessa González García",
+                cargo: "Docente Estructuras Metálicas",
+                titulos: "Licenciada en Educación Técnica Industrial con orientación en Metal Mecánica por la UPNFM. Docente desde 2009. Destaca por su disciplina y compromiso con la enseñanza práctica.",
+                materia: "Taller de Estructuras Metálicas y Dibujo Técnico",
+                experiencia: "Docente desde 2009",
+                categoria: "docentes",
+                foto: "img.png/Heydy Vanessa González García.png",
+                correo: "heydy.gonzalez@igtfm.edu.hn",
+                ubicacion: "Área de Talleres - Estructuras",
+                horario: "Jornada Taller"
+            },
+            {
+                nombre: "Edwin Geovanny Raudales Lanza",
+                cargo: "Docente Taller de Madera",
+                titulos: "Nacido el 22 de julio de 1983. Especialista y formado en Carpintería y Ebanistería. Actualmente cursa la carrera de Educación Tecnológica orientada en Madera en la UPNFM.",
+                materia: "Taller de Madera y Carpintería",
+                experiencia: "Especialista en Carpintería y Ebanistería",
+                categoria: "docentes",
+                foto: "img.png/Edwin Geovani Raudales Lanza.png",
+                correo: "edwin.raudales@igtfm.edu.hn",
+                ubicacion: "Área de Talleres - Madera",
+                horario: "Jornada Taller"
+            },
+            {
+                nombre: "Christian Obed Medina Alvarado",
+                cargo: "Docente Dibujo Técnico y Taller de Electricidad",
+                titulos: "Licenciado en Educación Tecnológica Industrial con orientación en Electricidad. Con 9 años de experiencia general en el sector eléctrico. Exvicepresidente de la carrera de Educación Tecnológica en la UPNFM y contratista independiente.",
+                materia: "Dibujo Técnico Industrial y Taller de Electricidad",
+                experiencia: "9 años en el sector eléctrico",
+                categoria: "docentes",
+                foto: "img.png/CHRISTIAN MEDINA.jpeg",
+                correo: "christian.medina@igtfm.edu.hn",
+                ubicacion: "Aula de Dibujo Técnico y Taller de Electricidad",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Mario Leonel Ávila Maradiaga",
+                cargo: "Docente Dibujo Técnico / Electricidad",
+                titulos: "Licenciado en Educación Tecnológica, Diplomado en Gestión Administrativa. Licenciado en Educación Tecnológica Industrial.",
+                materia: "Dibujo Técnico y Taller de Electricidad",
+                experiencia: "11 años en la institución",
+                categoria: "docentes",
+                foto: "img.png/Mario leonel avila maradiaga.png",
+                correo: "mario.avila@igtfm.edu.hn",
+                ubicacion: "Taller de Electricidad",
+                horario: "Jornada Taller"
+            },
+            {
+                nombre: "Rodyn Javier Figueroa Osorto",
+                cargo: "Docente Taller de Madera",
+                titulos: "Perfil multidisciplinario con Ingeniería Industrial, Licenciatura en Metalmecánica y Maestría en Cerámica y Metalurgia. Con cerca de 48 años de trayectoria, imparte Carpintería y Dibujo Técnico.",
+                materia: "Carpintería y Dibujo Técnico",
+                experiencia: "48 años de trayectoria profesional",
+                categoria: "docentes",
+                foto: "img.png/Rodyn Javier Figueroa Osorto.png",
+                correo: "rodyn.figueroa@igtfm.edu.hn",
+                ubicacion: "Área de Talleres - Madera",
+                horario: "Jornada Taller"
+            },
+
+            // OTROS DOCENTES
+            {
+                nombre: "Valeska Yamileth Mejía",
+                cargo: "Docente Orientadora",
+                titulos: "Licenciada en Educación Técnica Industrial con orientación en Madera. Docente con trayectoria desde 1998, asignada al departamento de orientación desde 2013.",
+                materia: "Orientación y Taller de Madera",
+                experiencia: "Trayectoria desde 1998. Creadora de la marca de chocolates 'Kakawa'.",
+                categoria: "docentes",
+                foto: "img.png/Valeska Yamileth Mejia.png",
+                correo: "valeska.mejia@igtfm.edu.hn",
+                ubicacion: "Oficina de Orientación",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Wilmer Alexis Guevara Cárdenas",
+                cargo: "Docente de Ciencias Naturales",
+                titulos: "Licenciado en Ciencias Naturales (Biología y Química) con 18 años de trayectoria. Lidera el 'Laboratorio Vivo de Ciencias' y la Feria Ambiental y Científica.",
+                materia: "Ciencias Naturales",
+                experiencia: "18 años de trayectoria",
+                categoria: "docentes",
+                foto: "img.png/wilmer Alexis Guebara Cardenas.png",
+                correo: "wilmer.guevara@igtfm.edu.hn",
+                ubicacion: "Laboratorio de Ciencias",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Santiago Humberto Fúnez Zúniga",
+                cargo: "Docente de Educación Física",
+                titulos: "Perito Mercantil, Contador Público y Licenciado en Educación Física. Docente de educación media con nueve años de antigüedad en la institución.",
+                materia: "Educación Física y Deportes",
+                experiencia: "9 años en la institución. Reconocido por dirigir la maratón atlética 'Chagotón' y campeonatos de fútbol.",
+                categoria: "docentes",
+                foto: "img.png/Santiago Funez.png",
+                correo: "santiago.funez@igtfm.edu.hn",
+                ubicacion: "Cancha Deportiva",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Carlos Fernando Medina",
+                cargo: "Jefe de Orientación",
+                titulos: "Maestro de Educación Primaria (2009), Licenciado en Orientación Educativa (2016) con Maestrías en Transformación Digital y Negocios.",
+                materia: "Orientación y Bienestar Estudiantil",
+                experiencia: "Encargado del rendimiento académico, bienestar social y desempeño de los estudiantes.",
+                categoria: "docentes",
+                foto: "img.png/Carlos Fernando Medina.jpg",
+                correo: "carlos.medina@igtfm.edu.hn",
+                ubicacion: "Departamento de Orientación",
+                horario: "Jornada Matutina"
+            },
+            {
+                nombre: "Danilo José Banegas Figueroa",
+                cargo: "Docente de Talleres",
+                titulos: "Licenciado en Educación Técnica Industrial y estudiante de Derecho.",
+                materia: "Taller de Madera y Estructuras Metálicas",
+                experiencia: "Imparte clases en talleres con experiencia previa como coordinador de talleres y consejero estudiantil.",
+                categoria: "docentes",
+                foto: "img.png/Danilo Jose Banegas Figueroa.png",
+                correo: "danilo.banegas@igtfm.edu.hn",
+                ubicacion: "Área de Talleres",
+                horario: "Jornada Taller"
+            },
+
+            // ASEO Y MANTENIMIENTO
+            {
+                nombre: "Juan Carlos Cruz Silva",
+                cargo: "Conserje / Vigilancia",
+                titulos: "Personal de Apoyo",
+                materia: "Vigilancia e Instalaciones",
+                experiencia: "25 años en la institución",
+                categoria: "mantenimiento",
+                foto: "img.png/Juan Carlos Cruz Silva.png",
+                correo: "mantenimiento@igtfm.edu.hn",
+                ubicacion: "Acceso Principal e Instalaciones",
+                horario: "Turno Rotativo"
+            },
+            {
+                nombre: "Nelcy Dinora Rápalo Vizcaíno",
+                cargo: "Conserje (Aseo)",
+                titulos: "Personal de Apoyo",
+                materia: "Limpieza y Aseo Institucional",
+                experiencia: "14 años en la institución",
+                categoria: "mantenimiento",
+                foto: "img.png/Nelcy Dinora Rapalo Vizcaino.png",
+                correo: "servicio.aseo@igtfm.edu.hn",
+                ubicacion: "Módulos Educativos y Aulas",
+                horario: "Turno Matutino"
+            },
+            {
+                nombre: "Walter José Acosta Cálix",
+                cargo: "Conserje (Vigilancia)",
+                titulos: "Personal de Apoyo",
+                materia: "Vigilancia e Instalaciones",
+                experiencia: "2 años en la institución",
+                categoria: "mantenimiento",
+                foto: "img.png/Walter Jose Acosta Calix.png",
+                correo: "vigilancia@igtfm.edu.hn",
+                ubicacion: "Caseta de Seguridad y Portón",
+                horario: "Turno Rotativo"
+            },
+            {
+                nombre: "Susy",
+                cargo: "Personal de Aseo",
+                titulos: "Personal de Apoyo",
+                materia: "Área de Vigilancia y Aseo",
+                experiencia: "2 años en la institución",
+                categoria: "mantenimiento",
+                foto: "img.png/Susy.png",
+                correo: "apoyo.limpieza@igtfm.edu.hn",
+                ubicacion: "Módulos Educativos",
+                horario: "Turno Matutino"
+            }
+        ];
+
+        let categoriaSeleccionada = 'todos';
+
+        function actualizarEstadisticas() {
+            document.getElementById('stat-total').textContent = personal.length;
+            document.getElementById('stat-docentes').textContent = personal.filter(p => p.categoria === 'docentes').length;
+            document.getElementById('stat-admin').textContent = personal.filter(p => p.categoria === 'direccion' || p.categoria === 'secretaria' || p.categoria === 'consejeria').length;
+            document.getElementById('stat-mantenimiento').textContent = personal.filter(p => p.categoria === 'mantenimiento').length;
+        }
+
+        function renderizarPersonal(lista) {
+            const contenedor = document.getElementById('grid-personal');
+            contenedor.innerHTML = '';
+
+            if (lista.length === 0) {
+                contenedor.innerHTML = `
+                    <div class="col-span-full py-12 text-center bg-white rounded-3xl border border-slate-200 shadow-sm">
+                        <i class="fa-solid fa-user-slash text-4xl text-slate-300 mb-3"></i>
+                        <p class="text-slate-600 text-sm font-bold">No se encontraron docentes o personal con esos criterios.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            lista.forEach(persona => {
+                const partes = persona.nombre.split(' ');
+                const iniciales = (partes[0] ? partes[0][0] : '') + (partes[1] ? partes[1][0] : '');
+
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group";
+
+                card.innerHTML = `
+                    <div>
+                        <div class="relative w-56 h-56 mx-auto mb-4 rounded-2xl overflow-hidden bg-slate-100 border-2 border-slate-200 flex items-center justify-center text-slate-400 group-hover:border-amber-500 transition-colors shadow-inner">
+                            <img src="${persona.foto}" alt="${persona.nombre}" 
+                                 class="w-full h-full object-cover" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="hidden w-full h-full bg-slate-900 text-amber-400 font-black text-5xl items-center justify-center uppercase tracking-widest">
+                                ${iniciales}
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <span class="inline-block px-2.5 py-1 bg-amber-100 text-amber-900 text-[10px] font-bold uppercase rounded-md mb-2">
+                                ${persona.cargo}
+                            </span>
+                            <h3 class="font-black text-slate-900 text-base leading-snug group-hover:text-amber-600 transition-colors">
+                                ${persona.nombre}
+                            </h3>
+                            <p class="text-xs text-slate-600 font-bold mt-1.5 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-book-open text-amber-500"></i> ${persona.materia}
+                            </p>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-500">
+                            ${persona.titulos ? `<p class="leading-tight text-slate-600"><strong class="text-slate-700 block mb-1">Formación Académica:</strong> <span class="text-slate-600 block">${persona.titulos}</span></p>` : ''}
+                            ${persona.ubicacion ? `<p class="text-[11px] text-slate-600 font-medium flex items-center gap-1.5 mt-2"><i class="fa-solid fa-location-dot text-amber-500"></i> ${persona.ubicacion}</p>` : ''}
+                            ${persona.horario ? `<p class="text-[11px] text-slate-600 font-medium flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-500"></i> ${persona.horario}</p>` : ''}
+                            ${persona.experiencia ? `<p class="text-[11px] text-amber-700 font-semibold mt-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i>${persona.experiencia}</p>` : ''}
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-center">
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">I.G.T. Francisco Miranda</span>
+                    </div>
+                `;
+                contenedor.appendChild(card);
+            });
+        }
+
+        function filtrarCategoria(cat, elemento) {
+            categoriaSeleccionada = cat;
+            document.querySelectorAll('.btn-categoria').forEach(btn => {
+                btn.className = "btn-categoria px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 hover:bg-slate-200";
+            });
+            elemento.className = "btn-categoria active-cat px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow";
+            filtrarPersonal();
+        }
+
+        function filtrarPersonal() {
+            const query = document.getElementById('input-buscar').value.toLowerCase();
+            const filtrados = personal.filter(p => {
+                const coincideCat = (categoriaSeleccionada === 'todos') || (p.categoria === categoriaSeleccionada);
+                const coincideTexto = p.nombre.toLowerCase().includes(query) || 
+                                      p.cargo.toLowerCase().includes(query) || 
+                                      p.materia.toLowerCase().includes(query) ||
+                                      p.titulos.toLowerCase().includes(query) ||
+                                      (p.ubicacion && p.ubicacion.toLowerCase().includes(query)) ||
+                                      (p.correo && p.correo.toLowerCase().includes(query));
+                return coincideCat && coincideTexto;
+            });
+            renderizarPersonal(filtrados);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            actualizarEstadisticas();
+            renderizarPersonal(personal);
+        });
+    </script>
+</body>
+</html>
