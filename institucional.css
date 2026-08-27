@@ -1,0 +1,331 @@
+/* ============================================================
+   ESTILOS INSTITUCIONALES - I.G.T. FRANCISCO MIRANDA
+   Diseño minimalista, profesional y moderno.
+   ============================================================ */
+
+:root {
+  /* Colores institucionales */
+  --color-primary: #7C1D2E;       /* rojo vino */
+  --color-primary-light: #9E2A3E;
+  --color-secondary: #E8B400;     /* amarillo */
+  --color-secondary-light: #F0C800;
+
+  /* Neutros */
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text: #1E293B;
+  --color-text-secondary: #475569;
+  --color-border: #E2E8F0;
+  --color-muted: #94A3B8;
+
+  /* Sombras muy sutiles */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.04);
+
+  /* Bordes */
+  --radius: 0.75rem;
+
+  /* Tipografía */
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Reset básico ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+/* ---------- Utilidades de color ---------- */
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-secondary) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary) !important;
+}
+
+.border-primary {
+  border-color: var(--color-primary) !important;
+}
+
+.border-secondary {
+  border-color: var(--color-secondary) !important;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  border-color: var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-light);
+  border-color: var(--color-secondary-light);
+  color: var(--color-text);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--color-primary);
+  border-color: #fff;
+}
+
+.btn-white:hover {
+  background-color: #f1f5f9;
+  border-color: #f1f5f9;
+}
+
+/* ---------- Tarjetas ---------- */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ---------- Secciones ---------- */
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background-color: #F1F5F9;
+}
+
+.section-dark {
+  background-color: #1E293B;
+  color: #fff;
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark p {
+  color: #fff;
+}
+
+/* ---------- Navegación ---------- */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 1.5rem;
+}
+
+.navbar a {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.navbar a:hover {
+  color: var(--color-primary);
+}
+
+.navbar a.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ---------- Encabezados de página ---------- */
+.page-header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--color-border);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.page-header .subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background-color: #1E293B;
+  color: #94A3B8;
+  padding: 2rem 0;
+  border-top: 1px solid #334155;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.footer a {
+  color: #94A3B8;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* ---------- Formularios ---------- */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(124, 29, 46, 0.12);
+}
+
+/* ---------- Helpers ---------- */
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Animaciones suaves ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.visible {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+}
