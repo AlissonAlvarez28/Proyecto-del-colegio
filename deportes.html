@@ -1,872 +1,374 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deportes | I.G.T. Francisco Miranda</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="institucional.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Outfit', 'sans-serif']
-          }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deportes — El deporte es salud | I.G.T. Francisco Miranda</title>
+<meta name="description" content="Once años de historia deportiva en el Instituto Gubernamental Técnico Francisco Miranda: equipos, torneos, logros y las personas que hacen posible el deporte escolar en Aldea Zambrano.">
+<link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
+<link rel="apple-touch-icon" href="imagenes/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="institucional.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
+     Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
+  tailwind.config = {
+    theme: { extend: {
+      fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
+      colors: {
+        amber: {50:'#FDF9EE',100:'#FBF2CC',200:'#F7E59E',300:'#F2D766',400:'#EDC933',500:'#E3B800',600:'#C4A000',700:'#A08300',800:'#7A6600',900:'#574900',950:'#362D00'},
+        slate: {50:'#F8F9FC',100:'#F2F3F8',200:'#E1E5F1',300:'#C8CEE4',400:'#8B97C1',500:'#54649B',600:'#3E4972',700:'#273461',800:'#1A223F',900:'#111628',950:'#070A12'}
       }
-    }
-  </script>
-
-  <style>
-    .timeline-line::before {
-      content: '';
-      position: absolute;
-      left: 19px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(
-        to bottom,
-        rgba(124,29,46,0.05),
-        rgba(124,29,46,0.4) 15%,
-        rgba(124,29,46,0.4) 85%,
-        rgba(124,29,46,0.05)
-      );
-    }
-
-    @media (min-width: 1024px) {
-      .timeline-line::before {
-        left: 50%;
-        margin-left: -1px;
-      }
-    }
-
-    .timeline-dot {
-      box-shadow: 0 0 0 4px rgba(124,29,46,0.12);
-    }
-  </style>
+    }}
+  };
+</script>
+<script src="nav.js" defer></script>
 </head>
-<body>
+<body data-page="deportes">
+<a href="#main" class="skip-link">Saltar al contenido</a>
+<div class="progreso-scroll" id="progresoScroll"></div>
+<header id="navbar-root" class="navbar"></header>
+<div id="mobile-menu-root" class="mobile-menu"></div>
 
-  <!-- NAVEGACIÓN -->
-  <nav class="navbar sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <a href="inicio.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-        <div>
-          <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-          <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-        </div>
-      </a>
+<main id="main">
 
-      <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="inicio.html">Inicio</a>
-        <a href="oferta_academica.html">Oferta Académica</a>
-        <a href="personal.html">Autoridades y Personal</a>
-        <a href="estudiantes.html">Estudiantes</a>
-        <a href="deportes.html" class="active">Deportes</a>
-        <a href="blog.html">Blog y Comentarios</a>
-        <a href="compras.html">Compras</a>
-      </div>
-
-      <a href="#actividades" class="btn btn-secondary text-sm hidden sm:inline-flex">
-        <i class="fa-solid fa-futbol"></i> Actividades
-      </a>
+<!-- ============ ACTO 1 — HERO INMERSIVO ============ -->
+<section class="hero-inmersivo" id="hero">
+  <img class="hero-bg" id="heroParallax" src="imagenes/futbol-femenino-partido.jpg" alt="Jugadoras de la selección de fútbol femenino del instituto durante un partido en cancha techada" loading="eager">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge reveal reveal-up"><i class="fas fa-shield-heart" aria-hidden="true"></i> Área de Educación Física y Deportes</span>
+    <h1 class="reveal reveal-up" style="--stagger:80ms">"El deporte es salud"</h1>
+    <p class="hero-lead reveal reveal-up" style="--stagger:180ms">Palabras del Prof. Manuel Pineda, asistente técnico de las selecciones de fútbol. Once años de historia, seis disciplinas y cientos de estudiantes que han hecho del deporte una segunda casa dentro del instituto.</p>
+    <div class="reveal reveal-up" style="--stagger:280ms;margin-top:2.2rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+      <a href="#numeros" class="btn btn-secondary btn-lg">Vive la experiencia deportiva</a>
+      <a href="#agenda" class="btn btn-outline-light btn-lg">Ver próximos partidos</a>
     </div>
-  </nav>
+  </div>
+  <div class="scroll-cue"><span>Desliza para descubrir la historia</span><i class="fas fa-chevron-down chev" aria-hidden="true"></i></div>
+</section>
 
-  <!-- HERO -->
-  <section class="bg-white border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-      <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full tracking-wide mb-4">
-        <i class="fa-regular fa-circle-check"></i> Vida Estudiantil · Área Deportiva
-      </span>
-
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] max-w-3xl text-gray-900">
-        Deportes<span class="text-primary">.</span>
-      </h1>
-
-      <p class="text-xl font-semibold text-gray-700 mt-4 max-w-2xl">
-        Donde el esfuerzo se entrena, el carácter se forja y cada camiseta representa a todo un instituto.
-      </p>
-
-      <p class="text-gray-500 text-sm sm:text-base mt-4 max-w-xl leading-relaxed">
-        El deporte es una de las expresiones más vivas de nuestra comunidad educativa: une a estudiantes, docentes y familias en torno a la disciplina, el trabajo en equipo y el orgullo de representar al I.G.T. Francisco Miranda dentro y fuera de las aulas.
-      </p>
-
-      <div class="flex flex-wrap gap-4 mt-8">
-        <a href="#actividades" class="btn btn-primary">Conoce nuestras actividades</a>
-        <a href="#galeria" class="btn btn-outline"><i class="fa-regular fa-images"></i> Ver galería</a>
-      </div>
+<!-- ============ ACTO 2 — EL ÁREA EN NÚMEROS ============ -->
+<section class="section" id="numeros">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">Once años construyendo comunidad</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">El área deportiva, en números</h2>
+      <p class="mx-auto text-slate-600 mt-2">Desde 2015 el instituto compite formalmente fuera de sus instalaciones. Esto es lo que ha construido desde entonces.</p>
     </div>
-  </section>
-
-  <!-- PRESENTACIÓN -->
-  <section id="presentacion" class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-7 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Nuestra Filosofía</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1 mb-5">El deporte como parte de nuestra formación</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
-          En el I.G.T. Francisco Miranda entendemos el deporte como una extensión natural del aula: un espacio donde los estudiantes ponen a prueba su disciplina, su capacidad de trabajar en equipo y su compromiso con algo más grande que ellos mismos. Cada entrenamiento, cada torneo y cada jornada deportiva busca desarrollar valores que acompañan al estudiante mucho más allá de la cancha.
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          La participación es amplia y voluntaria: estudiantes de distintas secciones y jornadas se integran a equipos representativos o a actividades recreativas según su interés, siempre bajo la guía de docentes y entrenadores comprometidos. Por eso el área deportiva forma parte esencial de la formación integral que promueve la institución.
-        </p>
-      </div>
-
-      <div class="lg:col-span-5 reveal">
-        <figure class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-          <img src="img.png/EKXvP2hO.jpg" alt="Estudiantes en jornada de atletismo" class="w-full h-80 object-cover">
-          <figcaption class="p-4 bg-white text-xs text-gray-500 border-t border-gray-100 flex items-center gap-2">
-            <i class="fa-solid fa-camera text-primary"></i> Estudiantes durante una jornada de atletismo y resistencia.
-          </figcaption>
-        </figure>
-      </div>
+    <div class="stat-grid">
+      <div class="stat-card reveal reveal-up"><span class="stat-num" data-count="11" data-suffix="+">0</span><span class="stat-label">Años compitiendo formalmente</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:60ms"><span class="stat-num" data-count="6">0</span><span class="stat-label">Equipos representativos (5–7)</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:120ms"><span class="stat-num" data-count="20" data-suffix="+">0</span><span class="stat-label">Competencias formales</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:180ms"><span class="stat-num" data-count="200" data-suffix="+">0</span><span class="stat-label">Estudiantes en actividad deportiva</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:240ms"><span class="stat-num" data-count="60" data-suffix="+">0</span><span class="stat-label">En selecciones oficiales</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:300ms"><span class="stat-num" data-count="6">0</span><span class="stat-label">Disciplinas deportivas</span></div>
     </div>
-  </section>
+    <p class="text-center text-xs text-muted mt-6 reveal reveal-up">Cerca de 50 encuentros por año si se suman amistosos y torneos relámpago · Fútbol (masculino y femenino), baloncesto, voleibol, atletismo, ajedrez y tenis de mesa.</p>
+  </div>
+</section>
 
-  <!-- ESTADÍSTICAS -->
-  <section id="estadisticas" class="section-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest">El área en números</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Estadísticas Deportivas</h2>
-        <p class="text-gray-400 text-sm mt-2">
-          Cifras referenciales del prototipo, pensadas para dar una idea del alcance del área deportiva institucional.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <div class="card bg-white/5 border border-white/10 text-center p-6 bg-transparent text-white">
-          <span class="stat-num block text-4xl font-extrabold text-secondary" data-count="18" data-suffix="">0</span>
-          <span class="block text-xs text-gray-400 mt-2 font-semibold">Años de trayectoria</span>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 text-center p-6 bg-transparent text-white">
-          <span class="stat-num block text-4xl font-extrabold text-secondary" data-count="6" data-suffix="">0</span>
-          <span class="block text-xs text-gray-400 mt-2 font-semibold">Disciplinas deportivas</span>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 text-center p-6 bg-transparent text-white">
-          <span class="stat-num block text-4xl font-extrabold text-secondary" data-count="11" data-suffix="+">0</span>
-          <span class="block text-xs text-gray-400 mt-2 font-semibold">Equipos representativos</span>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 text-center p-6 bg-transparent text-white">
-          <span class="stat-num block text-4xl font-extrabold text-secondary" data-count="32" data-suffix="+">0</span>
-          <span class="block text-xs text-gray-400 mt-2 font-semibold">Torneos disputados</span>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 text-center p-6 bg-transparent text-white col-span-2 lg:col-span-1">
-          <span class="stat-num block text-4xl font-extrabold text-secondary" data-count="420" data-suffix="+">0</span>
-          <span class="block text-xs text-gray-400 mt-2 font-semibold">Estudiantes participantes</span>
-        </div>
-      </div>
-
-      <p class="text-center text-gray-500 text-xs mt-6 italic">
-        * Cifras hipotéticas para fines de prototipo, no representan datos oficiales del instituto.
-      </p>
+<!-- ============ ACTO 3 — LÍNEA DE TIEMPO ============ -->
+<section class="section section-alt" id="historia">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">Nuestra historia</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">De los torneos de recreo a las semifinales</h2>
     </div>
-  </section>
 
-  <!-- HISTORIA -->
-  <section id="historia" class="section bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Nuestra Trayectoria</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Historia del área deportiva</h2>
-        <p class="text-gray-500 text-sm mt-2">
-          Un recorrido hipotético que ilustra cómo pudo evolucionar el deporte institucional a lo largo de los años.
-        </p>
+    <div class="timeline" id="timeline">
+      <div class="timeline-progress" id="timelineProgress"></div>
+
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">~2010</span>
+        <h3 class="text-lg font-extrabold mb-1">Los primeros cuadros</h3>
+        <p class="text-slate-600 text-sm">Los equipos del instituto empiezan a tomar forma a partir de los torneos improvisados de los recreos: el punto de partida de todo lo que vendría después.</p>
       </div>
 
-      <div class="relative timeline-line">
-        <div class="space-y-10 lg:space-y-0">
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">~2015</span>
+        <h3 class="text-lg font-extrabold mb-1">El salto a la competencia formal</h3>
+        <p class="text-slate-600 text-sm">El instituto empieza a competir oficialmente fuera de sus instalaciones. Arranca la trayectoria competitiva que hoy suma más de una década.</p>
+      </div>
 
-          <div class="reveal relative lg:grid lg:grid-cols-2 lg:gap-10 items-center pl-14 lg:pl-0">
-            <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-primary timeline-dot flex items-center justify-center text-white font-black text-xs">08</div>
-            <div class="lg:text-right lg:pr-10">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest">2008 — Inicio</span>
-              <h4 class="font-extrabold text-lg text-gray-900 mt-1">Creación del programa deportivo</h4>
-              <p class="text-gray-600 text-sm mt-1">Un grupo de docentes organiza las primeras jornadas de fútbol y atletismo como actividad extracurricular.</p>
-            </div>
-            <div class="hidden lg:block"></div>
-          </div>
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">2018–2019</span>
+        <h3 class="text-lg font-extrabold mb-1">Semifinalistas</h3>
+        <p class="text-slate-600 text-sm">El equipo llega a semifinales en el torneo de la Secretaría de Educación y cae por penales ante el equipo que, más tarde, se coronaría campeón.</p>
+      </div>
 
-          <div class="reveal relative lg:grid lg:grid-cols-2 lg:gap-10 items-center pl-14 lg:pl-0 mt-10 lg:mt-16">
-            <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-gray-700 timeline-dot flex items-center justify-center text-secondary font-black text-xs">11</div>
-            <div class="hidden lg:block"></div>
-            <div class="lg:pl-10">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest">2011 — Primeros equipos</span>
-              <h4 class="font-extrabold text-lg text-gray-900 mt-1">Formación de equipos representativos</h4>
-              <p class="text-gray-600 text-sm mt-1">Nace el primer equipo de fútbol masculino que representa oficialmente al instituto en encuentros locales.</p>
-            </div>
-          </div>
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">Después de 2020</span>
+        <h3 class="text-lg font-extrabold mb-1">Nace el fútbol femenino</h3>
+        <p class="text-slate-600 text-sm">Todo comenzó con la pregunta de una estudiante: ¿por qué solo los varones podían representar al instituto? De esa inquietud, impulsada por la Prof.ª Ada, nace el equipo femenino de fútbol.</p>
+      </div>
 
-          <div class="reveal relative lg:grid lg:grid-cols-2 lg:gap-10 items-center pl-14 lg:pl-0 mt-10 lg:mt-16">
-            <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-primary timeline-dot flex items-center justify-center text-white font-black text-xs">15</div>
-            <div class="lg:text-right lg:pr-10">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest">2015 — Nuevas disciplinas</span>
-              <h4 class="font-extrabold text-lg text-gray-900 mt-1">Incorporación de baloncesto y voleibol</h4>
-              <p class="text-gray-600 text-sm mt-1">Se habilita la cancha multiusos y se suman nuevas disciplinas con participación mixta.</p>
-            </div>
-            <div class="hidden lg:block"></div>
-          </div>
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">2024</span>
+        <h3 class="text-lg font-extrabold mb-1">Nace la Copa Amistad</h3>
+        <p class="text-slate-600 text-sm">El equipo femenino se consolida. De un campeonato disputado en octubre nace la <strong>Copa Amistad de Fútbol Femenino</strong>, torneo propio del instituto que hoy prepara su tercera edición.</p>
+        <img src="imagenes/torneo-saludo-equipos.jpg" alt="Selecciones femeninas de distintos institutos saludándose antes de un partido en un torneo interinstitucional" loading="lazy" style="border-radius:1rem;margin-top:.9rem;box-shadow:var(--shadow-md);">
+      </div>
 
-          <div class="reveal relative lg:grid lg:grid-cols-2 lg:gap-10 items-center pl-14 lg:pl-0 mt-10 lg:mt-16">
-            <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-gray-700 timeline-dot flex items-center justify-center text-secondary font-black text-xs">18</div>
-            <div class="hidden lg:block"></div>
-            <div class="lg:pl-10">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest">2018 — Expansión</span>
-              <h4 class="font-extrabold text-lg text-gray-900 mt-1">Nace el fútbol femenino institucional</h4>
-              <p class="text-gray-600 text-sm mt-1">Un grupo de estudiantes impulsa la creación del primer equipo femenino, hoy uno de los más reconocidos.</p>
-            </div>
-          </div>
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">2025</span>
+        <h3 class="text-lg font-extrabold mb-1">Subcampeones, con la FIFA de testigo</h3>
+        <p class="text-slate-600 text-sm">Final cerrada 3-2 en el torneo interinstitucional: subcampeonato con trofeo y medallas para la selección masculina. En ese mismo torneo hubo presencia de personas vinculadas a la FIFA, y un estudiante fue invitado a una prueba con un equipo.</p>
+      </div>
 
-          <div class="reveal relative lg:grid lg:grid-cols-2 lg:gap-10 items-center pl-14 lg:pl-0 mt-10 lg:mt-16">
-            <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-primary timeline-dot flex items-center justify-center text-white font-black text-xs">23</div>
-            <div class="lg:text-right lg:pr-10">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest">2023 — Nuevos logros</span>
-              <h4 class="font-extrabold text-lg text-gray-900 mt-1">Participación destacada en torneos regionales</h4>
-              <p class="text-gray-600 text-sm mt-1">Los equipos del instituto empiezan a competir fuera de Zambrano, dejando en alto el nombre de la institución.</p>
-            </div>
-            <div class="hidden lg:block"></div>
-          </div>
-
-          <div class="reveal relative lg:grid lg:grid-cols-2 lg:gap-10 items-center pl-14 lg:pl-0 mt-10 lg:mt-16">
-            <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-1 w-8 h-8 rounded-full bg-gray-700 timeline-dot flex items-center justify-center text-secondary font-black text-xs">26</div>
-            <div class="hidden lg:block"></div>
-            <div class="lg:pl-10">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest">2026 — Actualidad</span>
-              <h4 class="font-extrabold text-lg text-gray-900 mt-1">Consolidación del área deportiva</h4>
-              <p class="text-gray-600 text-sm mt-1">Hoy el área reúne varias disciplinas activas, entrenadores dedicados y una participación estudiantil creciente.</p>
-            </div>
-          </div>
-
-        </div>
+      <div class="timeline-item reveal reveal-up">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-year">2026</span>
+        <h3 class="text-lg font-extrabold mb-1">Goleadas, campeonato y cuartos de CODICADER</h3>
+        <p class="text-slate-600 text-sm">La selección de bachillerato termina 1ª de grupo en el torneo de la Semana de la Juventud —con goleadas de hasta 9-0— y cae en cuartos por penales ante el Instituto Salesiano San Miguel. La selección femenina se corona <strong>campeona</strong> del torneo de la Universidad Católica y llega a cuartos de final en CODICADER.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DISCIPLINAS -->
-  <section id="disciplinas" class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Nuestra Oferta Deportiva</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Deportes y disciplinas</h2>
-        <p class="text-gray-500 text-sm mt-2">Equipos representativos y actividades deportivas formativas para todas las secciones.</p>
+<!-- ============ ACTO 4 — VITRINA DE TROFEOS ============ -->
+<section class="section section-dark" id="logros">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-6 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">Vitrina de logros</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">Lo que hemos conquistado</h2>
+    </div>
+    <div class="reveal reveal-zoom" style="border-radius:1.5rem;overflow:hidden;margin-bottom:2.5rem;max-width:56rem;margin-left:auto;margin-right:auto;">
+      <img src="imagenes/futbol-femenino-equipo.jpg" alt="Selección de fútbol femenino del instituto posando frente al mural del escudo institucional" loading="lazy" style="width:100%;max-height:340px;object-fit:cover;">
+    </div>
+
+    <div class="trophy-grid">
+      <div class="trophy-card reveal reveal-up">
+        <span class="trophy-icon"><i class="fas fa-trophy" aria-hidden="true"></i></span>
+        <div><h3>Campeonas — Torneo Universidad Católica</h3><p>La selección femenina se coronó campeona por encima de centros educativos públicos y privados.</p><span class="trophy-tag">Fútbol femenino</span></div>
       </div>
-
-      <div class="mb-8 flex items-center gap-3 reveal">
-        <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">Equipos representativos</span>
-        <span class="text-gray-400 text-xs">Compiten oficialmente en nombre del instituto</span>
+      <div class="trophy-card reveal reveal-up" style="--stagger:60ms">
+        <span class="trophy-icon"><i class="fas fa-medal" aria-hidden="true"></i></span>
+        <div><h3>Subcampeones interinstitucionales</h3><p>Final cerrada 3-2, con trofeo y medallas de plata, en un torneo con presencia de personas vinculadas a la FIFA.</p><span class="trophy-tag">Fútbol masculino · 2025</span></div>
       </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-        <div class="card border-gray-200 overflow-hidden p-0 flex flex-col reveal">
-          <div class="h-40 relative">
-            <img src="img.png/Kqzxz5up.jpg" alt="Equipo de fútbol masculino" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Compite en torneos</span>
-          </div>
-          <div class="p-6 flex-grow">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center"><i class="fa-solid fa-futbol"></i></div>
-              <h3 class="font-extrabold text-lg text-gray-900">Fútbol Masculino</h3>
-            </div>
-            <p class="text-gray-600 text-sm mb-3">Equipo representativo que compite en torneos intercolegiales e internos, con categorías juvenil y sub-17.</p>
-            <ul class="text-xs text-gray-500 space-y-1">
-              <li><i class="fa-regular fa-user text-primary mr-1"></i> 9° a 12° grado</li>
-              <li><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Entrenador: Prof. Manuel Osorto</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 overflow-hidden p-0 flex flex-col reveal">
-          <div class="h-40 relative">
-            <img src="img.png/O3ISycm8.jpg" alt="Equipo de fútbol femenino" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Compite en torneos</span>
-          </div>
-          <div class="p-6 flex-grow">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center"><i class="fa-solid fa-person-running"></i></div>
-              <h3 class="font-extrabold text-lg text-gray-900">Fútbol Femenino</h3>
-            </div>
-            <p class="text-gray-600 text-sm mb-3">Uno de los equipos más queridos de la comunidad, con participación constante en encuentros intercolegiales.</p>
-            <ul class="text-xs text-gray-500 space-y-1">
-              <li><i class="fa-regular fa-user text-primary mr-1"></i> 8° a 12° grado · Femenino</li>
-              <li><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Entrenadora: Prof.ª Delmy Cáceres</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 overflow-hidden p-0 flex flex-col reveal">
-          <div class="h-40 relative">
-            <img src="img.png/YhPK6v3r.jpg" alt="Estudiantes jugando voleibol" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Compite en torneos</span>
-          </div>
-          <div class="p-6 flex-grow">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center"><i class="fa-solid fa-volleyball"></i></div>
-              <h3 class="font-extrabold text-lg text-gray-900">Voleibol</h3>
-            </div>
-            <p class="text-gray-600 text-sm mb-3">Equipos mixtos que entrenan en la cancha multiusos y participan en encuentros internos y amistosos.</p>
-            <ul class="text-xs text-gray-500 space-y-1">
-              <li><i class="fa-regular fa-user text-primary mr-1"></i> 7° a 11° grado · Mixto</li>
-              <li><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Entrenador: Prof. Selvin Ramírez</li>
-            </ul>
-          </div>
-        </div>
+      <div class="trophy-card reveal reveal-up" style="--stagger:120ms">
+        <span class="trophy-icon"><i class="fas fa-ranking-star" aria-hidden="true"></i></span>
+        <div><h3>Semifinalistas — Secretaría de Educación</h3><p>Eliminados por penales ante el equipo que luego se coronaría campeón del torneo.</p><span class="trophy-tag">2018–2019</span></div>
       </div>
-
-      <div class="mb-8 flex items-center gap-3 reveal">
-        <span class="px-3 py-1 rounded-full bg-secondary/20 text-secondary font-bold text-xs uppercase tracking-wide">Actividades formativas</span>
-        <span class="text-gray-400 text-xs">Espacios de práctica abiertos a toda la comunidad estudiantil</span>
+      <div class="trophy-card reveal reveal-up">
+        <span class="trophy-icon"><i class="fas fa-futbol" aria-hidden="true"></i></span>
+        <div><h3>1º de grupo — Semana de la Juventud</h3><p>Bachillerato masculino, con goleadas de hasta 9-0 antes de caer en cuartos de final por penales.</p><span class="trophy-tag">2026</span></div>
       </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-basketball"></i></div>
-          <h3 class="font-extrabold text-lg text-gray-900">Baloncesto</h3>
-          <p class="text-gray-600 text-sm mt-2 mb-3">Juegos internos entre secciones que desarrollan agilidad, estrategia y trabajo en equipo.</p>
-          <p class="text-xs text-gray-500"><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Encargado: Prof. Danilo Reyes</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-person-running"></i></div>
-          <h3 class="font-extrabold text-lg text-gray-900">Atletismo y Campo Traviesa</h3>
-          <p class="text-gray-600 text-sm mt-2 mb-3">Carreras de resistencia y pruebas de pista que se realizan en los caminos aledaños al instituto.</p>
-          <p class="text-xs text-gray-500"><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Encargado: Prof. Óscar Villeda</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-chess"></i></div>
-          <h3 class="font-extrabold text-lg text-gray-900">Ajedrez</h3>
-          <p class="text-gray-600 text-sm mt-2 mb-3">Club deportivo-formativo que participa en encuentros internos durante los recreos y horas libres.</p>
-          <p class="text-xs text-gray-500"><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Encargada: Prof.ª Karen Zelaya</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
-          <h3 class="font-extrabold text-lg text-gray-900">Tenis de Mesa</h3>
-          <p class="text-gray-600 text-sm mt-2 mb-3">Actividad recreativa muy popular entre estudiantes, con torneos internos cada semestre.</p>
-          <p class="text-xs text-gray-500"><i class="fa-regular fa-chalkboard-user text-primary mr-1"></i> Encargado: Prof. Elmer Padilla</p>
-        </div>
+      <div class="trophy-card reveal reveal-up" style="--stagger:60ms">
+        <span class="trophy-icon"><i class="fas fa-flag-checkered" aria-hidden="true"></i></span>
+        <div><h3>Cuartos de final — CODICADER</h3><p>La selección femenina avanzó hasta los cuartos de final del torneo organizado por la Secretaría de Educación.</p><span class="trophy-tag">2026</span></div>
+      </div>
+      <div class="trophy-card reveal reveal-up" style="--stagger:120ms">
+        <span class="trophy-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+        <div><h3>III Copa Amistad — en preparación</h3><p>El torneo propio del instituto, nacido en 2024, se prepara para su tercera edición como evento insignia del fútbol femenino escolar.</p><span class="trophy-tag">Próximamente</span></div>
       </div>
     </div>
-  </section>
 
-  <!-- INSTALACIONES -->
-  <section id="instalaciones" class="section bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Espacios Deportivos</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Instalaciones deportivas</h2>
-        <p class="text-gray-500 text-sm mt-2">Los espacios donde entrenan y compiten nuestros equipos representativos.</p>
+    <div class="reveal reveal-up" style="max-width:44rem;margin:2.5rem auto 0;text-align:center;padding:1.5rem;border:1px dashed rgba(255,255,255,.25);border-radius:1.25rem;">
+      <i class="fas fa-graduation-cap" aria-hidden="true" style="color:var(--color-dorado-vivo);font-size:1.4rem;"></i>
+      <p style="margin:.6rem auto 0;color:#DCE1F5;font-size:.9rem;">Varios egresados del instituto han dado el salto al fútbol profesional. La prueba de que el deporte escolar no solo forma equipos: también abre puertas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACTO 5 — PERFILES DEL EQUIPO TÉCNICO ============ -->
+<section class="section" id="equipo-tecnico">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">Quiénes lo hacen posible</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">El equipo detrás de cada triunfo</h2>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card reveal reveal-up">
+        <img class="staff-photo" src="img.png/manuel pineda.jpg" alt="Prof. Manuel Pineda" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;MP&lt;/div&gt;'">
+        <h3>Prof. Manuel Pineda</h3>
+        <span class="staff-role">Educación Artística · Asistente técnico de fútbol</span>
+        <p class="staff-bio">Su relación con el fútbol nació en la infancia: el balón era, muchas veces, la razón para no faltar a la escuela. Hoy acompaña técnicamente a las selecciones masculina y femenina, y todavía juega en el equipo de profesores del instituto.</p>
+        <p class="staff-quote">"El deporte es salud."</p>
       </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card border-gray-200 overflow-hidden p-0 reveal">
-          <div class="h-44 overflow-hidden">
-            <img src="img.png/4kg06wXk.jpg" alt="Cancha de fútbol sintética" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-          </div>
-          <div class="p-6">
-            <h3 class="font-extrabold text-gray-900">Cancha de Fútbol</h3>
-            <p class="text-gray-600 text-sm mt-2">Superficie de grama sintética utilizada para entrenamientos y torneos intercolegiales.</p>
-            <p class="text-xs text-primary font-bold mt-3 uppercase tracking-wide">Fútbol · Encuentros oficiales</p>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 overflow-hidden p-0 reveal">
-          <div class="h-44 overflow-hidden">
-            <img src="img.png/9bV5gKNz.jpg" alt="Cancha multiusos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-          </div>
-          <div class="p-6">
-            <h3 class="font-extrabold text-gray-900">Cancha Multiusos</h3>
-            <p class="text-gray-600 text-sm mt-2">Espacio versátil donde se practican fútbol sala, baloncesto y voleibol según el horario.</p>
-            <p class="text-xs text-primary font-bold mt-3 uppercase tracking-wide">Fútbol sala · Baloncesto · Voleibol</p>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 overflow-hidden p-0 reveal">
-          <div class="h-44 overflow-hidden">
-            <img src="img.png/EKXvP2hO.jpg" alt="Ruta de atletismo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-          </div>
-          <div class="p-6">
-            <h3 class="font-extrabold text-gray-900">Ruta de Atletismo</h3>
-            <p class="text-gray-600 text-sm mt-2">Camino natural en los alrededores del instituto, utilizado para carreras y entrenamiento de resistencia.</p>
-            <p class="text-xs text-primary font-bold mt-3 uppercase tracking-wide">Atletismo · Campo traviesa</p>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 p-6 flex flex-col justify-center reveal">
-          <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-chess-board"></i></div>
-          <h3 class="font-extrabold text-gray-900">Área Recreativa</h3>
-          <p class="text-gray-600 text-sm mt-2">Espacios techados usados para ajedrez, tenis de mesa y actividades bajo techo en días de lluvia.</p>
-          <p class="text-xs text-primary font-bold mt-3 uppercase tracking-wide">Ajedrez · Tenis de mesa</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 flex flex-col justify-center sm:col-span-2 lg:col-span-1 reveal">
-          <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-dumbbell"></i></div>
-          <h3 class="font-extrabold text-gray-900">Área de Entrenamiento</h3>
-          <p class="text-gray-600 text-sm mt-2">Zona destinada al acondicionamiento físico previo a torneos y jornadas deportivas.</p>
-          <p class="text-xs text-primary font-bold mt-3 uppercase tracking-wide">Preparación física general</p>
-        </div>
+      <div class="staff-card reveal reveal-up" style="--stagger:60ms">
+        <img class="staff-photo" src="img.png/Ada Lizeth Ordóñez.png" alt="Prof.ª Ada Lizeth Ordóñez Martínez" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;AO&lt;/div&gt;'">
+        <h3>Prof.ª Ada Lizeth Ordóñez</h3>
+        <span class="staff-role">Español · Directora de Fútbol Femenino</span>
+        <p class="staff-bio">Impulsora del fútbol femenino desde sus primeros pasos, después de que una estudiante preguntara por qué solo los varones representaban al instituto. De esa inquietud nació un equipo que hoy compite y gana.</p>
+        <p class="staff-quote">"Ser mujer no debe representar una limitación para participar en el deporte."</p>
+      </div>
+      <div class="staff-card reveal reveal-up" style="--stagger:120ms">
+        <img class="staff-photo" src="img.png/Santiago Funez.png" alt="Prof. Santiago Humberto Fúnez Zúniga" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;SF&lt;/div&gt;'">
+        <h3>Prof. Santiago Fúnez</h3>
+        <span class="staff-role">Educación Física · Colaborador histórico</span>
+        <p class="staff-bio">Parte del cuerpo técnico que ha acompañado al fútbol masculino torneo tras torneo, aportando la constancia que llevó al equipo de los recreos hasta las semifinales y el subcampeonato interinstitucional.</p>
+      </div>
+      <div class="staff-card reveal reveal-up">
+        <div class="staff-avatar">W</div>
+        <h3>Prof. Wilmer</h3>
+        <span class="staff-role">Colaborador del área deportiva</span>
+        <p class="staff-bio">Parte del equipo docente que, junto a los profesores Pineda y Fúnez, sostiene la preparación de las selecciones de fútbol del instituto.</p>
+      </div>
+      <div class="staff-card reveal reveal-up" style="--stagger:60ms">
+        <img class="staff-photo" src="img.png/Juan Izaguirre.png" alt="Subdirector Juan Andrés Izaguirre Gonzáles" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;JI&lt;/div&gt;'">
+        <h3>Subdir. Juan Izaguirre</h3>
+        <span class="staff-role">Subdirección · Logística y transporte</span>
+        <p class="staff-bio">Detrás de cada viaje a un torneo hay una gestión de transporte y permisos. El subdirector Izaguirre es quien hace posible que los equipos lleguen a competir fuera del instituto.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ACTIVIDADES -->
-  <section id="actividades" class="section-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest">Vida Deportiva</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Actividades y proyectos</h2>
-        <p class="text-gray-400 text-sm mt-2">Jornadas y torneos que dinamizan el calendario deportivo institucional.</p>
+<!-- ============ ACTO 6 — TESTIMONIOS ============ -->
+<section class="section section-alt" id="testimonios">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">En sus palabras</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">Lo que el deporte les ha enseñado</h2>
+    </div>
+
+    <div class="carousel reveal reveal-up" role="region" aria-roledescription="carrusel" aria-label="Testimonios del área deportiva">
+      <button type="button" class="carousel-arrow prev" id="carPrev" aria-label="Testimonio anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+      <button type="button" class="carousel-arrow next" id="carNext" aria-label="Testimonio siguiente"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carTrack">
+          <div class="carousel-slide"><div class="testimonial-card">
+            <i class="fas fa-quote-left" aria-hidden="true"></i>
+            <p class="quote">Un estudiante que pertenece a un cuadro deportivo también debe sostener su rendimiento académico y su conducta. El deporte ordena la vida escolar tanto como la física.</p>
+            <p class="author">Prof. Manuel Pineda</p><p class="role">Asistente técnico de fútbol</p>
+          </div></div>
+          <div class="carousel-slide"><div class="testimonial-card">
+            <i class="fas fa-quote-left" aria-hidden="true"></i>
+            <p class="quote">El fútbol lo acompañó desde niño, y muchas veces fue la razón para no faltar a clases. Hoy, ya como docente, sigue jugando — esta vez con el uniforme del equipo de profesores del instituto.</p>
+            <p class="author">Prof. Manuel Pineda</p><p class="role">Asistente técnico de fútbol</p>
+          </div></div>
+          <div class="carousel-slide"><div class="testimonial-card">
+            <i class="fas fa-quote-left" aria-hidden="true"></i>
+            <p class="quote">Ser mujer no debe representar una limitación para participar en el deporte. El fútbol femenino nació de la inquietud de una sola estudiante, y hoy es un equipo que compite de igual a igual.</p>
+            <p class="author">Prof.ª Ada Lizeth Ordóñez</p><p class="role">Directora de Fútbol Femenino</p>
+          </div></div>
+          <div class="carousel-slide"><div class="testimonial-card">
+            <i class="fas fa-quote-left" aria-hidden="true"></i>
+            <p class="quote">A pesar de una cancha sin techo y de tantas limitaciones, la entrega de estas jugadoras nunca ha estado en duda. Ese compromiso es, quizás, el verdadero trofeo.</p>
+            <p class="author">Prof.ª Ada Lizeth Ordóñez</p><p class="role">Directora de Fútbol Femenino</p>
+          </div></div>
+        </div>
       </div>
+      <div class="carousel-dots" id="carDots"></div>
+    </div>
+  </div>
+</section>
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="card bg-white/5 border border-white/10 p-0 overflow-hidden grid sm:grid-cols-5 text-white reveal">
-          <div class="sm:col-span-2 h-48 sm:h-full">
-            <img src="img.png/Kqzxz5up.jpg" alt="Torneo intercolegial de fútbol" class="w-full h-full object-cover">
-          </div>
-          <div class="sm:col-span-3 p-6">
-            <span class="inline-block bg-secondary/20 text-secondary text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2">Realizado</span>
-            <h3 class="font-extrabold text-lg">Torneo Intercolegial de Fútbol</h3>
-            <p class="text-gray-400 text-sm mt-2 mb-3">Encuentro entre institutos de la zona, disputado en la cancha sintética del instituto.</p>
-            <ul class="text-xs text-gray-400 space-y-1">
-              <li><i class="fa-regular fa-calendar text-secondary mr-1"></i> Marzo 2026 · Cancha de Fútbol</li>
-              <li><i class="fa-regular fa-user text-secondary mr-1"></i> Categoría juvenil masculina</li>
-              <li><i class="fa-regular fa-trophy text-secondary mr-1"></i> Resultado: 3er lugar</li>
-            </ul>
-          </div>
+<!-- ============ ACTO 7 — PRÓXIMAS COMPETENCIAS ============ -->
+<section class="section" id="agenda">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-4 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">Agenda deportiva</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">Próximas competencias</h2>
+      <p class="mx-auto text-slate-600 mt-2">Actividad competitiva de febrero a noviembre, con participación aproximadamente mensual.</p>
+    </div>
+    <div class="fixture-grid mt-8">
+      <div class="fixture-card reveal reveal-up">
+        <div class="fixture-teams">
+          <div class="fixture-team"><span class="fixture-crest">FM</span><span>Sel. Femenina IGTFM</span></div>
+          <span class="fixture-vs">VS</span>
+          <div class="fixture-team"><span class="fixture-crest rival"><i class="fas fa-shield-halved" aria-hidden="true"></i></span><span>Faita Academy</span></div>
         </div>
-
-        <div class="card bg-white/5 border border-white/10 p-0 overflow-hidden grid sm:grid-cols-5 text-white reveal">
-          <div class="sm:col-span-2 h-48 sm:h-full">
-            <img src="img.png/9bV5gKNz.jpg" alt="Encuentro amistoso femenino" class="w-full h-full object-cover">
-          </div>
-          <div class="sm:col-span-3 p-6">
-            <span class="inline-block bg-secondary/20 text-secondary text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2">Realizado</span>
-            <h3 class="font-extrabold text-lg">Encuentro Amistoso Femenino</h3>
-            <p class="text-gray-400 text-sm mt-2 mb-3">Partido de preparación entre secciones para definir la base del equipo representativo.</p>
-            <ul class="text-xs text-gray-400 space-y-1">
-              <li><i class="fa-regular fa-calendar text-secondary mr-1"></i> Abril 2026 · Cancha Multiusos</li>
-              <li><i class="fa-regular fa-user text-secondary mr-1"></i> Categoría juvenil femenina</li>
-              <li><i class="fa-regular fa-trophy text-secondary mr-1"></i> Resultado: Empate 2-2</li>
-            </ul>
-          </div>
+        <div class="fixture-meta"><span class="fixture-badge">Categoría U15</span><span>Fútbol femenino</span></div>
+      </div>
+      <div class="fixture-card reveal reveal-up" style="--stagger:60ms">
+        <div class="fixture-teams">
+          <div class="fixture-team"><span class="fixture-crest">FM</span><span>Sel. Femenina IGTFM</span></div>
+          <span class="fixture-vs">VS</span>
+          <div class="fixture-team"><span class="fixture-crest rival"><i class="fas fa-shield-halved" aria-hidden="true"></i></span><span>IER</span></div>
         </div>
-
-        <div class="card bg-white/5 border border-white/10 p-0 overflow-hidden grid sm:grid-cols-5 text-white reveal">
-          <div class="sm:col-span-2 h-48 sm:h-full">
-            <img src="img.png/QKxqHGau.jpg" alt="Copa institucional" class="w-full h-full object-cover">
-          </div>
-          <div class="sm:col-span-3 p-6">
-            <span class="inline-block bg-secondary/20 text-secondary text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2">Destacado</span>
-            <h3 class="font-extrabold text-lg">Copa Institucional</h3>
-            <p class="text-gray-400 text-sm mt-2 mb-3">Torneo por eliminación directa entre las secciones del instituto, uno de los eventos más esperados del año.</p>
-            <ul class="text-xs text-gray-400 space-y-1">
-              <li><i class="fa-regular fa-calendar text-secondary mr-1"></i> Mayo 2026 · Cancha de Fútbol</li>
-              <li><i class="fa-regular fa-user text-secondary mr-1"></i> Todas las secciones</li>
-              <li><i class="fa-regular fa-trophy text-secondary mr-1"></i> Resultado: Campeón 9° "B"</li>
-            </ul>
-          </div>
+        <div class="fixture-meta"><span class="fixture-badge">Interinstitucional</span><span>Fútbol femenino</span></div>
+      </div>
+      <div class="fixture-card destacado reveal reveal-up" style="--stagger:120ms">
+        <div class="fixture-teams">
+          <div class="fixture-team"><span class="fixture-crest"><i class="fas fa-trophy" aria-hidden="true"></i></span><span>III Copa Amistad</span></div>
+          <span class="fixture-vs">·</span>
+          <div class="fixture-team"><span class="fixture-crest rival"><i class="fas fa-futbol" aria-hidden="true"></i></span><span>Fútbol Femenino</span></div>
         </div>
-
-        <div class="card bg-white/5 border border-white/10 p-0 overflow-hidden grid sm:grid-cols-5 text-white reveal">
-          <div class="sm:col-span-2 h-48 sm:h-full">
-            <img src="img.png/qnjMMoDZ.jpg" alt="Festival deportivo" class="w-full h-full object-cover">
-          </div>
-          <div class="sm:col-span-3 p-6">
-            <span class="inline-block bg-blue-500/20 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2">Próximamente</span>
-            <h3 class="font-extrabold text-lg">Festival Deportivo de Fin de Semestre</h3>
-            <p class="text-gray-400 text-sm mt-2 mb-3">Jornada recreativa con múltiples disciplinas, pensada para cerrar el semestre con toda la comunidad estudiantil.</p>
-            <ul class="text-xs text-gray-400 space-y-1">
-              <li><i class="fa-regular fa-calendar text-secondary mr-1"></i> Noviembre 2026 · Todas las instalaciones</li>
-              <li><i class="fa-regular fa-user text-secondary mr-1"></i> Toda la comunidad estudiantil</li>
-            </ul>
-          </div>
+        <div class="fixture-meta"><span class="fixture-badge">Categoría U16</span><span>Mediados de octubre</span></div>
+        <div class="countdown" id="countdown" data-target="2026-10-15T09:00:00-06:00">
+          <div class="countdown-box"><strong id="cdDias">00</strong><small>días</small></div>
+          <div class="countdown-box"><strong id="cdHoras">00</strong><small>horas</small></div>
+          <div class="countdown-box"><strong id="cdMin">00</strong><small>min</small></div>
         </div>
+        <p class="text-xs text-muted text-center mt-2">Fecha estimada de la 3ª edición, organizada por el propio instituto · sujeta a confirmación</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CALENDARIO -->
-  <section id="calendario" class="section bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Agenda</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Calendario deportivo</h2>
-        <p class="text-gray-500 text-sm mt-2">Todas las fechas son ficticias y sirven únicamente como referencia para este prototipo.</p>
+<!-- ============ ACTO 8 — DISCIPLINAS Y CATEGORÍAS ============ -->
+<section class="section section-alt" id="disciplinas">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal reveal-up">
+      <span class="kicker" style="justify-content:center;">Disciplinas y categorías</span>
+      <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">Un lugar para cada talento</h2>
+    </div>
+    <div class="discipline-grid">
+      <div class="discipline-card reveal reveal-up"><span class="discipline-icon"><i class="fas fa-futbol" aria-hidden="true"></i></span><h3>Fútbol masculino</h3><p>Ciclo básico y bachillerato · U15/U17 según torneo</p></div>
+      <div class="discipline-card reveal reveal-up" style="--stagger:40ms"><span class="discipline-icon"><i class="fas fa-futbol" aria-hidden="true"></i></span><h3>Fútbol femenino</h3><p>Ciclo básico y bachillerato · referente del instituto</p></div>
+      <div class="discipline-card reveal reveal-up" style="--stagger:80ms"><span class="discipline-icon"><i class="fas fa-basketball" aria-hidden="true"></i></span><h3>Baloncesto</h3><p>Cuadro representativo institucional</p></div>
+      <div class="discipline-card reveal reveal-up" style="--stagger:120ms"><span class="discipline-icon"><i class="fas fa-volleyball" aria-hidden="true"></i></span><h3>Voleibol</h3><p>Cuadro representativo institucional</p></div>
+      <div class="discipline-card reveal reveal-up" style="--stagger:160ms"><span class="discipline-icon"><i class="fas fa-person-running" aria-hidden="true"></i></span><h3>Atletismo</h3><p>CODICADER y torneos interinstitucionales</p></div>
+      <div class="discipline-card reveal reveal-up" style="--stagger:200ms"><span class="discipline-icon"><i class="fas fa-chess"></i></span><h3>Ajedrez y Tenis de Mesa</h3><p>Se trabajan en Educación Física</p></div>
+    </div>
+    <div class="reveal reveal-up mt-10" style="max-width:52rem;margin-left:auto;margin-right:auto;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.75rem;">
+      <h3 class="text-base font-extrabold mb-2"><i class="fas fa-route" aria-hidden="true" style="color:var(--color-vino);margin-right:.4rem;"></i>¿Cómo se llega a un cuadro deportivo?</h3>
+      <p class="text-sm text-slate-600">La participación es <strong>voluntaria</strong>. El talento se detecta en las clases de Educación Física, y pertenecer a una selección exige mantener buen rendimiento académico y buena conducta — una condición que da tranquilidad tanto a los padres de familia como a las autoridades del instituto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACTO 9 — INSTALACIONES Y FUTURO ============ -->
+<section class="section" id="instalaciones">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+      <div class="reveal reveal-left" style="border-radius:1.5rem;overflow:hidden;box-shadow:var(--shadow-lg);">
+        <img src="imagenes/cancha-multiusos.jpg" alt="Cancha de usos múltiples del instituto, con estudiantes en clase de Educación Física y montañas de fondo" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
       </div>
-
-      <div class="grid lg:grid-cols-2 gap-8">
-        <div class="reveal">
-          <div class="flex items-center gap-3 mb-5">
-            <div class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center"><i class="fa-regular fa-calendar-days"></i></div>
-            <h3 class="font-extrabold text-xl text-gray-900">Próximamente</h3>
-          </div>
-
-          <div class="space-y-3">
-            <div class="card border-gray-200 p-5 flex items-center justify-between gap-4">
-              <div>
-                <span class="block font-bold text-gray-900 text-sm">Festival Deportivo de Fin de Semestre</span>
-                <span class="block text-xs text-gray-500 mt-1">Todas las instalaciones · Toda la comunidad</span>
-              </div>
-              <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full whitespace-nowrap">14 Nov</span>
-            </div>
-
-            <div class="card border-gray-200 p-5 flex items-center justify-between gap-4">
-              <div>
-                <span class="block font-bold text-gray-900 text-sm">Encuentro Amistoso vs. Instituto San Rafael</span>
-                <span class="block text-xs text-gray-500 mt-1">Cancha de Fútbol · Juvenil masculino</span>
-              </div>
-              <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full whitespace-nowrap">21 Nov</span>
-            </div>
-
-            <div class="card border-gray-200 p-5 flex items-center justify-between gap-4">
-              <div>
-                <span class="block font-bold text-gray-900 text-sm">Campeonato Interno de Voleibol</span>
-                <span class="block text-xs text-gray-500 mt-1">Cancha Multiusos · Mixto</span>
-              </div>
-              <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full whitespace-nowrap">28 Nov</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="flex items-center gap-3 mb-5">
-            <div class="w-10 h-10 rounded-lg bg-gray-700 text-secondary flex items-center justify-center"><i class="fa-regular fa-check-double"></i></div>
-            <h3 class="font-extrabold text-xl text-gray-900">Eventos realizados</h3>
-          </div>
-
-          <div class="space-y-3">
-            <div class="card border-gray-200 p-5 flex items-center justify-between gap-4 bg-gray-50">
-              <div>
-                <span class="block font-bold text-gray-900 text-sm">Copa Institucional</span>
-                <span class="block text-xs text-gray-500 mt-1">Campeón: 9° "B"</span>
-              </div>
-              <span class="text-xs font-bold text-gray-500 bg-gray-200 px-3 py-1.5 rounded-full whitespace-nowrap">May 2026</span>
-            </div>
-
-            <div class="card border-gray-200 p-5 flex items-center justify-between gap-4 bg-gray-50">
-              <div>
-                <span class="block font-bold text-gray-900 text-sm">Encuentro Amistoso Femenino</span>
-                <span class="block text-xs text-gray-500 mt-1">Resultado: Empate 2-2</span>
-              </div>
-              <span class="text-xs font-bold text-gray-500 bg-gray-200 px-3 py-1.5 rounded-full whitespace-nowrap">Abr 2026</span>
-            </div>
-
-            <div class="card border-gray-200 p-5 flex items-center justify-between gap-4 bg-gray-50">
-              <div>
-                <span class="block font-bold text-gray-900 text-sm">Torneo Intercolegial de Fútbol</span>
-                <span class="block text-xs text-gray-500 mt-1">Resultado: 3er lugar</span>
-              </div>
-              <span class="text-xs font-bold text-gray-500 bg-gray-200 px-3 py-1.5 rounded-full whitespace-nowrap">Mar 2026</span>
-            </div>
-          </div>
-        </div>
+      <div class="reveal reveal-right">
+        <span class="kicker">Instalaciones y futuro</span>
+        <h2 class="mt-3 mb-4" style="font-size:clamp(1.5rem,3vw,2rem);">Con lo que tenemos, mirando hacia más</h2>
+        <p class="text-slate-600 text-sm mb-3">Todos los equipos comparten una sola <strong>cancha de usos múltiples</strong>, de piso rústico, que también recibe los eventos institucionales del año. Los espacios aledaños se aprovechan para las prácticas de atletismo.</p>
+        <p class="text-slate-600 text-sm">Es una instalación honesta, no perfecta — y ese es, precisamente, el punto de partida de lo que viene.</p>
       </div>
     </div>
-  </section>
 
-  <!-- GALERÍA -->
-  <section id="galeria" class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Nuestros Momentos</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Galería multimedia</h2>
-        <p class="text-gray-500 text-sm mt-2">Partidos, entrenamientos, torneos y celebraciones que reflejan la vida deportiva del instituto.</p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/QKxqHGau.jpg" alt="Torneos" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Jornada de torneo intercolegial</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/4kg06wXk.jpg" alt="Partido en cancha sintética" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Partido en cancha sintética</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/9bV5gKNz.jpg" alt="Futsal femenino" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Futsal femenino</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/EKXvP2hO.jpg" alt="Carrera de campo traviesa" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Carrera de campo traviesa</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/VVXoas7H.jpg" alt="Práctica de voleibol" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Práctica de voleibol</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/Kqzxz5up.jpg" alt="Equipo de fútbol masculino" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Equipo de fútbol masculino</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/O3ISycm8.jpg" alt="Equipo de fútbol femenino" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Equipo de fútbol femenino</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/qnjMMoDZ.jpg" alt="Selección de sección" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Selección de sección</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/YhPK6v3r.jpg" alt="Celebración" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">¡Celebrando el título!</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56">
-          <img src="img.png/4kg06wXk.jpg" alt="Dirección técnica" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Dirección técnica en cancha</figcaption>
-        </figure>
-
-        <figure class="reveal relative rounded-lg overflow-hidden border border-gray-200 shadow-sm h-56 md:col-span-2 lg:col-span-2">
-          <img src="img.png/9bV5gKNz.jpg" alt="Cancha multiusos" class="w-full h-full object-cover">
-          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-gray-900/80 to-transparent p-3 text-xs font-semibold text-white">Cancha multiusos del instituto</figcaption>
-        </figure>
-      </div>
-
-      <div class="reveal mt-8 card border-gray-200 p-6 flex items-center gap-4 bg-gray-50">
-        <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i class="fa-regular fa-video"></i></div>
-        <p class="text-sm text-gray-600">Próximamente incorporaremos videos de partidos y jornadas destacadas en esta sección.</p>
-      </div>
+    <div class="text-center max-w-xl mx-auto mb-8 reveal reveal-up">
+      <h3 style="font-size:1.3rem;">El futuro que se está construyendo</h3>
     </div>
-  </section>
-
-  <!-- BENEFICIOS -->
-  <section id="beneficios" class="section bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Por qué importa</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Beneficios e impacto</h2>
-        <p class="text-gray-500 text-sm mt-2">El deporte deja huella mucho más allá del marcador.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3"><i class="fa-solid fa-heart-pulse"></i></div>
-          <h4 class="font-extrabold text-gray-900">Salud</h4>
-          <p class="text-sm text-gray-600 mt-1">Promueve la actividad física y hábitos saludables desde temprana edad.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3"><i class="fa-regular fa-clock"></i></div>
-          <h4 class="font-extrabold text-gray-900">Disciplina</h4>
-          <p class="text-sm text-gray-600 mt-1">Fortalece la constancia, la responsabilidad y el compromiso con los horarios de entrenamiento.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3"><i class="fa-solid fa-people-group"></i></div>
-          <h4 class="font-extrabold text-gray-900">Trabajo en equipo</h4>
-          <p class="text-sm text-gray-600 mt-1">Desarrolla cooperación, comunicación y respeto por el rol de cada compañero.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3"><i class="fa-regular fa-flag"></i></div>
-          <h4 class="font-extrabold text-gray-900">Liderazgo</h4>
-          <p class="text-sm text-gray-600 mt-1">Ayuda a desarrollar iniciativa, toma de decisiones y capacidad de motivar a otros.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3"><i class="fa-regular fa-handshake"></i></div>
-          <h4 class="font-extrabold text-gray-900">Convivencia</h4>
-          <p class="text-sm text-gray-600 mt-1">Favorece la integración entre secciones, grados y jornadas del instituto.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 reveal">
-          <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3"><i class="fa-regular fa-face-smile"></i></div>
-          <h4 class="font-extrabold text-gray-900">Bienestar</h4>
-          <p class="text-sm text-gray-600 mt-1">Contribuye al equilibrio físico y emocional de los estudiantes fuera del aula.</p>
-        </div>
-      </div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <div class="future-card reveal reveal-up"><span class="estado"><i class="fas fa-gear" aria-hidden="true"></i> En gestión</span><h4 class="font-extrabold text-sm mb-1">Techado de la cancha</h4><p class="text-xs text-slate-600">En proceso junto a la municipalidad, para que la lluvia deje de decidir cuándo se juega.</p></div>
+      <div class="future-card reveal reveal-up" style="--stagger:60ms"><span class="estado"><i class="fas fa-gear" aria-hidden="true"></i> Proyectado</span><h4 class="font-extrabold text-sm mb-1">Construcción de graderías</h4><p class="text-xs text-slate-600">Un espacio digno para que las familias acompañen cada partido de cerca.</p></div>
+      <div class="future-card reveal reveal-up" style="--stagger:120ms"><span class="estado"><i class="fas fa-gear" aria-hidden="true"></i> Proyectado</span><h4 class="font-extrabold text-sm mb-1">Remodelación del salón de usos múltiples</h4><p class="text-xs text-slate-600">Más espacio para entrenar, premiar y celebrar cada logro del área.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- LOGROS -->
-  <section id="logros" class="section-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 items-center mb-12">
-        <div class="lg:col-span-6 reveal">
-          <span class="text-secondary font-bold text-xs uppercase tracking-widest">Orgullo Institucional</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Nuestros logros</h2>
-          <p class="text-gray-400 text-sm mt-2">Reconocimientos hipotéticos que ilustran el tipo de trayectoria que el área deportiva busca construir.</p>
-        </div>
+<!-- ============ ACTO 10 — CIERRE ============ -->
+<section class="section section-dark" id="cierre" style="text-align:center;">
+  <div class="max-w-3xl mx-auto px-5 reveal reveal-zoom">
+    <i class="fas fa-heart-circle-check" aria-hidden="true" style="color:var(--color-dorado-vivo);font-size:2.2rem;"></i>
+    <h2 class="mt-4 mb-4" style="font-size:clamp(1.7rem,4vw,2.4rem);">El deporte forma personas, no solo atletas</h2>
+    <p style="color:#DCE1F5;font-size:1.05rem;max-width:38rem;margin:0 auto 2rem;">Todos los grados pueden participar. Estés en el instituto o estés por llegar, hay un cuadro deportivo esperando por vos: solo hace falta ganas de sumarte.</p>
+    <a href="oferta_academica.html" class="btn btn-secondary btn-lg">Quiero ser parte del instituto</a>
+  </div>
+</section>
 
-        <div class="lg:col-span-6 reveal">
-          <figure class="rounded-xl overflow-hidden border border-gray-800 shadow-sm">
-            <img src="img.png/YhPK6v3r.jpg" alt="Celebración de campeonato" class="w-full h-64 object-cover">
-            <figcaption class="p-4 bg-gray-900/80 text-xs text-gray-400 border-t border-gray-800 flex items-center gap-2">
-              <i class="fa-solid fa-trophy text-secondary"></i> Estudiantes celebrando un título del campeonato interno.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
+</main>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="card bg-white/5 border border-white/10 p-6 text-white reveal">
-          <i class="fa-solid fa-medal text-2xl text-secondary mb-3"></i>
-          <span class="block text-xs font-bold text-secondary uppercase">2026 — Fútbol</span>
-          <h4 class="font-extrabold mt-1">Campeones de la Copa Institucional</h4>
-          <p class="text-xs text-gray-400 mt-1">Categoría juvenil masculina · 9° "B"</p>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 p-6 text-white reveal">
-          <i class="fa-solid fa-medal text-2xl text-gray-400 mb-3"></i>
-          <span class="block text-xs font-bold text-secondary uppercase">2025 — Fútbol Femenino</span>
-          <h4 class="font-extrabold mt-1">Subcampeonas intercolegiales</h4>
-          <p class="text-xs text-gray-400 mt-1">Categoría juvenil femenina</p>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 p-6 text-white reveal">
-          <i class="fa-solid fa-medal text-2xl text-amber-700 mb-3"></i>
-          <span class="block text-xs font-bold text-secondary uppercase">2024 — Atletismo</span>
-          <h4 class="font-extrabold mt-1">Participación destacada regional</h4>
-          <p class="text-xs text-gray-400 mt-1">Carrera de campo traviesa municipal</p>
-        </div>
-
-        <div class="card bg-white/5 border border-white/10 p-6 text-white reveal">
-          <i class="fa-solid fa-medal text-2xl text-secondary mb-3"></i>
-          <span class="block text-xs font-bold text-secondary uppercase">2023 — Voleibol</span>
-          <h4 class="font-extrabold mt-1">Primer lugar campeonato interno</h4>
-          <p class="text-xs text-gray-400 mt-1">Categoría mixta</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section id="testimonios" class="section bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Voces del Instituto</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Testimonios</h2>
-        <p class="text-gray-500 text-sm mt-2">Lo que el deporte representa para quienes lo viven día a día.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="card border-gray-200 p-6 flex flex-col reveal">
-          <i class="fa-regular fa-quote-left text-primary text-xl mb-3"></i>
-          <p class="text-sm text-gray-600 leading-relaxed flex-grow">"Representar al instituto me enseñó que el esfuerzo de todo el equipo vale más que el esfuerzo individual."</p>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <span class="block font-bold text-gray-900 text-sm">Carlos Martínez</span>
-            <span class="text-xs text-gray-500">Estudiante, 11° grado</span>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 p-6 flex flex-col reveal">
-          <i class="fa-regular fa-quote-left text-primary text-xl mb-3"></i>
-          <p class="text-sm text-gray-600 leading-relaxed flex-grow">"Jugar en el equipo femenino me dio confianza para hablar en público y liderar dentro y fuera de la cancha."</p>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <span class="block font-bold text-gray-900 text-sm">Génesis Alvarado</span>
-            <span class="text-xs text-gray-500">Estudiante, 10° grado</span>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 p-6 flex flex-col reveal">
-          <i class="fa-regular fa-quote-left text-primary text-xl mb-3"></i>
-          <p class="text-sm text-gray-600 leading-relaxed flex-grow">"Los estudiantes que participan en deportes suelen mostrar mayor disciplina también en el aula. Es una inversión que vale la pena."</p>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <span class="block font-bold text-gray-900 text-sm">Prof.ª Marlene Sosa</span>
-            <span class="text-xs text-gray-500">Docente de Ciencias Naturales</span>
-          </div>
-        </div>
-
-        <div class="card border-gray-200 p-6 flex flex-col reveal">
-          <i class="fa-regular fa-quote-left text-primary text-xl mb-3"></i>
-          <p class="text-sm text-gray-600 leading-relaxed flex-grow">"Cada torneo es una oportunidad para que los muchachos entiendan que perder también enseña, si se hace con actitud."</p>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <span class="block font-bold text-gray-900 text-sm">Prof. Manuel Osorto</span>
-            <span class="text-xs text-gray-500">Entrenador de Fútbol</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EQUIPO -->
-  <section id="equipo" class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Quiénes lo hacen posible</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Equipo deportivo</h2>
-        <p class="text-gray-500 text-sm mt-2">Docentes y entrenadores que impulsan la formación deportiva del instituto.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="card border-gray-200 p-6 text-center reveal">
-          <div class="w-28 h-28 mx-auto rounded-lg overflow-hidden border-2 border-gray-200 mb-4">
-            <img src="img.png/Santiago_Funez.png" alt="Santiago Humberto Fúnez Zúñiga" class="w-full h-full object-cover">
-          </div>
-          <h3 class="font-extrabold text-gray-900">Santiago Humberto Fúnez Zúñiga</h3>
-          <span class="block text-xs font-bold text-primary uppercase tracking-wide mt-1">Coordinador Deportivo</span>
-          <p class="text-sm text-gray-600 mt-3">Impulsa con dedicación la organización y supervisión de las actividades deportivas del instituto.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 text-center reveal">
-          <div class="w-28 h-28 mx-auto rounded-lg bg-primary/10 text-primary flex items-center justify-center text-3xl mb-4"><i class="fa-solid fa-futbol"></i></div>
-          <h3 class="font-extrabold text-gray-900">Manuel Osorto</h3>
-          <span class="block text-xs font-bold text-primary uppercase tracking-wide mt-1">Entrenador de Fútbol Masculino</span>
-          <p class="text-sm text-gray-600 mt-3">Dirige la preparación técnica y física del equipo representativo masculino.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 text-center reveal">
-          <div class="w-28 h-28 mx-auto rounded-lg bg-primary/10 text-primary flex items-center justify-center text-3xl mb-4"><i class="fa-solid fa-person-running"></i></div>
-          <h3 class="font-extrabold text-gray-900">Delmy Cáceres</h3>
-          <span class="block text-xs font-bold text-primary uppercase tracking-wide mt-1">Entrenadora de Fútbol Femenino</span>
-          <p class="text-sm text-gray-600 mt-3">Acompaña el crecimiento deportivo y personal de las estudiantes del equipo femenino.</p>
-        </div>
-
-        <div class="card border-gray-200 p-6 text-center reveal">
-          <div class="w-28 h-28 mx-auto rounded-lg bg-primary/10 text-primary flex items-center justify-center text-3xl mb-4"><i class="fa-solid fa-volleyball"></i></div>
-          <h3 class="font-extrabold text-gray-900">Selvin Ramírez</h3>
-          <span class="block text-xs font-bold text-primary uppercase tracking-wide mt-1">Encargado de Voleibol y Baloncesto</span>
-          <p class="text-sm text-gray-600 mt-3">Coordina los espacios de la cancha multiusos y las actividades recreativas mixtas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CIERRE -->
-  <section class="section-dark">
-    <div class="max-w-4xl mx-auto px-4 text-center reveal">
-      <i class="fa-regular fa-futbol text-4xl text-secondary mb-6"></i>
-      <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight text-white">
-        "El deporte nos une, nos fortalece y nos prepara para el futuro."
-      </h2>
-      <p class="text-gray-400 mt-6 max-w-xl mx-auto">Súmate a la vida deportiva del I.G.T. Francisco Miranda: cada estudiante tiene un lugar en la cancha.</p>
-      <a href="#actividades" class="btn btn-secondary mt-8 inline-flex">
-        Conoce nuestras actividades deportivas <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="max-w-7xl mx-auto px-4 space-y-4">
-      <div class="flex justify-center gap-6 text-lg">
-        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-      <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-      <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
-    </div>
-  </footer>
-
-  <script src="deportes.js"></script>
+<footer id="footer-root" class="footer"></footer>
+<script src="deportes.js" defer></script>
 </body>
 </html>

@@ -1,384 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio | I.G.T. Francisco Miranda</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="institucional.css">
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Outfit', 'sans-serif']
-          }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inicio | I.G.T. Francisco Miranda</title>
+<meta name="description" content="Instituto Gubernamental Técnico Francisco Miranda — Aldea Zambrano, M.D.C. Formación técnica de calidad desde 1988.">
+<link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
+<link rel="apple-touch-icon" href="imagenes/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="institucional.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
+     Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
+  tailwind.config = {
+    theme: { extend: {
+      fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
+      colors: {
+        amber: {50:'#FDF9EE',100:'#FBF2CC',200:'#F7E59E',300:'#F2D766',400:'#EDC933',500:'#E3B800',600:'#C4A000',700:'#A08300',800:'#7A6600',900:'#574900',950:'#362D00'},
+        slate: {50:'#F8F9FC',100:'#F2F3F8',200:'#E1E5F1',300:'#C8CEE4',400:'#8B97C1',500:'#54649B',600:'#3E4972',700:'#273461',800:'#1A223F',900:'#111628',950:'#070A12'}
       }
-    }
-  </script>
+    }}
+  };
+</script>
+<script src="nav.js" defer></script>
 </head>
-<body>
+<body data-page="inicio">
+<a href="#main" class="skip-link">Saltar al contenido</a>
+<div class="progreso-scroll" id="progresoScroll"></div>
+<header id="navbar-root" class="navbar"></header>
+<div id="mobile-menu-root" class="mobile-menu"></div>
 
-  <!-- ========== NAVEGACIÓN ========== -->
-  <nav class="navbar sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <a href="inicio.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-        <div>
-          <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-          <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-        </div>
-      </a>
+<main id="main">
 
-      <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="inicio.html" class="active">Inicio</a>
-        <a href="oferta_academica.html">Oferta Académica</a>
-        <a href="personal.html">Autoridades y Personal</a>
-        <a href="estudiantes.html">Estudiantes</a>
-        <a href="deportes.html">Deportes</a>
-        <a href="blog.html">Blog y Comentarios</a>
-        <a href="compras.html">Compras</a>
-      </div>
-
-      <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
-        <i class="fa-solid fa-graduation-cap"></i> Prematricularme
-      </a>
-    </div>
-  </nav>
-
-  <!-- ========== HERO ========== -->
-  <section class="bg-white border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-12 items-center">
-      <div class="md:col-span-7 space-y-6">
-        <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full tracking-wide">
-          <i class="fa-regular fa-calendar mr-1"></i> Proceso de Inscripción 2026 Abierto
-        </span>
-
-        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900">
-          Formación Técnica que <span class="text-primary">Transforma Futuros</span>
-        </h1>
-
-        <p class="text-gray-600 text-lg max-w-2xl">
-          Bienvenidos a la plataforma digital del Instituto Técnico Francisco Miranda. Educamos con integridad, ciencia y habilidades prácticas para el trabajo.
-        </p>
-
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="oferta_academica.html" class="btn btn-primary">
-            Ver Cursos y Secciones
-          </a>
-          <a href="blog.html" class="btn btn-outline">
-            <i class="fa-regular fa-newspaper"></i> Blog y Redes Sociales
-          </a>
-        </div>
-      </div>
-
-      <div class="md:col-span-5">
-        <div class="card p-6 bg-gray-50 border-gray-200">
-          <div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
-            <i class="fa-solid fa-bullhorn text-lg"></i>
-            <span class="uppercase tracking-wide">Aviso Oficial</span>
-          </div>
-
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Prematrículas Ciclo Lectivo 2026</h3>
-
-          <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            Recuerda que ya puedes seleccionar la carrera y jornada de tu preferencia (Matutina o Vespertina). Revisa los requisitos de inscripción online.
-          </p>
-
-          <a href="oferta_academica.html" class="btn btn-primary w-full justify-center">
-            Ir a Registro
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== HISTORIA Y LEGADO ========== -->
-  <section class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Nuestra Identidad</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Historia y Legado</h2>
-        <p class="text-gray-500 text-sm mt-2">
-          Una trayectoria construida con el esfuerzo de generaciones enteras de estudiantes, docentes y familias de nuestra comunidad.
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-7 space-y-5 reveal">
-          <p class="text-gray-600 leading-relaxed">
-            El Instituto Gubernamental Técnico Francisco Miranda ha sido, a lo largo de los años, un pilar fundamental en la formación de la juventud de la Aldea Zambrano y sus comunidades aledañas. Desde sus aulas han salido generaciones de estudiantes que hoy aportan su conocimiento y su esfuerzo al desarrollo de sus familias y de todo el municipio.
-          </p>
-
-          <p class="text-gray-600 leading-relaxed">
-            Más que una institución educativa, el instituto representa un punto de encuentro para la comunidad. Su compromiso ha sido siempre ofrecer una formación académica y técnica de calidad, acompañada de valores humanos: el respeto, la disciplina, la solidaridad y el amor por el trabajo bien hecho.
-          </p>
-
-          <p class="text-gray-600 leading-relaxed">
-            Detrás de cada logro hay docentes comprometidos, padres de familia que confían y estudiantes que sueñan en grande. Las actividades culturales, musicales y deportivas —como la Banda Latina FM y los equipos deportivos del instituto— forman parte esencial de esa identidad, enseñando trabajo en equipo y orgullo institucional dentro y fuera del aula.
-          </p>
-
-          <p class="text-gray-600 leading-relaxed">
-            Mirando hacia el futuro, el I.G.T. Francisco Miranda reafirma su misión: seguir formando nuevas generaciones de técnicos y profesionales íntegros, capaces de transformar su entorno y honrar el legado de quienes pasaron antes por estas aulas.
-          </p>
-
-          <div class="grid sm:grid-cols-3 gap-4 pt-4">
-            <div class="bg-white border border-gray-200 rounded-xl p-5 text-center">
-              <i class="fa-solid fa-book-open text-primary text-2xl mb-2"></i>
-              <span class="block font-bold text-sm text-gray-900">Formación Académica</span>
-              <span class="block text-xs text-gray-500 mt-1">Excelencia técnica y científica</span>
-            </div>
-
-            <div class="bg-white border border-gray-200 rounded-xl p-5 text-center">
-              <i class="fa-solid fa-people-group text-primary text-2xl mb-2"></i>
-              <span class="block font-bold text-sm text-gray-900">Comunidad</span>
-              <span class="block text-xs text-gray-500 mt-1">Una gran familia zambranense</span>
-            </div>
-
-            <div class="bg-white border border-gray-200 rounded-xl p-5 text-center">
-              <i class="fa-solid fa-trophy text-primary text-2xl mb-2"></i>
-              <span class="block font-bold text-sm text-gray-900">Legado</span>
-              <span class="block text-xs text-gray-500 mt-1">Generaciones que inspiran</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5 reveal">
-          <figure class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-            <img src="img.png/kfMl6l5D.jpg" alt="Docentes y personal del I.G.T. Francisco Miranda en jornada institucional" class="w-full h-80 lg:h-[480px] object-cover">
-            <figcaption class="p-4 bg-white text-xs text-gray-500 flex items-center gap-2 border-t border-gray-100">
-              <i class="fa-solid fa-camera text-primary"></i> Docentes y personal durante una jornada de trabajo comunitario.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DEPORTES ========== -->
-  <section class="section bg-white border-y border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-7 space-y-5 reveal">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Vida Estudiantil</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Deportes del Instituto</h2>
-        <p class="text-gray-600 text-sm sm:text-base max-w-xl leading-relaxed">
-          Fútbol, fútbol femenino, baloncesto, voleibol, atletismo y más disciplinas forman parte de la vida deportiva del I.G.T. Francisco Miranda. Conoce nuestras disciplinas, torneos, logros y galería completa en la sección dedicada.
-        </p>
-        <a href="deportes.html" class="btn btn-secondary">
-          Ver sección de Deportes <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="lg:col-span-5 flex justify-center lg:justify-end reveal">
-        <div class="grid grid-cols-2 gap-4 max-w-sm">
-          <div class="card text-center border-gray-200 p-5">
-            <span class="block text-3xl font-extrabold text-primary">6</span>
-            <span class="block text-xs text-gray-600 font-semibold mt-1">Disciplinas</span>
-          </div>
-          <div class="card text-center border-gray-200 p-5">
-            <span class="block text-3xl font-extrabold text-primary">11+</span>
-            <span class="block text-xs text-gray-600 font-semibold mt-1">Equipos</span>
-          </div>
-          <div class="card text-center border-gray-200 p-5">
-            <span class="block text-3xl font-extrabold text-primary">32+</span>
-            <span class="block text-xs text-gray-600 font-semibold mt-1">Torneos</span>
-          </div>
-          <div class="card text-center border-gray-200 p-5">
-            <span class="block text-3xl font-extrabold text-primary">420+</span>
-            <span class="block text-xs text-gray-600 font-semibold mt-1">Estudiantes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== NOTICIAS RECIENTES ========== -->
-  <section class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10">
-        <div>
-          <span class="text-primary font-bold text-xs uppercase tracking-widest">Novedades</span>
-          <h2 class="text-3xl font-extrabold text-gray-900 mt-1">Noticias y Eventos Recientes</h2>
-        </div>
-        <a href="blog.html" class="text-sm font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
-          Ver todas <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <article class="card border-gray-200 p-0 overflow-hidden flex flex-col">
-          <div class="h-48 bg-gray-200 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600')"></div>
-          <div class="p-6 flex-grow flex flex-col">
-            <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-calendar mr-1"></i> Agosto 2026</span>
-            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Modernización del Laboratorio de Informática</h3>
-            <p class="text-gray-600 text-sm flex-grow">Se equipó la sala técnica con nuevas computadoras y conexión de alta velocidad para los estudiantes de BTP.</p>
-            <a href="blog.html" class="mt-4 text-xs font-bold text-primary hover:underline">Leer más en el Blog →</a>
-          </div>
-        </article>
-
-        <article class="card border-gray-200 p-0 overflow-hidden flex flex-col">
-          <div class="h-48 bg-gray-200 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600')"></div>
-          <div class="p-6 flex-grow flex flex-col">
-            <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-calendar mr-1"></i> Julio 2026</span>
-            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Feria de Emprendimiento y Agroindustria</h3>
-            <p class="text-gray-600 text-sm flex-grow">Alumnos de Agroindustria presentaron productos procesados localmente en la comunidad de Zambrano.</p>
-            <a href="blog.html" class="mt-4 text-xs font-bold text-primary hover:underline">Leer más en el Blog →</a>
-          </div>
-        </article>
-
-        <article class="card border-gray-200 p-0 overflow-hidden flex flex-col">
-          <div class="h-48 bg-gray-200 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600')"></div>
-          <div class="p-6 flex-grow flex flex-col">
-            <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-calendar mr-1"></i> Junio 2026</span>
-            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Reunión de Padres de Familia</h3>
-            <p class="text-gray-600 text-sm flex-grow">Se socializaron los avances académicos del ciclo y las normativas de uniforme e infraestructura.</p>
-            <a href="blog.html" class="mt-4 text-xs font-bold text-primary hover:underline">Leer más en el Blog →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== BLOG Y REDES ========== -->
-  <section class="section bg-white border-y border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="card border-gray-200 p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center bg-gray-50">
-        <div class="lg:col-span-8 space-y-4">
-          <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-wide">
-            Comunidad Interactiva
-          </span>
-
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Visita nuestro Blog Oficial y Redes Sociales</h2>
-
-          <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
-            Mantente al día con los videos de la Banda Latina FM, fotos de talleres y anuncios institucionales. ¡Déjanos tus opiniones y sugerencias en nuestra nueva sección de comentarios!
-          </p>
-
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a href="blog.html" class="btn btn-primary text-sm">
-              <i class="fa-regular fa-comments"></i> Ir al Blog y Comentarios
-            </a>
-
-            <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="btn btn-primary text-sm" style="background-color:#1877F2; border-color:#1877F2;">
-              <i class="fa-brands fa-facebook"></i> Facebook
-            </a>
-
-            <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="btn btn-primary text-sm" style="background-color:#E4405F; border-color:#E4405F;">
-              <i class="fa-brands fa-instagram"></i> Instagram
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-4 flex justify-center">
-          <div class="text-center p-6 bg-white rounded-xl border border-gray-200 w-full">
-            <div class="flex justify-center gap-4 text-2xl text-primary mb-2">
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-tiktok"></i>
-            </div>
-            <span class="text-xs text-gray-600 font-semibold block">@igt_franciscomiranda</span>
-            <span class="text-xs text-gray-500 mt-1 block">¡Síguenos y participa activamente!</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CITA ========== -->
-  <section class="section-dark">
-    <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
-      <i class="fa-solid fa-quote-left text-4xl text-secondary"></i>
-      <p class="text-xl font-medium text-gray-200 italic">
-        "Nuestra misión es brindar una formación técnica de calidad que abra puertas profesionales reales a la juventud de Zambrano y sectores aledaños."
+<!-- ========== HERO ========== -->
+<section class="bg-white border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-12 items-center">
+    <div class="md:col-span-7 space-y-6">
+      <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full tracking-wide">
+        <i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Proceso de Inscripción 2026 Abierto
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900">
+        Formación Técnica que <span class="text-primary">Transforma Futuros</span>
+      </h1>
+      <p class="text-gray-600 text-lg max-w-2xl">
+        Bienvenidos a la plataforma digital del Instituto Gubernamental Técnico Francisco Miranda. Educamos con integridad, ciencia y habilidades prácticas para el trabajo.
       </p>
-      <p class="font-bold text-secondary">Juan Carlos Membreño - Director IGTFM</p>
-    </div>
-  </section>
-
-  <!-- ========== UBICACIÓN ========== -->
-  <section class="section-alt">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="text-primary font-bold text-xs uppercase tracking-widest">Encuéntranos Fácilmente</span>
-        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Ubicación de la Institución</h2>
-        <p class="text-gray-500 text-sm mt-2">
-          Visítanos en nuestras instalaciones físicas para realizar trámites presenciales o solicitar información sobre la oferta académica.
-        </p>
+      <div class="flex flex-wrap gap-4 pt-2">
+        <a href="oferta_academica.html" class="btn btn-primary">Ver Cursos y Secciones</a>
+        <a href="Blog.html" class="btn btn-outline"><i class="fa-regular fa-newspaper" aria-hidden="true"></i> Blog y Redes Sociales</a>
       </div>
-
-      <div class="grid lg:grid-cols-2 gap-8 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-        <div class="relative h-64 sm:h-80 lg:h-full min-h-[320px]">
-          <img src="WhatsApp Image 2026-08-09 at 16.07.44.jpeg" alt="Instalaciones I.G.T. Francisco Miranda" class="w-full h-full object-cover">
+    </div>
+    <div class="md:col-span-5">
+      <div class="card p-6 bg-gray-50 border-gray-200">
+        <div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+          <i class="fa-solid fa-bullhorn text-lg" aria-hidden="true"></i>
+          <span class="uppercase tracking-wide">Aviso Oficial</span>
         </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Prematrículas Ciclo Lectivo 2026</h3>
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">Recuerda que ya puedes seleccionar la carrera y jornada de tu preferencia (Matutina o Vespertina). Revisa los requisitos de inscripción en línea.</p>
+        <a href="oferta_academica.html" class="btn btn-primary w-full justify-center">Ir a Registro</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="p-6 sm:p-8 space-y-6">
-          <div>
-            <h3 class="text-2xl font-extrabold text-gray-900 mb-1">I.G.T. Francisco Miranda</h3>
-            <p class="text-gray-600 text-sm flex items-start gap-2">
-              <i class="fa-solid fa-location-dot text-primary mt-1"></i>
-              <span>Aldea Zambrano, Municipio del Distrito Central, Francisco Morazán, Honduras.</span>
-            </p>
+<!-- ========== HISTORIA Y LEGADO ========== -->
+<section class="section-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-primary font-bold text-xs uppercase tracking-widest">Nuestra Identidad</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-1">Historia y Legado</h2>
+      <p class="text-gray-500 text-sm mt-2">Una trayectoria construida con el esfuerzo de generaciones enteras de estudiantes, docentes y familias de nuestra comunidad.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-5 reveal reveal-up">
+        <p class="text-gray-600 leading-relaxed">El Instituto Gubernamental Técnico Francisco Miranda ha sido, a lo largo de los años, un pilar fundamental en la formación de la juventud de la Aldea Zambrano y sus comunidades aledañas. Desde sus aulas han salido generaciones de estudiantes que hoy aportan su conocimiento y su esfuerzo al desarrollo de sus familias y de todo el municipio.</p>
+        <p class="text-gray-600 leading-relaxed">Más que una institución educativa, el instituto representa un punto de encuentro para la comunidad. Su compromiso ha sido siempre ofrecer una formación académica y técnica de calidad, acompañada de valores humanos: el respeto, la disciplina, la solidaridad y el amor por el trabajo bien hecho.</p>
+        <p class="text-gray-600 leading-relaxed">Detrás de cada logro hay docentes comprometidos, padres de familia que confían y estudiantes que sueñan en grande. Las actividades culturales, musicales y deportivas —como la Banda Latina FM y los equipos deportivos del instituto— forman parte esencial de esa identidad, enseñando trabajo en equipo y orgullo institucional dentro y fuera del aula.</p>
+        <p class="text-gray-600 leading-relaxed">Mirando hacia el futuro, el I.G.T. Francisco Miranda reafirma su misión: seguir formando nuevas generaciones de técnicos y profesionales íntegros, capaces de transformar su entorno y honrar el legado de quienes pasaron antes por estas aulas.</p>
+
+        <div class="grid sm:grid-cols-3 gap-4 pt-4">
+          <div class="bg-white border border-gray-200 rounded-xl p-5 text-center">
+            <i class="fa-solid fa-book-open text-primary text-2xl mb-2" aria-hidden="true"></i>
+            <span class="block font-bold text-sm text-gray-900">Formación Académica</span>
+            <span class="block text-xs text-gray-500 mt-1">Excelencia técnica y científica</span>
           </div>
-
-          <div class="space-y-3 text-sm text-gray-600">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-primary shrink-0">
-                <i class="fa-solid fa-clock"></i>
-              </div>
-              <div>
-                <span class="block font-bold text-gray-900">Horario de Atención</span>
-                <span>Lunes a Viernes: 7:00 AM - 5:00 PM</span>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-primary shrink-0">
-                <i class="fa-solid fa-phone"></i>
-              </div>
-              <div>
-                <span class="block font-bold text-gray-900">Teléfono de Secretaría</span>
-                <span>+504 2200-0000 / +504 9999-9999</span>
-              </div>
-            </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-5 text-center">
+            <i class="fa-solid fa-people-group text-primary text-2xl mb-2" aria-hidden="true"></i>
+            <span class="block font-bold text-sm text-gray-900">Comunidad</span>
+            <span class="block text-xs text-gray-500 mt-1">Una gran familia zambranense</span>
           </div>
-
-          <div class="pt-4 border-t border-gray-200">
-            <span class="block text-xs font-bold text-primary uppercase tracking-wide mb-3">Ubicación GPS</span>
-            <a href="https://maps.app.goo.gl/FMNtJXQvkgiUu7Hk7" target="_blank" class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 p-4 rounded-xl border border-gray-200 transition-colors">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center text-lg">
-                  <i class="fa-solid fa-map-location-dot"></i>
-                </div>
-                <div>
-                  <span class="block font-bold text-gray-900 text-sm">Abrir ubicación en Google Maps</span>
-                  <span class="text-gray-500 text-xs">Ver ruta exacta desde tu dispositivo</span>
-                </div>
-              </div>
-              <i class="fa-solid fa-arrow-up-right-from-square text-gray-400"></i>
-            </a>
+          <div class="bg-white border border-gray-200 rounded-xl p-5 text-center">
+            <i class="fa-solid fa-trophy text-primary text-2xl mb-2" aria-hidden="true"></i>
+            <span class="block font-bold text-sm text-gray-900">Legado</span>
+            <span class="block text-xs text-gray-500 mt-1">Generaciones que inspiran</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="max-w-7xl mx-auto px-4 space-y-4">
-      <div class="flex justify-center gap-6 text-lg">
-        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+      <div class="lg:col-span-5 reveal reveal-right">
+        <figure class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+          <img src="imagenes/cancha-multiusos.jpg" alt="Estudiantes del instituto durante una clase de Educación Física en la cancha institucional" class="w-full h-80 lg:h-[480px] object-cover" loading="lazy">
+          <figcaption class="p-4 bg-white text-xs text-gray-500 flex items-center gap-2 border-t border-gray-100">
+            <i class="fa-solid fa-camera text-primary" aria-hidden="true"></i> Vida estudiantil en las instalaciones del instituto, Aldea Zambrano.
+          </figcaption>
+        </figure>
       </div>
-      <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-      <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="inicio.js"></script>
+<!-- ========== DEPORTES (banner) ========== -->
+<section class="section bg-white border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7 space-y-5 reveal reveal-up">
+      <span class="text-primary font-bold text-xs uppercase tracking-widest">Vida Estudiantil</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Deportes del Instituto</h2>
+      <p class="text-gray-600 text-sm sm:text-base max-w-xl leading-relaxed">Fútbol masculino y femenino, baloncesto, voleibol, atletismo, ajedrez y tenis de mesa forman parte de la vida deportiva del I.G.T. Francisco Miranda. Conoce nuestra historia, logros y a las personas detrás de cada equipo.</p>
+      <a href="deportes.html" class="btn btn-secondary">Ver sección de Deportes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="lg:col-span-5 flex justify-center lg:justify-end reveal reveal-left">
+      <div class="grid grid-cols-2 gap-4 max-w-sm">
+        <div class="card text-center border-gray-200 p-5"><span class="block text-3xl font-extrabold text-primary">6</span><span class="block text-xs text-gray-600 font-semibold mt-1">Disciplinas</span></div>
+        <div class="card text-center border-gray-200 p-5"><span class="block text-3xl font-extrabold text-primary">11</span><span class="block text-xs text-gray-600 font-semibold mt-1">Años compitiendo</span></div>
+        <div class="card text-center border-gray-200 p-5"><span class="block text-3xl font-extrabold text-primary">20+</span><span class="block text-xs text-gray-600 font-semibold mt-1">Competencias</span></div>
+        <div class="card text-center border-gray-200 p-5"><span class="block text-3xl font-extrabold text-primary">200+</span><span class="block text-xs text-gray-600 font-semibold mt-1">Estudiantes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NOTICIAS RECIENTES ========== -->
+<section class="section-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10">
+      <div><span class="text-primary font-bold text-xs uppercase tracking-widest">Novedades</span><h2 class="text-3xl font-extrabold text-gray-900 mt-1">Noticias y Eventos Recientes</h2></div>
+      <a href="Blog.html" class="text-sm font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">Ver todas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="card border-gray-200 p-0 overflow-hidden flex flex-col reveal reveal-up">
+        <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,var(--color-vino),var(--color-azul-marino));">
+          <i class="fa-solid fa-laptop-code" aria-hidden="true" style="font-size:2.75rem;color:var(--color-dorado-vivo);opacity:.9;"></i>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+          <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Agosto 2026</span>
+          <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Modernización del Laboratorio de Informática</h3>
+          <p class="text-gray-600 text-sm flex-grow">Se equipó la sala técnica con nuevas computadoras y conexión de alta velocidad para los estudiantes de BTP.</p>
+          <a href="Blog.html" class="mt-4 text-xs font-bold text-primary hover:underline">Leer más en el Blog →</a>
+        </div>
+      </article>
+      <article class="card border-gray-200 p-0 overflow-hidden flex flex-col reveal reveal-up" style="--stagger:70ms">
+        <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,var(--color-vino-claro),var(--color-vino-oscuro));">
+          <i class="fa-solid fa-seedling" aria-hidden="true" style="font-size:2.75rem;color:var(--color-dorado-vivo);opacity:.9;"></i>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+          <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Julio 2026</span>
+          <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Feria de Emprendimiento y Agroindustria</h3>
+          <p class="text-gray-600 text-sm flex-grow">Alumnos de Agroindustria presentaron productos procesados localmente en la comunidad de Zambrano.</p>
+          <a href="Blog.html" class="mt-4 text-xs font-bold text-primary hover:underline">Leer más en el Blog →</a>
+        </div>
+      </article>
+      <article class="card border-gray-200 p-0 overflow-hidden flex flex-col reveal reveal-up" style="--stagger:140ms">
+        <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,var(--color-azul-marino),#000);">
+          <i class="fa-solid fa-people-roof" aria-hidden="true" style="font-size:2.75rem;color:var(--color-dorado-vivo);opacity:.9;"></i>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+          <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Junio 2026</span>
+          <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3">Reunión de Padres de Familia</h3>
+          <p class="text-gray-600 text-sm flex-grow">Se socializaron los avances académicos del ciclo y las normativas de uniforme e infraestructura.</p>
+          <a href="Blog.html" class="mt-4 text-xs font-bold text-primary hover:underline">Leer más en el Blog →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BLOG Y REDES ========== -->
+<section class="section bg-white border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="card border-gray-200 p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center bg-gray-50">
+      <div class="lg:col-span-8 space-y-4">
+        <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-wide">Comunidad Interactiva</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Visita nuestro Blog Oficial y Redes Sociales</h2>
+        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Mantente al día con los videos de la Banda Latina FM, fotos de talleres y anuncios institucionales. ¡Déjanos tus opiniones y sugerencias en nuestra sección de comentarios!</p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="Blog.html" class="btn btn-primary text-sm"><i class="fa-regular fa-comments" aria-hidden="true"></i> Ir al Blog y Comentarios</a>
+          <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" rel="noopener" class="btn btn-primary text-sm" style="background-color:#1877F2;border-color:#1877F2;"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
+          <a href="https://www.instagram.com/igt_franciscomiranda" target="_blank" rel="noopener" class="btn btn-primary text-sm" style="background-color:#E4405F;border-color:#E4405F;"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+        </div>
+      </div>
+      <div class="lg:col-span-4 flex justify-center">
+        <div class="text-center p-6 bg-white rounded-xl border border-gray-200 w-full">
+          <div class="flex justify-center gap-4 text-2xl text-primary mb-2">
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i><i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </div>
+          <span class="text-xs text-gray-600 font-semibold block">@igt_franciscomiranda</span>
+          <span class="text-xs text-gray-500 mt-1 block">¡Síguenos y participa activamente!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CITA DEL DIRECTOR ========== -->
+<section class="section-dark">
+  <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+    <i class="fa-solid fa-quote-left text-4xl text-secondary" aria-hidden="true"></i>
+    <p class="text-xl font-medium italic" style="color:#DCE1F5;">"Nuestra misión es brindar una formación técnica de calidad que abra puertas profesionales reales a la juventud de Zambrano y sectores aledaños."</p>
+    <p class="font-bold text-secondary">Juan Carlos Herrera Espinoza — Director, I.G.T. Francisco Miranda</p>
+  </div>
+</section>
+
+<!-- ========== UBICACIÓN ========== -->
+<section class="section-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-primary font-bold text-xs uppercase tracking-widest">Encuéntranos Fácilmente</span>
+      <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Ubicación de la Institución</h2>
+      <p class="text-gray-500 text-sm mt-2">Visítanos en nuestras instalaciones físicas para realizar trámites presenciales o solicitar información sobre la oferta académica.</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+      <div class="relative h-64 sm:h-80 lg:h-full min-h-[320px]">
+        <img src="imagenes/torneo-saludo-equipos.jpg" alt="Instalaciones del I.G.T. Francisco Miranda en Aldea Zambrano" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <div class="p-6 sm:p-8 space-y-6">
+        <div>
+          <h3 class="text-2xl font-extrabold text-gray-900 mb-1">I.G.T. Francisco Miranda</h3>
+          <p class="text-gray-600 text-sm flex items-start gap-2">
+            <i class="fa-solid fa-location-dot text-primary mt-1" aria-hidden="true"></i>
+            <span>Aldea Zambrano, Municipio del Distrito Central, Francisco Morazán, Honduras.</span>
+          </p>
+        </div>
+        <div class="space-y-3 text-sm text-gray-600">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-primary shrink-0"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+            <div><span class="block font-bold text-gray-900">Horario de Atención</span><span>Lunes a Viernes: 7:00 AM - 5:00 PM</span></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-primary shrink-0"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+            <div><span class="block font-bold text-gray-900">Teléfono de Secretaría</span><span>+504 2200-0000 / +504 9999-9999</span></div>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-gray-200">
+          <span class="block text-xs font-bold text-primary uppercase tracking-wide mb-3">Ubicación GPS</span>
+          <a href="https://maps.app.goo.gl/FMNtJXQvkgiUu7Hk7" target="_blank" rel="noopener" class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 p-4 rounded-xl border border-gray-200 transition-colors">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center text-lg"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></div>
+              <div><span class="block font-bold text-gray-900 text-sm">Abrir ubicación en Google Maps</span><span class="text-gray-500 text-xs">Ver ruta exacta desde tu dispositivo</span></div>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-gray-400" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="footer-root" class="footer"></footer>
+<script src="inicio.js" defer></script>
 </body>
 </html>
