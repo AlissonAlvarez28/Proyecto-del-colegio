@@ -34,8 +34,37 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
+        /* ============================================================
+           POSICIÓN DEL MODAL DE PERFIL (docentes y personal)
+           .navbar es sticky, mide var(--header-h) y tiene z-index:190
+           (institucional.css). Si el modal empieza en top:0 con menor
+           z-index (como estaba), el navbar se pinta ENCIMA y tapa la
+           foto/nombre. Por eso el modal ahora:
+             1) arranca justo debajo del navbar (top: var(--header-h)),
+                así nunca invade ni queda tapado por esa franja, y
+             2) usa un z-index mayor que cualquier elemento fijo del
+                sitio (navbar 190, mega-panel 195, skip-link 200,
+                barra de progreso 210, menú móvil 220), como respaldo.
+           ============================================================ */
         #modal-personal {
+            top: var(--header-h);
+            z-index: 300;
             animation: modalFondo .18s ease-out;
+        }
+
+        /* Alto máximo real disponible debajo del navbar, descontando el
+           padding vertical del contenedor (p-4/sm:p-6 en #modal-personal).
+           Sustituye al max-h-[92vh] original, que no restaba ni el navbar
+           ni ese padding y podía volver a empujar la card bajo el navbar
+           o cortarla contra el borde inferior en pantallas bajas. El
+           scroll interno (overflow-y-auto) ya existente sigue igual. */
+        #modal-contenido {
+            max-height: calc(100vh - var(--header-h) - 2rem);
+        }
+        @media (min-width: 640px) {
+            #modal-contenido {
+                max-height: calc(100vh - var(--header-h) - 3rem);
+            }
         }
 
         @keyframes modalFondo {
@@ -151,9 +180,9 @@
                         <img id="modal-foto" src="" alt="" class="w-full h-full object-cover">
                         <div id="modal-iniciales" class="hidden w-full h-full items-center justify-center text-amber-400 font-black text-4xl"></div>
                     </div>
-                    <div class="text-center sm:text-left">
+                    <div class="text-center sm:text-left min-w-0">
                         <span id="modal-cargo" class="inline-block px-3 py-1 bg-amber-500 text-slate-950 text-[10px] font-black uppercase rounded-lg mb-2"></span>
-                        <h2 id="modal-nombre" class="text-2xl sm:text-3xl font-black leading-tight"></h2>
+                        <h2 id="modal-nombre" class="text-2xl sm:text-3xl font-black leading-tight break-words"></h2>
                         <p id="modal-materia" class="mt-2 text-slate-300 text-sm font-semibold">
                             <i class="fa-solid fa-book-open text-amber-400 mr-1"></i>
                         </p>
