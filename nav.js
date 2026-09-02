@@ -39,7 +39,7 @@
   }
 
   function navbarHTML() {
-    var megaItems = SECCIONES.map(megaItemHTML).join('');
+    var megaItems = SECCIONES.filter(function (s) { return s.id !== 'inicio'; }).map(megaItemHTML).join('');
     var inicio = SECCIONES[0];
     var deportes = SECCIONES[4];
 
