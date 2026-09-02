@@ -4,72 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Estudiantil y Horarios | I.G.T. Francisco Miranda</title>
+    <meta name="description" content="Horarios de clases y servicios estudiantiles del Instituto Gubernamental Técnico Francisco Miranda.">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
+    <link rel="apple-touch-icon" href="imagenes/favicon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="institucional.css">
     <script src="https://cdn.tailwindcss.com"></script>
+<<<<<<< Updated upstream
+=======
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="institucional.css">
+>>>>>>> Stashed changes
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Outfit', 'sans-serif'] } } } }
+        /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
+           Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
+        tailwind.config = {
+          theme: { extend: {
+            fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
+            colors: {
+              amber: {50:'#FDF9EE',100:'#FBF2CC',200:'#F7E59E',300:'#F2D766',400:'#EDC933',500:'#E3B800',600:'#C4A000',700:'#A08300',800:'#7A6600',900:'#574900',950:'#362D00'},
+              slate: {50:'#F8F9FC',100:'#F2F3F8',200:'#E1E5F1',300:'#C8CEE4',400:'#8B97C1',500:'#54649B',600:'#3E4972',700:'#273461',800:'#1A223F',900:'#111628',950:'#070A12'}
+            }
+          }}
+        };
     </script>
-    <style>
-        @media print {
-            nav, footer, .no-print { display: none !important; }
-            body { background: white !important; color: black !important; }
-            .print-area { width: 100% !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
-        }
-    </style>
+    <script src="nav.js" defer></script>
+    <!-- El @media print ahora vive en institucional.css (selectores #navbar-root, #footer-root, .no-print) -->
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+<<<<<<< Updated upstream
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen" data-page="estudiantes">
+<a href="#main" class="skip-link">Saltar al contenido</a>
+<div class="progreso-scroll no-print" id="progresoScroll"></div>
+<header id="navbar-root" class="navbar no-print"></header>
+<div id="mobile-menu-root" class="mobile-menu no-print"></div>
+=======
+<body class="flex flex-col min-h-screen">
 
-    <nav class="sticky top-0 z-40 bg-slate-900 text-white shadow-xl no-print">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="inicio.html" class="flex items-center gap-3">
-                    <div class="w-11 h-11 bg-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl">FM</div>
-                    <div>
-                        <span class="block font-black text-lg leading-tight">I.G.T. FRANCISCO MIRANDA</span>
-                        <span class="block text-xs font-semibold text-amber-400 uppercase">Zambrano, Honduras</span>
-                    </div>
-                </a>
-                <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
-                    <a href="inicio.html" class="hover:text-amber-400">Inicio</a>
-                    <a href="oferta_academica.html" class="hover:text-amber-400">Oferta Académica</a>
-                    <a href="personal.html" class="hover:text-amber-400">Autoridades y Personal</a>
-                    <a href="estudiantes.html" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Estudiantes</a>
-                     <a href="deportes.html" class="hover:text-amber-400 transition-colors">Deportes</a>
-                     <a href="blog.html" class="hover:text-amber-400 transition-colors">Blog y Comentarios</a>
-                    <a href="compras.html" class="hover:text-amber-400">Compras</a>
+    <nav class="navbar sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="inicio.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
+                <div>
+                    <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
+                    <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
                 </div>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
+                <a href="inicio.html">Inicio</a>
+                <a href="oferta_academica.html">Oferta Académica</a>
+                <a href="personal.html">Autoridades y Personal</a>
+                <a href="estudiantes.html" class="active">Estudiantes</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="blog.html">Blog y Comentarios</a>
+                <a href="compras.html">Compras</a>
             </div>
+            <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
+                <i class="fa-solid fa-graduation-cap"></i> Prematricularme
+            </a>
         </div>
     </nav>
+>>>>>>> Stashed changes
 
-    <header class="bg-slate-900 text-white py-10 border-b border-slate-800 text-center no-print">
-        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Portal Estudiantil 2026</span>
-        <h1 class="text-3xl sm:text-4xl font-extrabold mt-1">Área de Estudiantes & Horarios</h1>
-        <p class="text-slate-400 text-sm mt-2 max-w-2xl mx-auto">Selecciona la pestaña correspondiente para revisar información del plantel o consultar los horarios oficiales en formato de texto.</p>
-        
-        <div class="flex justify-center gap-3 mt-8">
-            <button id="tab-btn-info" onclick="cambiarApartado('info')" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-slate-950 shadow-lg flex items-center gap-2">
+    <header class="page-header no-print">
+        <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest mb-3">Portal Estudiantil 2026</span>
+        <h1>Área de Estudiantes &amp; Horarios</h1>
+        <p class="subtitle">Selecciona la pestaña correspondiente para revisar información del plantel o consultar los horarios oficiales en formato de texto.</p>
+        <div class="flex justify-center gap-3 mt-6 flex-wrap">
+            <button id="tab-btn-info" onclick="cambiarApartado('info')" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-primary text-white shadow-md flex items-center gap-2">
                 <i class="fa-solid fa-user-graduate"></i> Información Estudiantil
             </button>
-            <button id="tab-btn-horarios" onclick="cambiarApartado('horarios')" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+            <button id="tab-btn-horarios" onclick="cambiarApartado('horarios')" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-gray-600 border border-gray-300 hover:bg-gray-100 flex items-center gap-2">
                 <i class="fa-solid fa-calendar-days"></i> Horarios de Clases (Texto HTML)
             </button>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full">
+    <main id="main" class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full">
 
         <section id="apartado-info" class="space-y-10">
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+            <div class="bg-white rounded-xl p-8 border border-slate-200 shadow-sm">
                 <h2 class="text-2xl font-black text-slate-900 mb-2 flex items-center gap-3">
-                    <i class="fa-solid fa-bullhorn text-amber-500"></i> Avisos e Información Importante
+                    <i class="fa-solid fa-bullhorn text-primary"></i> Avisos e Información Importante
                 </h2>
                 <p class="text-slate-600 text-sm mb-6">Lineamientos y directrices generales para todos los alumnos matriculados en el ciclo lectivo 2026.</p>
                 
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="p-5 bg-amber-50 border border-amber-200 rounded-2xl">
-                        <div class="w-10 h-10 bg-amber-500 text-slate-950 rounded-xl flex items-center justify-center font-bold mb-3">
+                    <div class="p-5 bg-primary/5 border border-primary/20 rounded-2xl">
+                        <div class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold mb-3">
                             <i class="fa-solid fa-shirt"></i>
                         </div>
                         <h3 class="font-bold text-slate-900 text-base mb-1">Uso del Uniforme</h3>
@@ -95,21 +120,21 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-slate-900 text-white p-8 rounded-3xl">
+                <div class="bg-slate-900 text-white p-8 rounded-xl">
                     <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-book-bookmark text-amber-400"></i> Reglamento Interno
+                        <i class="fa-solid fa-book-bookmark text-secondary"></i> Reglamento Interno
                     </h3>
                     <p class="text-xs text-slate-300 leading-relaxed mb-4">Conoce los derechos, deberes y código de convivencia de nuestra comunidad educativa.</p>
                     <ul class="text-xs space-y-2 text-slate-300 mb-6">
-                        <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Respeto a docentes, compañeros y personal institucional.</li>
-                        <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Cuidado de laboratorios, talleres y áreas verdes.</li>
-                        <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Prohibición de uso de celulares en horas de clase sin autorización docente.</li>
+                        <li><i class="fa-solid fa-check text-secondary mr-2"></i> Respeto a docentes, compañeros y personal institucional.</li>
+                        <li><i class="fa-solid fa-check text-secondary mr-2"></i> Cuidado de laboratorios, talleres y áreas verdes.</li>
+                        <li><i class="fa-solid fa-check text-secondary mr-2"></i> Prohibición de uso de celulares en horas de clase sin autorización docente.</li>
                     </ul>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
                     <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-calendar-check text-amber-500"></i> Calendario Académico
+                        <i class="fa-solid fa-calendar-check text-primary"></i> Calendario Académico
                     </h3>
                     <div class="space-y-3 text-xs text-slate-600">
                         <div class="flex justify-between border-b pb-2">
@@ -135,7 +160,7 @@
 
         <section id="apartado-horarios" class="hidden space-y-8">
             
-            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm no-print">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm no-print">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <h2 class="text-xl font-black text-slate-900">Consulta de Horarios Institucionales 2026</h2>
@@ -144,7 +169,7 @@
 
                     <div class="flex flex-wrap items-center gap-3">
                         <label for="selector-curso" class="text-xs font-bold text-slate-700">Seleccionar Curso:</label>
-                        <select id="selector-curso" onchange="mostrarHorario(this.value)" class="bg-slate-100 border border-slate-300 font-bold text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <select id="selector-curso" onchange="mostrarHorario(this.value)" class="bg-slate-100 border border-slate-300 font-bold text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#7C1D2E]/40">
                             <optgroup label="Tercer Ciclo">
                                 <option value="7mo1">Séptimo 1 (Matutina)</option>
                                 <option value="7mo2">Séptimo 2 (Matutina)</option>
@@ -170,24 +195,35 @@
                                 <option value="12agr">Duodécimo Agroindustria (12º BTP)</option>
                             </optgroup>
                         </select>
-                        <button onclick="window.print()" class="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2">
+                        <button onclick="window.print()" class="px-4 py-2.5 bg-primary hover:bg-[#9E2A3E] text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2">
                             <i class="fa-solid fa-print"></i> Imprimir / Guardar PDF
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div id="contenedor-horario-tabla" class="print-area bg-white rounded-3xl border border-slate-200 p-6 shadow-sm overflow-hidden">
+            <div id="contenedor-horario-tabla" class="print-area bg-white rounded-xl border border-slate-200 p-6 shadow-sm overflow-hidden">
                 </div>
 
         </section>
 
     </main>
 
-    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-center text-xs no-print">
-        <p class="font-bold text-slate-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-        <p class="mt-1">Zambrano, Francisco Morazán, Honduras &copy; 2026</p>
+<<<<<<< Updated upstream
+    <footer id="footer-root" class="footer no-print"></footer>
+=======
+    <footer class="footer no-print">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex justify-center gap-6 text-lg">
+                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
+            <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
+        </div>
     </footer>
+>>>>>>> Stashed changes
 
     <script>
         // Cambiar entre Pestaña Información Estudiantil y Pestaña Horarios
@@ -201,14 +237,14 @@
                 secInfo.classList.remove('hidden');
                 secHorarios.classList.add('hidden');
 
-                btnInfo.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-slate-950 shadow-lg flex items-center gap-2";
-                btnHorarios.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2";
+                btnInfo.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-primary text-white shadow-md flex items-center gap-2";
+                btnHorarios.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-gray-600 border border-gray-300 hover:bg-gray-100 flex items-center gap-2";
             } else {
                 secInfo.classList.add('hidden');
                 secHorarios.classList.remove('hidden');
 
-                btnHorarios.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-slate-950 shadow-lg flex items-center gap-2";
-                btnInfo.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2";
+                btnHorarios.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-primary text-white shadow-md flex items-center gap-2";
+                btnInfo.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-gray-600 border border-gray-300 hover:bg-gray-100 flex items-center gap-2";
 
                 // Cargar el horario predeterminado si no está cargado
                 if(!document.getElementById('contenedor-horario-tabla').innerHTML.trim()) {
@@ -525,10 +561,10 @@
                 <div class="border-b border-slate-200 pb-4 mb-6">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
                         <div>
-                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">${datos.modalidad}</span>
+                            <span class="text-xs font-bold text-primary uppercase tracking-widest">${datos.modalidad}</span>
                             <h3 class="text-2xl font-black text-slate-900">${datos.titulo}</h3>
                         </div>
-                        <span class="px-3 py-1 bg-amber-100 text-amber-900 font-bold text-xs rounded-lg self-start md:self-auto">${datos.jornada}</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary font-bold text-xs rounded-lg self-start md:self-auto">${datos.jornada}</span>
                     </div>
                 </div>
 
@@ -551,15 +587,15 @@
                 const esReceso = f.lun === "RECESO";
                 if (esReceso) {
                     htmlTabla += `
-                        <tr class="bg-amber-100/70 text-amber-950 font-bold text-center">
-                            <td class="p-2.5 font-bold border-r border-amber-200 text-left">${f.hora}</td>
+                        <tr class="bg-secondary/25 text-gray-900 font-bold text-center">
+                            <td class="p-2.5 font-bold border-r border-secondary/30 text-left">${f.hora}</td>
                             <td colspan="5" class="p-2.5 tracking-widest uppercase">*** RECESO Y DESCANSO ESTUDIANTIL ***</td>
                         </tr>
                     `;
                 } else {
                     const bgFila = idx % 2 === 0 ? "bg-white" : "bg-slate-50";
                     htmlTabla += `
-                        <tr class="${bgFila} hover:bg-amber-50/50 transition-colors">
+                        <tr class="${bgFila} hover:bg-primary/5 transition-colors">
                             <td class="p-3 font-bold text-slate-900 border-r border-slate-200 bg-slate-100/50">${f.hora}</td>
                             <td class="p-3 border-r border-slate-100">${f.lun}</td>
                             <td class="p-3 border-r border-slate-100">${f.mar}</td>
@@ -577,8 +613,8 @@
                 </div>
 
                 <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-                    <p><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i> Horario oficial sujeto a ajustes por la Dirección y Secretaría del centro académico.</p>
-                    <button onclick="window.print()" class="no-print font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                    <p><i class="fa-solid fa-circle-info text-primary mr-1"></i> Horario oficial sujeto a ajustes por la Dirección y Secretaría del centro académico.</p>
+                    <button onclick="window.print()" class="no-print font-bold text-primary hover:text-primary/80 flex items-center gap-1">
                         <i class="fa-solid fa-file-arrow-down"></i> Exportar a PDF / Imprimir
                     </button>
                 </div>
