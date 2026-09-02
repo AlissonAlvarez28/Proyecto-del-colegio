@@ -13,12 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="institucional.css">
     <script src="https://cdn.tailwindcss.com"></script>
-<<<<<<< Updated upstream
-=======
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="institucional.css">
->>>>>>> Stashed changes
     <script>
         /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
            Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
@@ -35,56 +29,27 @@
     <script src="nav.js" defer></script>
     
 </head>
-<<<<<<< Updated upstream
 <body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen" data-page="blog">
 <a href="#main" class="skip-link">Saltar al contenido</a>
 <div class="progreso-scroll" id="progresoScroll"></div>
 <header id="navbar-root" class="navbar"></header>
 <div id="mobile-menu-root" class="mobile-menu"></div>
-=======
-<body class="flex flex-col min-h-screen">
-
-    <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="navbar sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <a href="inicio.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-                <div>
-                    <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-                    <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-                </div>
-            </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                <a href="inicio.html">Inicio</a>
-                <a href="oferta_academica.html">Oferta Académica</a>
-                <a href="personal.html">Autoridades y Personal</a>
-                <a href="estudiantes.html">Estudiantes</a>
-                <a href="deportes.html">Deportes</a>
-                <a href="blog.html" class="active">Blog y Comentarios</a>
-                <a href="compras.html">Compras</a>
-            </div>
-            <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
-                <i class="fa-solid fa-graduation-cap"></i> Prematricularme
-            </a>
-        </div>
-    </nav>
->>>>>>> Stashed changes
 
     <!-- ENCABEZADO DE LA PÁGINA -->
-    <header class="page-header">
+    <header class="bg-slate-900 text-white py-12 border-b border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-4">
-            <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest mb-3">Comunidad &amp; Novedades</span>
-            <h1>Blog y Redes Sociales</h1>
-            <p class="subtitle">Sigue de cerca las actividades, eventos, talleres y noticias del instituto. ¡Conéctate a nuestras redes oficiales y déjanos tus comentarios!</p>
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Comunidad & Novedades</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold mt-3">Blog y Redes Sociales</h1>
+            <p class="text-slate-400 text-sm sm:text-base mt-3">Sigue de cerca las actividades, eventos, talleres y noticias del instituto. ¡Conéctate a nuestras redes oficiales y déjanos tus comentarios!</p>
         </div>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full space-y-12">
 
         <!-- CONEXIÓN CON REDES SOCIALES OFICIALES -->
-        <section class="bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm">
+        <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
             <div class="text-center max-w-2xl mx-auto mb-8">
-                <span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full">Redes Oficiales</span>
+                <span class="text-xs font-bold text-amber-600 uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Redes Oficiales</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Conéctate en Vivo con Nosotros</h2>
                 <p class="text-xs sm:text-sm text-slate-500 mt-1">Sigue nuestras cuentas oficiales para ver fotografías, transmisiones en vivo de la Banda Latina, ferias técnicas y anuncios urgentes.</p>
             </div>
@@ -129,13 +94,13 @@
                    class="group bg-gradient-to-br from-slate-900 via-slate-950 to-red-950 text-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all flex flex-col justify-between hover:-translate-y-1 border border-slate-800">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <i class="fa-brands fa-tiktok text-4xl text-secondary"></i>
-                            <span class="bg-secondary/20 text-secondary text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Canal Oficial</span>
+                            <i class="fa-brands fa-tiktok text-4xl text-amber-400"></i>
+                            <span class="bg-amber-500/20 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Canal Oficial</span>
                         </div>
                         <h3 class="text-xl font-black">TikTok</h3>
                         <p class="text-xs text-slate-300 mt-1">Videos cortos de la Banda Latina, prácticas en laboratorios de informática, madera, estructuras y vida estudiantil.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-secondary">
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-amber-400">
                         <span>Ver Videos en TikTok</span>
                         <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-1 transition-transform"></i>
                     </div>
@@ -147,19 +112,19 @@
         <section class="space-y-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 border-b border-slate-200 pb-4">
                 <div>
-                    <span class="text-xs font-bold text-primary uppercase tracking-wider">Publicaciones Recientes</span>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Publicaciones Recientes</span>
                     <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Blog de Noticias y Logros</h2>
                 </div>
-                <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-newspaper text-primary mr-1"></i> Actualizado periódicamente</span>
+                <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-newspaper text-amber-500 mr-1"></i> Actualizado periódicamente</span>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Entrada 1 -->
-                <article class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
                         <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
-                            <i class="fa-solid fa-drum-steelpan text-5xl text-secondary/30"></i>
-                            <span class="absolute top-4 left-4 bg-secondary text-gray-900 font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Banda Latina FM</span>
+                            <i class="fa-solid fa-drum-steelpan text-5xl text-amber-400/30"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Banda Latina FM</span>
                         </div>
                         <div class="p-6">
                             <span class="text-[11px] font-bold text-slate-400 uppercase"><i class="fa-regular fa-calendar mr-1"></i> Ciclo Lectivo 2026</span>
@@ -168,17 +133,17 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
-                        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="text-xs font-bold text-primary hover:text-primary/80 flex items-center gap-1">
+                        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
                             Ver detalles en Facebook <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </a>
                     </div>
                 </article>
 
                 <!-- Entrada 2 -->
-                <article class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
                         <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
-                            <i class="fa-solid fa-laptop-code text-5xl text-secondary/30"></i>
+                            <i class="fa-solid fa-laptop-code text-5xl text-amber-400/30"></i>
                             <span class="absolute top-4 left-4 bg-blue-600 text-white font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Informática & Robótica</span>
                         </div>
                         <div class="p-6">
@@ -188,17 +153,17 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
-                        <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="text-xs font-bold text-primary hover:text-primary/80 flex items-center gap-1">
+                        <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
                             Ver fotos en Instagram <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </a>
                     </div>
                 </article>
 
                 <!-- Entrada 3 -->
-                <article class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
                         <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
-                            <i class="fa-solid fa-screwdriver-wrench text-5xl text-secondary/30"></i>
+                            <i class="fa-solid fa-screwdriver-wrench text-5xl text-amber-400/30"></i>
                             <span class="absolute top-4 left-4 bg-emerald-600 text-white font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Talleres Industriales</span>
                         </div>
                         <div class="p-6">
@@ -208,7 +173,7 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
-                        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="text-xs font-bold text-primary hover:text-primary/80 flex items-center gap-1">
+                        <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
                             Ver publicaciones <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </a>
                     </div>
@@ -217,12 +182,12 @@
         </section>
 
         <!-- SECCIÓN DE COMENTARIOS Y COMUNIDAD -->
-        <section class="grid lg:grid-cols-12 gap-8 bg-white p-6 sm:p-10 rounded-xl border border-slate-200 shadow-sm">
+        <section class="grid lg:grid-cols-12 gap-8 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
             
             <!-- FORMULARIO DE COMENTARIOS -->
             <div class="lg:col-span-5 space-y-4">
                 <div>
-                    <span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full">Participa</span>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Participa</span>
                     <h2 class="text-2xl font-black text-slate-900 mt-2">Déjanos tu Comentario</h2>
                     <p class="text-xs text-slate-500 mt-1">¿Eres estudiante, padre de familia, exalumno o vecino de Zambrano? Déjanos un mensaje, pregunta o felicitación para la institución.</p>
                 </div>
@@ -231,12 +196,12 @@
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre Completo *</label>
                         <input type="text" id="nombre-usuario" required placeholder="Ej: María José Rodríguez" 
-                               class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#7C1D2E]/40">
+                               class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Rol / Relación con el Instituto *</label>
-                        <select id="rol-usuario" required class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#7C1D2E]/40">
+                        <select id="rol-usuario" required class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
                             <option value="Estudiante">Estudiante</option>
                             <option value="Padre de Familia">Padre / Tutor de Familia</option>
                             <option value="Exalumno">Exalumno / Graduado</option>
@@ -248,10 +213,10 @@
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tu Mensaje o Comentario *</label>
                         <textarea id="texto-comentario" required rows="4" placeholder="Escribe tu mensaje, sugerencia o saludo..." 
-                                  class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#7C1D2E]/40"></textarea>
+                                  class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-3 bg-secondary text-gray-900 font-bold text-xs uppercase rounded-xl hover:bg-[#F0C800] transition-colors shadow-md flex items-center justify-center gap-2">
+                    <button type="submit" class="w-full py-3 bg-amber-500 text-slate-950 font-bold text-xs uppercase rounded-xl hover:bg-amber-600 transition-colors shadow-md flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i> Publicar Comentario
                     </button>
                 </form>
@@ -262,7 +227,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-4 border-b border-slate-200 pb-3">
                         <h3 class="font-black text-slate-900 text-lg flex items-center gap-2">
-                            <i class="fa-solid fa-comments text-primary"></i> Comentarios de la Comunidad
+                            <i class="fa-solid fa-comments text-amber-500"></i> Comentarios de la Comunidad
                         </h3>
                         <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full" id="total-comentarios">3 Comentarios</span>
                     </div>
@@ -274,7 +239,7 @@
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-sm">Carlos Mendoza</h4>
-                                    <span class="inline-block bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-md">Padre de Familia</span>
+                                    <span class="inline-block bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded-md">Padre de Familia</span>
                                 </div>
                                 <span class="text-[10px] text-slate-400 font-semibold"><i class="fa-regular fa-clock"></i> Reciente</span>
                             </div>
@@ -317,21 +282,7 @@
     </main>
 
     <!-- PIE DE PÁGINA -->
-<<<<<<< Updated upstream
     <footer id="footer-root" class="footer"></footer>
-=======
-    <footer class="footer">
-        <div class="max-w-7xl mx-auto px-4 space-y-4">
-            <div class="flex justify-center gap-6 text-lg">
-                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-            <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
-        </div>
-    </footer>
->>>>>>> Stashed changes
 
     <!-- LÓGICA DE COMENTARIOS DINÁMICOS -->
     <script>
@@ -342,7 +293,7 @@
                 rol: "Padre de Familia",
                 mensaje: "Excelente labor de los docentes y la directiva del instituto. Los talleres técnicos están aportando mucho al futuro de nuestros jóvenes en Zambrano.",
                 tiempo: "Hace 1 hora",
-                estiloRol: "bg-primary/10 text-primary"
+                estiloRol: "bg-amber-100 text-amber-900"
             },
             {
                 nombre: "Andrea Gutiérrez",
@@ -407,7 +358,7 @@
             // Determinar estilo según el rol
             let estiloRol = "bg-slate-200 text-slate-800";
             if (rol.includes('Estudiante')) estiloRol = "bg-blue-100 text-blue-900";
-            else if (rol.includes('Padre')) estiloRol = "bg-primary/10 text-primary";
+            else if (rol.includes('Padre')) estiloRol = "bg-amber-100 text-amber-900";
             else if (rol.includes('Exalumno')) estiloRol = "bg-emerald-100 text-emerald-900";
             else if (rol.includes('Docente')) estiloRol = "bg-purple-100 text-purple-900";
 

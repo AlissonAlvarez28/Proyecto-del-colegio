@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<<<<<<< Updated upstream
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oferta Académica | I.G.T. Francisco Miranda</title>
@@ -61,236 +60,6 @@
         <p><i class="fa-solid fa-sun text-amber-500 me-1" aria-hidden="true"></i> Secciones 1, 2 y 3 (Mañana)</p>
         <p><i class="fa-solid fa-moon text-indigo-500 me-1" aria-hidden="true"></i> Sección 4 (Tarde)</p>
       </div>
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Académica | I.G.T. Francisco Miranda</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="institucional.css">
-    <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Outfit', 'sans-serif'] } } } }
-    </script>
-</head>
-<body class="flex flex-col min-h-screen">
-
-    <nav class="navbar sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <a href="inicio.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-                <div>
-                    <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-                    <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-                </div>
-            </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                <a href="inicio.html">Inicio</a>
-                <a href="oferta_academica.html" class="active">Oferta Académica</a>
-                <a href="personal.html">Autoridades y Personal</a>
-                <a href="estudiantes.html">Estudiantes</a>
-                <a href="deportes.html">Deportes</a>
-                <a href="blog.html">Blog y Comentarios</a>
-                <a href="compras.html">Compras</a>
-            </div>
-            <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
-                <i class="fa-solid fa-graduation-cap"></i> Prematricularme
-            </a>
-        </div>
-    </nav>
-
-    <header class="page-header">
-        <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest mb-3">Inscripciones 2026-2027</span>
-        <h1>Oferta Académica e Inscripciones</h1>
-        <p class="subtitle">Haz clic en cualquier opción para desplegar el formulario oficial de prematrícula en pantalla, o accede directamente a trámites especiales.</p>
-        <div class="mt-6">
-            <button onclick="abrirModalGeneral('nuevo')" class="btn btn-secondary text-sm hover:scale-105">
-                <i class="fa-solid fa-file-signature"></i> Iniciar Solicitud de Inscripción / Traspaso
-            </button>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            <div onclick="abrirModalModalCarrera('7mo Grado', ['Sección 1 (Jornada Mañana)', 'Sección 2 (Jornada Mañana)', 'Sección 3 (Jornada Mañana)', 'Sección 4 (Jornada Tarde)'])"
-                 class="cursor-pointer bg-white p-6 rounded-xl border-2 border-transparent hover:border-primary shadow-md hover:shadow-2xl transition-all hover:-translate-y-1 group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold">7º</div>
-                    <span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold group-hover:bg-primary group-hover:text-white transition-colors">Presiona para Inscribirte</span>
-                </div>
-                <h2 class="text-xl font-bold text-slate-900">7mo Grado (Educación Básica)</h2>
-                <p class="text-slate-500 text-xs mt-2">4 Secciones habilitadas. Incluye iniciación técnica.</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 space-y-1">
-                    <p><i class="fa-solid fa-sun text-primary me-1"></i> Secciones 1, 2 y 3 (Mañana)</p>
-                    <p><i class="fa-solid fa-moon text-indigo-500 me-1"></i> Sección 4 (Tarde)</p>
-                </div>
-            </div>
-
-            <div onclick="abrirModalModalCarrera('8vo Grado', ['Sección 1 (Jornada Mañana)', 'Sección 2 (Jornada Mañana)', 'Sección 3 (Jornada Mañana)'])"
-                 class="cursor-pointer bg-white p-6 rounded-xl border-2 border-transparent hover:border-primary shadow-md hover:shadow-2xl transition-all hover:-translate-y-1 group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold">8º</div>
-                    <span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold group-hover:bg-primary group-hover:text-white transition-colors">Presiona para Inscribirte</span>
-                </div>
-                <h2 class="text-xl font-bold text-slate-900">8vo Grado (Educación Básica)</h2>
-                <p class="text-slate-500 text-xs mt-2">3 Secciones en Jornada Matutina.</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 space-y-1">
-                    <p><i class="fa-solid fa-sun text-primary me-1"></i> Secciones 1, 2 y 3 (Mañana)</p>
-                </div>
-            </div>
-
-            <div onclick="abrirModalModalCarrera('9no Grado', ['Sección 1 (Jornada Mañana)', 'Sección 2 (Jornada Mañana)', 'Sección 3 (Jornada Tarde)'])"
-                 class="cursor-pointer bg-white p-6 rounded-xl border-2 border-transparent hover:border-primary shadow-md hover:shadow-2xl transition-all hover:-translate-y-1 group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold">9º</div>
-                    <span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold group-hover:bg-primary group-hover:text-white transition-colors">Presiona para Inscribirte</span>
-                </div>
-                <h2 class="text-xl font-bold text-slate-900">9no Grado (Educación Básica)</h2>
-                <p class="text-slate-500 text-xs mt-2">3 Secciones (2 Mañana / 1 Tarde).</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 space-y-1">
-                    <p><i class="fa-solid fa-sun text-primary me-1"></i> Secciones 1 y 2 (Mañana)</p>
-                    <p><i class="fa-solid fa-moon text-indigo-500 me-1"></i> Sección 3 (Tarde)</p>
-                </div>
-            </div>
-
-            <div onclick="abrirModalModalCarrera('BTP en Informática', ['Sección Única - Jornada Mañana', 'Sección Única - Jornada Tarde'])"
-                 class="cursor-pointer bg-white p-6 rounded-xl border-2 border-transparent hover:border-primary shadow-md hover:shadow-2xl transition-all hover:-translate-y-1 group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-laptop-code"></i></div>
-                    <span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold group-hover:bg-primary group-hover:text-white transition-colors">Presiona para Inscribirte</span>
-                </div>
-                <h2 class="text-xl font-bold text-slate-900">BTP en Informática</h2>
-                <p class="text-slate-500 text-xs mt-2">Programación, mantenimiento, diseño web y redes.</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 space-y-1">
-                    <p><i class="fa-solid fa-clock me-1"></i> Jornadas Mañana y Tarde</p>
-                </div>
-            </div>
-
-            <div onclick="abrirModalModalCarrera('BTP en Contaduría y Finanzas', ['Sección Única - Jornada Mañana', 'Sección Única - Jornada Tarde'])"
-                 class="cursor-pointer bg-white p-6 rounded-xl border-2 border-transparent hover:border-primary shadow-md hover:shadow-2xl transition-all hover:-translate-y-1 group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-calculator"></i></div>
-                    <span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold group-hover:bg-primary group-hover:text-white transition-colors">Presiona para Inscribirte</span>
-                </div>
-                <h2 class="text-xl font-bold text-slate-900">BTP Contaduría y Finanzas</h2>
-                <p class="text-slate-500 text-xs mt-2">Contabilidad bancaria, tributación e impuestos.</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 space-y-1">
-                    <p><i class="fa-solid fa-clock me-1"></i> Jornadas Mañana y Tarde</p>
-                </div>
-            </div>
-
-            <div onclick="abrirModalModalCarrera('BTP en Agroindustria', ['Sección Única - Jornada Mañana'])"
-                 class="cursor-pointer bg-white p-6 rounded-xl border-2 border-transparent hover:border-primary shadow-md hover:shadow-2xl transition-all hover:-translate-y-1 group">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-seedling"></i></div>
-                    <span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold group-hover:bg-primary group-hover:text-white transition-colors">Presiona para Inscribirte</span>
-                </div>
-                <h2 class="text-xl font-bold text-slate-900">BTP en Agroindustria</h2>
-                <p class="text-slate-500 text-xs mt-2">Procesamiento de lácteos, embutidos y alimentos.</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 space-y-1">
-                    <p><i class="fa-solid fa-sun text-primary me-1"></i> Jornada Matutina</p>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- VENTANA FLOTANTE (MODAL UNIFICADO CON PESTAÑAS) -->
-    <div id="modal-inscripcion" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="relative bg-white rounded-xl border border-slate-200 shadow-2xl max-w-3xl w-full p-6 sm:p-8 my-8 transition-all">
-            
-            <button onclick="cerrarModal()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 hover:bg-rose-100 hover:text-rose-600 rounded-full flex items-center justify-center text-slate-500 font-bold transition-colors z-10">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Portal de Inscripciones</span>
-            <h3 class="text-2xl font-bold text-slate-900 mb-6">Selecciona el tipo de trámite</h3>
-
-            <!-- TRES BOTONES SUPERIORES PARA SELECCIONAR TIPO DE INGRESO -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-slate-100 p-1.5 rounded-2xl mb-6">
-                <button type="button" id="btn-nuevo" onclick="cambiarTipoTramite('nuevo')" class="py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm">
-                    <i class="fa-solid fa-user-plus"></i> Nuevo Ingreso
-                </button>
-                <button type="button" id="btn-traspaso" onclick="cambiarTipoTramite('traspaso')" class="py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900">
-                    <i class="fa-solid fa-right-left"></i> Traspaso
-                </button>
-                <button type="button" id="btn-reingreso" onclick="cambiarTipoTramite('reingreso')" class="py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900">
-                    <i class="fa-solid fa-rotate-right"></i> Reingreso
-                </button>
-            </div>
-
-            <form onsubmit="confirmarInscripcion(event)" class="space-y-4">
-                
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre Completo del Alumno *</label>
-                        <input type="text" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Identidad / DNI / RNE *</label>
-                        <input type="text" required placeholder="0801-2008-XXXXX" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
-                    </div>
-                </div>
-
-                <!-- CAMPO CONDICIONAL PARA TRASPASO -->
-                <div id="campo-colegio-procedencia" class="hidden">
-                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Colegio de Procedencia *</label>
-                    <input type="text" id="input-colegio-procedencia" placeholder="Nombre del centro educativo anterior" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
-                </div>
-
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Curso / Carrera a Ingresar *</label>
-                        <select id="campo-curso-select" required class="w-full px-4 py-2.5 bg-white rounded-xl font-semibold text-slate-700 border border-slate-300 text-sm focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none">
-                            <option value="7mo Grado">7mo Grado (Educación Básica)</option>
-                            <option value="8vo Grado">8vo Grado (Educación Básica)</option>
-                            <option value="9no Grado">9no Grado (Educación Básica)</option>
-                            <option value="BTP en Informática">BTP en Informática</option>
-                            <option value="BTP en Contaduría y Finanzas">BTP en Contaduría y Finanzas</option>
-                            <option value="BTP en Agroindustria">BTP en Agroindustria</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Sección y Jornada *</label>
-                        <select id="campo-seccion-modal" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
-                            <option value="Sección 1 (Jornada Mañana)">Sección 1 (Jornada Mañana)</option>
-                            <option value="Sección 2 (Jornada Mañana)">Sección 2 (Jornada Mañana)</option>
-                            <option value="Sección 3 (Jornada Tarde)">Sección 3 (Jornada Tarde)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Teléfono del Padre / Tutor *</label>
-                        <input type="tel" required placeholder="+504 9999-9999" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Lugar de Procedencia *</label>
-                        <input type="text" required placeholder="Aldea Zambrano u otra" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
-                    </div>
-                </div>
-
-                <div class="bg-primary/5 p-4 rounded-2xl border border-primary/20 mt-2">
-                    <label class="block text-xs font-bold text-primary uppercase mb-1 flex items-center gap-1.5">
-                        <i class="fa-solid fa-file-arrow-up text-primary text-sm"></i> Documento Adjunto (PDF o Imagen) *
-                    </label>
-                    <p id="texto-adjunto-requisito" class="text-slate-500 text-xs mb-2">Adjunta una fotografía clara o documento escaneado del acta o partida de nacimiento.</p>
-                    <input type="file" accept="image/*,.pdf" required class="block w-full text-xs text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-primary file:text-white hover:file:bg-[#9E2A3E] cursor-pointer">
-                </div>
-
-                <div class="flex gap-3 pt-3">
-                    <button type="button" onclick="cerrarModal()" class="w-1/3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm transition-colors">
-                        Cancelar
-                    </button>
-                    <button type="submit" class="w-2/3 py-3 bg-primary hover:bg-[#9E2A3E] text-white font-black text-sm rounded-xl shadow-lg transition-all">
-                        Enviar Solicitud
-                    </button>
-                </div>
-            </form>
-        </div>
->>>>>>> Stashed changes
     </div>
 
     <div onclick="abrirModalModalCarrera('8vo Grado', ['Sección 1 (Jornada Mañana)', 'Sección 2 (Jornada Mañana)', 'Sección 3 (Jornada Mañana)'])"
@@ -359,29 +128,8 @@
       </div>
     </div>
 
-<<<<<<< Updated upstream
   </div>
 </main>
-=======
-            // Aplicar estilo activo y reglas del formulario
-            if (tipo === 'nuevo') {
-                btnNuevo.className = "py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm";
-                campoColegio.classList.add('hidden');
-                inputColegio.removeAttribute('required');
-                textoAdjunto.innerText = "Adjunta una fotografía clara o documento escaneado del certificado de nacimiento.";
-            } else if (tipo === 'traspaso') {
-                btnTraspaso.className = "py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm";
-                campoColegio.classList.remove('hidden');
-                inputColegio.setAttribute('required', 'required');
-                textoAdjunto.innerText = "Adjunta certificado de estudios / constancia de conducta del colegio anterior.";
-            } else if (tipo === 'reingreso') {
-                btnReingreso.className = "py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm";
-                campoColegio.classList.add('hidden');
-                inputColegio.removeAttribute('required');
-                textoAdjunto.innerText = "Adjunta comprobante de matrícula o certificación de estudios anterior en el IGTFM.";
-            }
-        }
->>>>>>> Stashed changes
 
 <!-- VENTANA FLOTANTE (MODAL UNIFICADO CON PESTAÑAS) -->
 <div id="modal-inscripcion" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
@@ -423,7 +171,6 @@
         <input type="text" id="input-colegio-procedencia" placeholder="Nombre del centro educativo anterior" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
       </div>
 
-<<<<<<< Updated upstream
       <div class="grid sm:grid-cols-2 gap-4">
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Curso / Carrera a Ingresar *</label>
@@ -547,18 +294,5 @@
 </script>
 
 <footer id="footer-root" class="footer"></footer>
-=======
-    <footer class="footer">
-        <div class="max-w-7xl mx-auto px-4 space-y-4">
-            <div class="flex justify-center gap-6 text-lg">
-                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-            <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
-        </div>
-    </footer>
->>>>>>> Stashed changes
 </body>
 </html>

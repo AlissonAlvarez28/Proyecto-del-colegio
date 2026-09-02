@@ -29,22 +29,103 @@
     <script src="nav.js" defer></script>
 
     <style>
-        @keyframes modalEntrada {
-            from { opacity: 0; transform: translateY(14px) scale(.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+        /* ============ MODAL DE PERFIL — DISEÑO MODERNO ============ */
+        #modal-personal {
+            animation: modalFondo .22s ease-out;
         }
 
-        #modal-personal {
-            animation: modalFondo .18s ease-out;
+        .modal-backdrop {
+            background: rgba(15, 8, 18, .72);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .modal-panel {
+            box-shadow: 0 30px 80px -20px rgba(30, 5, 28, .55), 0 0 0 1px rgba(255, 255, 255, .06);
+            animation: modalEntrada .32s cubic-bezier(.22, 1, .36, 1);
+            scrollbar-width: thin;
+        }
+
+        @keyframes modalEntrada {
+            from { opacity: 0; transform: translateY(26px) scale(.96); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         @keyframes modalFondo {
             from { opacity: 0; }
-            to { opacity: 1; }
+            to   { opacity: 1; }
         }
 
-        body.modal-abierto {
-            overflow: hidden;
+        body.modal-abierto { overflow: hidden; }
+
+        /* Cabecera con degradado de marca (vino del escudo + acento dorado) */
+        .modal-header {
+            background: linear-gradient(135deg, #3D0A36 0%, #59104E 55%, #7C1D6E 100%);
+        }
+
+        .modal-header-glow {
+            position: absolute; top: -45%; right: -12%;
+            width: 340px; height: 340px; border-radius: 9999px;
+            background: radial-gradient(circle, rgba(242, 199, 14, .30), transparent 65%);
+            pointer-events: none;
+        }
+
+        .modal-foto-wrap {
+            border: 3px solid #E3B800;
+            box-shadow: 0 14px 34px -10px rgba(0, 0, 0, .55);
+            transition: transform .25s cubic-bezier(.22, 1, .36, 1);
+        }
+        .modal-panel:hover .modal-foto-wrap { transform: translateY(-2px); }
+
+        /* Nombre del docente: siempre visible, sin cortes, protagonista */
+        .modal-nombre {
+            font-size: clamp(1.35rem, 4.5vw, 1.9rem);
+            line-height: 1.15;
+            margin: 0;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-wrap: balance;
+        }
+
+        /* Entrada escalonada del contenido */
+        .modal-item { animation: modalItem .38s cubic-bezier(.22, 1, .36, 1) both; }
+        .modal-body > .modal-item:nth-child(2) { animation-delay: .05s; }
+        .modal-body > .modal-item:nth-child(3) { animation-delay: .1s; }
+        .modal-grid .modal-item:nth-child(1) { animation-delay: .1s; }
+        .modal-grid .modal-item:nth-child(2) { animation-delay: .15s; }
+        .modal-grid .modal-item:nth-child(3) { animation-delay: .2s; }
+        .modal-grid .modal-item:nth-child(4) { animation-delay: .25s; }
+
+        @keyframes modalItem {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Micro-interacción en tarjetas de datos */
+        .info-card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+        .info-card:hover {
+            transform: translateY(-2px);
+            border-color: #E3B800;
+            box-shadow: 0 10px 24px -12px rgba(89, 16, 78, .28);
+        }
+
+        /* Movil: la card se ancla abajo tipo hoja y siempre permite scroll */
+        @media (max-width: 480px) {
+            #modal-personal { align-items: flex-end; padding: 0; }
+            .modal-panel {
+                max-height: 94vh;
+                border-radius: 1.5rem 1.5rem 0 0;
+                animation-name: modalEntradaMovil;
+            }
+            @keyframes modalEntradaMovil {
+                from { opacity: 0; transform: translateY(48px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #modal-personal, .modal-panel, .modal-item { animation: none !important; }
+            .info-card, .modal-foto-wrap { transition: none !important; }
         }
     </style>
 
@@ -124,45 +205,47 @@
 
     <!-- VENTANA FLOTANTE DE INFORMACIÓN DEL PERSONAL -->
     <div id="modal-personal"
-         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6"
+         class="fixed inset-0 z-[999] hidden items-center justify-center p-3 sm:p-6"
          aria-hidden="true"
          role="dialog"
          aria-modal="true"
          aria-labelledby="modal-nombre">
 
         <!-- Fondo oscuro -->
-        <div id="modal-backdrop"
-             class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
+        <div id="modal-backdrop" class="modal-backdrop absolute inset-0"></div>
 
         <!-- Contenido -->
         <div id="modal-contenido"
-             class="relative z-10 w-full max-w-3xl max-h-[92vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-slate-200 animate-[modalEntrada_.2s_ease-out]">
+             class="modal-panel relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto overscroll-contain bg-white rounded-3xl border border-slate-200">
 
             <button type="button"
                     onclick="cerrarModal()"
-                    class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-900/90 text-white flex items-center justify-center hover:bg-amber-500 hover:text-slate-950 transition-all shadow-lg"
+                    class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 hover:rotate-90 transition-all duration-200 shadow-lg backdrop-blur-sm"
                     aria-label="Cerrar información">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <div class="bg-slate-900 px-6 sm:px-8 pt-8 pb-7 text-white">
-                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 pr-8">
-                    <div class="w-28 h-28 sm:w-32 sm:h-32 shrink-0 rounded-2xl overflow-hidden bg-slate-800 border-2 border-amber-500 shadow-xl flex items-center justify-center">
+            <!-- Cabecera: fotografía + nombre protagonista -->
+            <div class="modal-header relative px-6 sm:px-10 pt-10 pb-8 text-white overflow-hidden">
+                <div class="modal-header-glow" aria-hidden="true"></div>
+                <div class="relative flex flex-col sm:flex-row items-center gap-6">
+                    <div class="modal-foto-wrap w-28 h-28 sm:w-32 sm:h-32 shrink-0 rounded-3xl overflow-hidden bg-white/10 flex items-center justify-center">
                         <img id="modal-foto" src="" alt="" class="w-full h-full object-cover">
-                        <div id="modal-iniciales" class="hidden w-full h-full items-center justify-center text-amber-400 font-black text-4xl"></div>
+                        <div id="modal-iniciales" class="hidden w-full h-full items-center justify-center text-amber-300 font-black text-4xl"></div>
                     </div>
-                    <div class="text-center sm:text-left">
-                        <span id="modal-cargo" class="inline-block px-3 py-1 bg-amber-500 text-slate-950 text-[10px] font-black uppercase rounded-lg mb-2"></span>
-                        <h2 id="modal-nombre" class="text-2xl sm:text-3xl font-black leading-tight"></h2>
-                        <p id="modal-materia" class="mt-2 text-slate-300 text-sm font-semibold">
-                            <i class="fa-solid fa-book-open text-amber-400 mr-1"></i>
+                    <div class="text-center sm:text-left min-w-0 flex-1 pr-0 sm:pr-8">
+                        <span id="modal-cargo" class="inline-block max-w-full px-3 py-1 bg-amber-400 text-slate-950 text-[10px] font-black uppercase tracking-wider rounded-lg mb-3"></span>
+                        <h2 id="modal-nombre" class="modal-nombre font-black text-white"></h2>
+                        <p id="modal-materia" class="mt-2 text-white/80 text-sm font-semibold">
+                            <i class="fa-solid fa-book-open text-amber-300 mr-1"></i>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="p-6 sm:p-8 space-y-5">
-                <div>
+            <!-- Cuerpo: datos del perfil -->
+            <div class="modal-body p-6 sm:p-8 space-y-5">
+                <div class="modal-item">
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 flex items-center gap-2 mb-2">
                         <i class="fa-solid fa-graduation-cap text-amber-500"></i>
                         Formación y trayectoria
@@ -170,26 +253,26 @@
                     <p id="modal-titulos" class="text-sm leading-7 text-slate-600 bg-slate-50 rounded-2xl p-4 border border-slate-200"></p>
                 </div>
 
-                <div class="grid sm:grid-cols-2 gap-3">
-                    <div class="rounded-2xl border border-slate-200 p-4 bg-white">
+                <div class="modal-grid grid sm:grid-cols-2 gap-3">
+                    <div class="modal-item info-card rounded-2xl border border-slate-200 p-4 bg-white">
                         <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
                             <i class="fa-solid fa-clock-rotate-left text-amber-500 mr-1"></i> Experiencia
                         </p>
                         <p id="modal-experiencia" class="text-sm font-semibold text-slate-700"></p>
                     </div>
-                    <div class="rounded-2xl border border-slate-200 p-4 bg-white">
+                    <div class="modal-item info-card rounded-2xl border border-slate-200 p-4 bg-white">
                         <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
                             <i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Ubicación
                         </p>
                         <p id="modal-ubicacion" class="text-sm font-semibold text-slate-700"></p>
                     </div>
-                    <div class="rounded-2xl border border-slate-200 p-4 bg-white">
+                    <div class="modal-item info-card rounded-2xl border border-slate-200 p-4 bg-white">
                         <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
                             <i class="fa-solid fa-clock text-amber-500 mr-1"></i> Horario
                         </p>
                         <p id="modal-horario" class="text-sm font-semibold text-slate-700"></p>
                     </div>
-                    <div class="rounded-2xl border border-slate-200 p-4 bg-white">
+                    <div class="modal-item info-card rounded-2xl border border-slate-200 p-4 bg-white">
                         <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
                             <i class="fa-solid fa-envelope text-amber-500 mr-1"></i> Correo
                         </p>
@@ -197,7 +280,7 @@
                     </div>
                 </div>
 
-                <div class="pt-3 border-t border-slate-100 text-center">
+                <div class="modal-item pt-3 border-t border-slate-100 text-center">
                     <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
                         I.G.T. Francisco Miranda · Perfil del personal
                     </span>
@@ -474,18 +557,6 @@
                 categoria: "docentes",
                 foto: "img.png/Docente Mayra Alejandra Martines Aguilar.jpg",
                 correo: "mayra.martinez@igtfm.edu.hn",
-                ubicacion: "Edificio de Aulas 2",
-                horario: "Jornada Matutina"
-            },
-            {
-                nombre: "Ada Lizeth Ordóñez Martínez",
-                cargo: "Docente de Español y Directora de Fútbol Femenino",
-                titulos: "Licenciada en la Enseñanza del Español y con una Maestría en Lenguas y Cultura por la UNAH. Más de 20 años de experiencia docente e investigativa en el instituto. Dirige el equipo de fútbol femenino.",
-                materia: "Lengua Española, Literatura y Educación Física",
-                experiencia: "Más de 20 años en la institución",
-                categoria: "docentes",
-                foto: "img.png/Ada Lizeth Ordóñez.png",
-                correo: "ada.ordonez@igtfm.edu.hn",
                 ubicacion: "Edificio de Aulas 2",
                 horario: "Jornada Matutina"
             },
@@ -909,5 +980,6 @@
             renderizarPersonal(personal);
         });
     </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
 </body>
 </html>

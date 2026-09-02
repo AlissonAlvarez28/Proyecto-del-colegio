@@ -13,12 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="institucional.css">
     <script src="https://cdn.tailwindcss.com"></script>
-<<<<<<< Updated upstream
-=======
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="institucional.css">
->>>>>>> Stashed changes
     <script>
         /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
            Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
@@ -34,51 +28,23 @@
     </script>
     <script src="nav.js" defer></script>
 </head>
-<<<<<<< Updated upstream
 <body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen" data-page="compras">
 <a href="#main" class="skip-link">Saltar al contenido</a>
 <div class="progreso-scroll" id="progresoScroll"></div>
 <header id="navbar-root" class="navbar"></header>
 <div id="mobile-menu-root" class="mobile-menu"></div>
-=======
-<body class="flex flex-col min-h-screen">
 
-    <nav class="navbar sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <a href="inicio.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-                <div>
-                    <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-                    <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-                </div>
-            </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                <a href="inicio.html">Inicio</a>
-                <a href="oferta_academica.html">Oferta Académica</a>
-                <a href="personal.html">Autoridades y Personal</a>
-                <a href="estudiantes.html">Estudiantes</a>
-                <a href="deportes.html">Deportes</a>
-                <a href="blog.html">Blog y Comentarios</a>
-                <a href="compras.html" class="active">Compras</a>
-            </div>
-            <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
-                <i class="fa-solid fa-graduation-cap"></i> Prematricularme
-            </a>
-        </div>
-    </nav>
->>>>>>> Stashed changes
-
-    <header class="page-header">
-        <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest mb-3">Tienda Virtual e Indumentaria</span>
-        <h1>Artículos e Insumos Estudiantiles</h1>
-        <p class="subtitle">Selecciona tus artículos y realiza el pago de forma segura en línea.</p>
+    <header class="bg-slate-900 text-white py-12 border-b border-slate-800 text-center">
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Tienda Virtual e Indumentaria</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mt-1">Artículos e Insumos Estudiantiles</h1>
+        <p class="text-slate-400 text-sm mt-2">Selecciona tus artículos y realiza el pago de forma segura en línea.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full grid lg:grid-cols-12 gap-8">
         
         <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
             
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div>
                     <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
                         <i class="fa-solid fa-id-card"></i>
@@ -91,15 +57,15 @@
                         <span class="text-xs text-slate-400 block font-semibold">Precio</span>
                         <span class="font-black text-slate-900 text-lg">L. 100.00</span>
                     </div>
-                    <button onclick="comprarDirecto('Carnet Estudiantil', 100)" class="btn btn-secondary text-xs">
+                    <button onclick="comprarDirecto('Carnet Estudiantil', 100)" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl shadow-md transition-all">
                         Comprar Ahora
                     </button>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div>
-                    <div class="w-12 h-12 bg-emerald-100 text-primary rounded-2xl flex items-center justify-center text-2xl mb-4">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
                         <i class="fa-solid fa-shirt"></i>
                     </div>
                     <h3 class="font-bold text-lg text-slate-900">Buzo Deportivo Completo</h3>
@@ -110,13 +76,13 @@
                         <span class="text-xs text-slate-400 block font-semibold">Precio</span>
                         <span class="font-black text-slate-900 text-lg">L. 550.00</span>
                     </div>
-                    <button onclick="comprarDirecto('Buzo Deportivo Completo', 550)" class="btn btn-secondary text-xs">
+                    <button onclick="comprarDirecto('Buzo Deportivo Completo', 550)" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl shadow-md transition-all">
                         Comprar Ahora
                     </button>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div>
                     <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
                         <i class="fa-solid fa-user-graduate"></i>
@@ -129,15 +95,15 @@
                         <span class="text-xs text-slate-400 block font-semibold">Precio</span>
                         <span class="font-black text-slate-900 text-lg">L. 800.00</span>
                     </div>
-                    <button onclick="comprarDirecto('Paquete de Graduación', 800)" class="btn btn-secondary text-xs">
+                    <button onclick="comprarDirecto('Paquete de Graduación', 800)" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl shadow-md transition-all">
                         Comprar Ahora
                     </button>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div>
-                    <div class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mb-4">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <h3 class="font-bold text-lg text-slate-900">Monograma / Escudo Oficial</h3>
@@ -148,7 +114,7 @@
                         <span class="text-xs text-slate-400 block font-semibold">Precio</span>
                         <span class="font-black text-slate-900 text-lg">L. 50.00</span>
                     </div>
-                    <button onclick="comprarDirecto('Monograma Oficial', 50)" class="btn btn-secondary text-xs">
+                    <button onclick="comprarDirecto('Monograma Oficial', 50)" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl shadow-md transition-all">
                         Comprar Ahora
                     </button>
                 </div>
@@ -156,9 +122,9 @@
 
         </div>
 
-        <div class="lg:col-span-4 bg-white p-6 rounded-xl border border-slate-200 shadow-xl h-fit">
+        <div class="lg:col-span-4 bg-white p-6 rounded-3xl border border-slate-200 shadow-xl h-fit">
             <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
-                <span><i class="fa-solid fa-cart-shopping me-2 text-primary"></i> Mi Cesta</span>
+                <span><i class="fa-solid fa-cart-shopping me-2 text-amber-500"></i> Mi Cesta</span>
                 <span id="cantidad-items" class="text-xs bg-slate-100 px-2.5 py-1 rounded-full font-bold text-slate-600">0 ítems</span>
             </h3>
             
@@ -168,10 +134,10 @@
 
             <div class="pt-4 border-t border-slate-200 flex justify-between items-center font-black text-slate-900 text-base">
                 <span>Total a Pagar:</span>
-                <span id="total-precio" class="text-primary text-lg">L. 0.00</span>
+                <span id="total-precio" class="text-emerald-600 text-lg">L. 0.00</span>
             </div>
 
-            <button id="btn-proceder-pago" onclick="abrirModalPago()" class="mt-6 w-full py-3.5 bg-primary hover:bg-[#9E2A3E] text-white font-black text-sm rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+            <button id="btn-proceder-pago" onclick="abrirModalPago()" class="mt-6 w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
                 <i class="fa-solid fa-credit-card"></i> Proceder al Pago
             </button>
         </div>
@@ -179,18 +145,18 @@
     </main>
 
     <div id="modal-pago" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="relative bg-white rounded-xl border border-slate-200 shadow-2xl max-w-2xl w-full p-6 sm:p-8 my-8 transition-all">
+        <div class="relative bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-2xl w-full p-6 sm:p-8 my-8 transition-all">
             
             <button onclick="cerrarModalPago()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 hover:bg-rose-100 hover:text-rose-600 rounded-full flex items-center justify-center text-slate-500 font-bold transition-colors">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
 
             <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-emerald-100 text-primary rounded-xl flex items-center justify-center text-xl font-bold">
+                <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold">
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <div>
-                    <span class="text-xs font-bold text-primary uppercase tracking-widest block">Pasarela Segura SSL 256-Bit</span>
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest block">Pasarela Segura SSL 256-Bit</span>
                     <h3 class="text-2xl font-black text-slate-900">Finalizar Compra</h3>
                 </div>
             </div>
@@ -202,7 +168,7 @@
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-slate-400 font-semibold block">Total</span>
-                    <span id="modal-monto-total" class="text-xl font-black text-primary">L. 0.00</span>
+                    <span id="modal-monto-total" class="text-xl font-black text-emerald-600">L. 0.00</span>
                 </div>
             </div>
 
@@ -215,13 +181,13 @@
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre Completo del Titular</label>
-                        <input type="text" required placeholder="Como aparece en la tarjeta" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
+                        <input type="text" required placeholder="Como aparece en la tarjeta" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Número de Tarjeta de Crédito/Débito</label>
                         <div class="relative">
-                            <input type="text" required maxlength="19" placeholder="1234 5678 9012 3456" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm font-mono">
+                            <input type="text" required maxlength="19" placeholder="1234 5678 9012 3456" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm font-mono">
                             <div class="absolute right-3 top-2.5 flex gap-1.5 text-slate-400 text-lg">
                                 <i class="fa-brands fa-cc-visa"></i>
                                 <i class="fa-brands fa-cc-mastercard"></i>
@@ -232,11 +198,11 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Fecha de Expiración</label>
-                            <input type="text" required placeholder="MM / AA" maxlength="5" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm font-mono text-center">
+                            <input type="text" required placeholder="MM / AA" maxlength="5" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm font-mono text-center">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Código CVC / CVV</label>
-                            <input type="password" required placeholder="123" maxlength="4" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm font-mono text-center">
+                            <input type="password" required placeholder="123" maxlength="4" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm font-mono text-center">
                         </div>
                     </div>
                 </div>
@@ -249,41 +215,41 @@
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">País</label>
-                            <select required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm bg-white">
+                            <select required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm bg-white">
                                 <option value="Honduras">Honduras</option>
                                 <option value="Otro">Otro País</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Departamento</label>
-                            <input type="text" required placeholder="Ej. Francisco Morazán" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
+                            <input type="text" required placeholder="Ej. Francisco Morazán" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
                         </div>
                     </div>
 
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Ciudad / Municipio</label>
-                            <input type="text" required placeholder="Ej. Zambrano / Tegucigalpa" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
+                            <input type="text" required placeholder="Ej. Zambrano / Tegucigalpa" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Código Postal</label>
-                            <input type="text" required placeholder="11101" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm font-mono">
+                            <input type="text" required placeholder="11101" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm font-mono">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Dirección Exacta de Residencia</label>
-                        <input type="text" required placeholder="Barrio, calle o número de casa" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
+                        <input type="text" required placeholder="Barrio, calle o número de casa" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
                     </div>
 
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Correo Electrónico (Para Recibo)</label>
-                            <input type="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
+                            <input type="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Teléfono de Contacto</label>
-                            <input type="tel" required placeholder="+504 9999-9999" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#7C1D2E]/40 outline-none text-sm">
+                            <input type="tel" required placeholder="+504 9999-9999" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none text-sm">
                         </div>
                     </div>
                 </div>
@@ -292,7 +258,7 @@
                     <button type="button" onclick="cerrarModalPago()" class="w-1/3 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm transition-colors">
                         Cancelar
                     </button>
-                    <button type="submit" class="w-2/3 py-3.5 bg-primary hover:bg-[#9E2A3E] text-white font-black text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                    <button type="submit" class="w-2/3 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
                         <i class="fa-solid fa-lock"></i> Pagar Ahora
                     </button>
                 </div>
@@ -355,20 +321,6 @@
         }
     </script>
 
-<<<<<<< Updated upstream
     <footer id="footer-root" class="footer"></footer>
-=======
-    <footer class="footer">
-        <div class="max-w-7xl mx-auto px-4 space-y-4">
-            <div class="flex justify-center gap-6 text-lg">
-                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-            <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
-        </div>
-    </footer>
->>>>>>> Stashed changes
 </body>
 </html>
