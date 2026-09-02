@@ -43,13 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-window.addEventListener('scroll', function() {
-    const btnVolverArriba = document.querySelector('.btn-volver-arriba');
-    if (btnVolverArriba) {
-        if (window.scrollY > 0) { // Cambiado a 0 para que aparezca casi de inmediato
-            btnVolverArriba.classList.add('show');
-        } else {
-            btnVolverArriba.classList.remove('show');
-        }
+
+// Hacer que al hacer clic suba suavemente al inicio
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.btn-volver-arriba')) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 });
