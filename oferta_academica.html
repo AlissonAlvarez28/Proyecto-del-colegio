@@ -296,24 +296,6 @@
       </div>
     </div>
 
-            // Aplicar estilo activo y reglas del formulario
-            if (tipo === 'nuevo') {
-                btnNuevo.className = "py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm";
-                campoColegio.classList.add('hidden');
-                inputColegio.removeAttribute('required');
-                textoAdjunto.innerText = "Adjunta una fotografía clara o documento escaneado del certificado de nacimiento.";
-            } else if (tipo === 'traspaso') {
-                btnTraspaso.className = "py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm";
-                campoColegio.classList.remove('hidden');
-                inputColegio.setAttribute('required', 'required');
-                textoAdjunto.innerText = "Adjunta certificado de estudios / constancia de conducta del colegio anterior.";
-            } else if (tipo === 'reingreso') {
-                btnReingreso.className = "py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 bg-white text-primary shadow-sm";
-                campoColegio.classList.add('hidden');
-                inputColegio.removeAttribute('required');
-                textoAdjunto.innerText = "Adjunta comprobante de matrícula o certificación de estudios anterior en el IGTFM.";
-            }
-        }
 
 <!-- VENTANA FLOTANTE (MODAL UNIFICADO CON PESTAÑAS) -->
 <div id="modal-inscripcion" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
