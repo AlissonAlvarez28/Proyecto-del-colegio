@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autoridades y Personal | I.G.T. Francisco Miranda</title>
     <meta name="description" content="Autoridades y personal docente del Instituto Gubernamental Técnico Francisco Miranda.">
+    <meta property="og:title" content="Autoridades y Personal | I.G.T. Francisco Miranda">
+    <meta property="og:description" content="Conoce a las autoridades y al personal docente del I.G.T. Francisco Miranda.">
+    <meta property="og:image" content="imagenes/escudo-igtfm.png">
+    <meta property="og:image:alt" content="Escudo del I.G.T. Francisco Miranda">
+    <meta property="og:site_name" content="I.G.T. Francisco Miranda">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_HN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Autoridades y Personal | I.G.T. Francisco Miranda">
+    <meta name="twitter:description" content="Conoce a las autoridades y al personal docente del I.G.T. Francisco Miranda.">
+    <meta name="twitter:image" content="imagenes/escudo-igtfm.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
     <link rel="apple-touch-icon" href="imagenes/favicon-180.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +37,10 @@
           }}
         };
     </script>
-    <script src="nav.js" defer></script>
+    <script src="config.js"></script>
+<script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
 
     <style>
         @keyframes modalEntrada {
@@ -124,7 +138,7 @@
 
     <!-- VENTANA FLOTANTE DE INFORMACIÓN DEL PERSONAL -->
     <div id="modal-personal"
-         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6"
+         class="fixed inset-0 z-[300] hidden items-center justify-center p-4 sm:p-6"
          aria-hidden="true"
          role="dialog"
          aria-modal="true"
@@ -479,9 +493,9 @@
             },
             {
                 nombre: "Ada Lizeth Ordóñez Martínez",
-                cargo: "Docente de Español y Directora de Fútbol Femenino",
-                titulos: "Licenciada en la Enseñanza del Español y con una Maestría en Lenguas y Cultura por la UNAH. Más de 20 años de experiencia docente e investigativa en el instituto. Dirige el equipo de fútbol femenino.",
-                materia: "Lengua Española, Literatura y Educación Física",
+                cargo: "Docente de Español",
+                titulos: "Licenciada en la Enseñanza del Español y con una Maestría en Lenguas y Cultura por la UNAH. Más de 20 años de experiencia docente e investigativa en el instituto.",
+                materia: "Lengua Española y Literatura",
                 experiencia: "Más de 20 años en la institución",
                 categoria: "docentes",
                 foto: "img.png/Ada Lizeth Ordóñez.png",
@@ -748,7 +762,7 @@
             document.getElementById('stat-mantenimiento').textContent = personal.filter(p => p.categoria === 'mantenimiento').length;
         }
 
-        function renderizarPersonal(lista) {
+        function renderizarPersonal(lista = personal) {
             const contenedor = document.getElementById('grid-personal');
             contenedor.innerHTML = '';
 
@@ -763,50 +777,49 @@
             }
 
             lista.forEach(persona => {
-                const partes = persona.nombre.split(' ');
-                const iniciales = (partes[0] ? partes[0][0] : '') + (partes[1] ? partes[1][0] : '');
+                const partes = (persona.nombre || '').trim().split(/\s+/);
+                const iniciales = ((partes[0] ? partes[0][0] : '') + (partes[1] ? partes[1][0] : '')).toUpperCase();
 
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group cursor-pointer";
-                 card.setAttribute("role", "button");
-                 card.setAttribute("tabindex", "0");
-                 card.setAttribute("aria-label", `Ver información de ${persona.nombre}`);
-                 card.addEventListener("click", () => abrirModal(persona));
-                 card.addEventListener("keydown", (evento) => { if (evento.key === "Enter" || evento.key === " ") { evento.preventDefault(); abrirModal(persona); } });
+                const card = document.createElement('article');
+                card.className = "bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-amber-300 transition-all flex flex-col group cursor-pointer";
+                card.setAttribute("role", "button");
+                card.setAttribute("tabindex", "0");
+                card.setAttribute("aria-label", `Ver información de ${persona.nombre}`);
+                card.addEventListener("click", () => abrirModal(persona));
+                card.addEventListener("keydown", (evento) => { if (evento.key === "Enter" || evento.key === " ") { evento.preventDefault(); abrirModal(persona); } });
 
                 card.innerHTML = `
-                    <div>
-                        <div class="relative w-56 h-56 mx-auto mb-4 rounded-2xl overflow-hidden bg-slate-100 border-2 border-slate-200 flex items-center justify-center text-slate-400 group-hover:border-amber-500 transition-colors shadow-inner">
-                            <img src="${persona.foto}" alt="${persona.nombre}" 
-                                 class="w-full h-full object-cover" 
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="hidden w-full h-full bg-slate-900 text-amber-400 font-black text-5xl items-center justify-center uppercase tracking-widest">
-                                ${iniciales}
-                            </div>
+                    <div class="relative h-52 bg-slate-900 overflow-hidden">
+                        <img src="${persona.foto}" alt="Fotografía de ${persona.nombre}"
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full bg-gradient-to-br from-slate-800 to-slate-950 text-amber-400 font-black text-5xl items-center justify-center uppercase tracking-widest">
+                            ${iniciales}
                         </div>
-
-                        <div class="text-center">
-                            <span class="inline-block px-2.5 py-1 bg-amber-100 text-amber-900 text-[10px] font-bold uppercase rounded-md mb-2">
-                                ${persona.cargo}
-                            </span>
-                            <h3 class="font-black text-slate-900 text-base leading-snug group-hover:text-amber-600 transition-colors">
-                                ${persona.nombre}
-                            </h3>
-                            <p class="text-xs text-slate-600 font-bold mt-1.5 flex items-center justify-center gap-1">
-                                <i class="fa-solid fa-book-open text-amber-500"></i> ${persona.materia}
-                            </p>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-slate-100 text-left space-y-1.5 text-xs text-slate-500">
-                            ${persona.titulos ? `<p class="leading-tight text-slate-600"><strong class="text-slate-700 block mb-1">Formación Académica:</strong> <span class="text-slate-600 block">${persona.titulos}</span></p>` : ''}
-                            ${persona.ubicacion ? `<p class="text-[11px] text-slate-600 font-medium flex items-center gap-1.5 mt-2"><i class="fa-solid fa-location-dot text-amber-500"></i> ${persona.ubicacion}</p>` : ''}
-                            ${persona.horario ? `<p class="text-[11px] text-slate-600 font-medium flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-500"></i> ${persona.horario}</p>` : ''}
-                            ${persona.experiencia ? `<p class="text-[11px] text-amber-700 font-semibold mt-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i>${persona.experiencia}</p>` : ''}
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-transparent pt-10 pb-3 px-4">
+                            <span class="inline-block px-2 py-0.5 bg-amber-500 text-slate-950 text-[10px] font-black uppercase rounded mb-1">${persona.cargo}</span>
+                            <h3 class="text-white font-black text-lg leading-tight drop-shadow">${persona.nombre}</h3>
                         </div>
                     </div>
 
-                    <div class="mt-4 pt-3 border-t border-slate-100 text-center">
-                        <span class="inline-flex items-center gap-1.5 text-[11px] font-black text-amber-600 uppercase tracking-wider"><i class="fa-solid fa-circle-info"></i> Toca para ver información</span>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <p class="text-xs text-slate-700 font-bold flex items-start gap-1.5">
+                            <i class="fa-solid fa-book-open text-amber-500 mt-0.5"></i>
+                            <span>${persona.materia || 'Personal del instituto'}</span>
+                        </p>
+
+                        ${persona.titulos ? `<p class="text-xs leading-relaxed text-slate-500 mt-2.5 line-clamp-3">${persona.titulos}</p>` : ''}
+
+                        ${(persona.ubicacion || persona.horario || persona.experiencia) ? `
+                        <div class="mt-3 pt-3 border-t border-slate-100 space-y-1 text-[11px] text-slate-500 font-medium">
+                            ${persona.ubicacion ? `<p class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-amber-500 w-3"></i> ${persona.ubicacion}</p>` : ''}
+                            ${persona.horario ? `<p class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-500 w-3"></i> ${persona.horario}</p>` : ''}
+                            ${persona.experiencia ? `<p class="flex items-center gap-1.5 text-amber-700 font-semibold"><i class="fa-solid fa-clock-rotate-left w-3"></i> ${persona.experiencia}</p>` : ''}
+                        </div>` : ''}
+
+                        <div class="mt-auto pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-black text-amber-600 uppercase tracking-wider group-hover:text-amber-700">
+                            <i class="fa-solid fa-circle-info"></i> Toca para ver información
+                        </div>
                     </div>
                 `;
                 contenedor.appendChild(card);
@@ -909,5 +922,6 @@
             renderizarPersonal(personal);
         });
     </script>
+    <a href="#" class="btn-volver-arriba">▲</a>
 </body>
 </html>
