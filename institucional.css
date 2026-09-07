@@ -221,6 +221,67 @@ img { max-width: 100%; display: block; }
 .section-dark h1, .section-dark h2, .section-dark h3, .section-dark p { color: #fff; }
 .section-dark p { color: #C8CEE4; }
 
+/* ---------- Galería deportiva ---------- */
+.sports-gallery-section { background: #fff; }
+.sports-gallery-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.sports-gallery-heading p { max-width: 28rem; margin: 0; }
+.sports-gallery-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 1rem;
+}
+.sports-gallery-grid figure {
+  position: relative;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-azul-marino);
+  box-shadow: var(--shadow-md);
+}
+.sports-gallery-feature { grid-row: 1 / 3; }
+.sports-gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease), filter var(--dur) var(--ease);
+}
+.sports-gallery-grid figure::after {
+  content: '';
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(8,13,31,.9));
+  pointer-events: none;
+}
+.sports-gallery-grid figure:hover img,
+.sports-gallery-grid figure:focus-within img { transform: scale(1.06); filter: saturate(1.1); }
+.sports-gallery-grid figcaption {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 1rem;
+  left: 1.1rem;
+  z-index: 1;
+  color: #fff;
+}
+.sports-gallery-grid figcaption strong,
+.sports-gallery-grid figcaption span { display: block; }
+.sports-gallery-grid figcaption strong { font-size: 1.05rem; }
+.sports-gallery-grid figcaption span { color: var(--color-dorado-vivo); font-size: .78rem; font-weight: 700; margin-top: .2rem; }
+
+@media (max-width: 700px) {
+  .sports-gallery-heading { display: block; }
+  .sports-gallery-heading p { margin-top: .75rem; }
+  .sports-gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 180px 180px; }
+  .sports-gallery-feature { grid-column: 1 / 3; grid-row: auto; }
+}
+
 .page-header {
   background: linear-gradient(160deg, var(--color-azul-marino) 0%, #1A2450 60%, var(--color-vino-oscuro) 130%);
   color: #fff;
