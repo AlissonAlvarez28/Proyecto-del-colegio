@@ -9,4 +9,4 @@
  * Ejemplo después de desplegar en Render:
  *   window.IGTFM_API_URL = 'https://igtfm-api.onrender.com/api';
  */
-window.IGTFM_API_URL = 'http://localhost:3000/api';
+window.IGTFM_API_URL = 'https://proyecto-del-colegio.onrender.com/api';
