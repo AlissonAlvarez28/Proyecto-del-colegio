@@ -1,0 +1,12 @@
+# Redirecciones de Netlify.
+#
+# El sitio no tiene un archivo "index.html" en la raíz — la página de
+# inicio se llama "inicio.html" (así se enlaza en todo el menú y el
+# footer). Netlify, por defecto, busca "index.html" cuando alguien entra
+# a la URL raíz del sitio; sin esto, esa URL da 404 aunque el resto de
+# páginas funcionen bien.
+#
+# La regla de abajo le dice a Netlify: cuando pidan "/", entrega el
+# contenido de "/inicio.html", pero mantén el código 200 (no es un
+# redirect visible al usuario, es una reescritura interna).
+/    /inicio.html   200
