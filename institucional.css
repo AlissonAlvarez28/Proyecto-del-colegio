@@ -996,3 +996,51 @@ input:focus, select:focus, textarea:focus {
 .btn-volver-arriba:hover {
     transform: scale(1.1);
 }
+/* ============================================================
+   WIDGET DE SESIÓN (barra de navegación)
+   Botón de iniciar sesión / nombre del usuario conectado.
+   ============================================================ */
+.sesion-widget { display: none; align-items: center; gap: .5rem; flex-shrink: 0; flex-wrap: wrap; }
+.sesion-widget .sesion-nombre {
+  color: #fff; font-size: .78rem; font-weight: 700;
+  display: inline-flex; align-items: center; gap: .35rem;
+  max-width: 9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sesion-widget .sesion-nombre i { color: var(--color-dorado-vivo); }
+
+@media (min-width: 768px) { .sesion-widget { display: inline-flex; } }
+
+/* En móvil el botón de sesión vive dentro del menú de pantalla completa */
+.mobile-menu .sesion-widget { display: flex; justify-content: center; margin-top: 1rem; }
+
+/* Mensajes de estado reutilizados por sesion.js (definidos también en admin.css,
+   se repiten aquí porque el sitio público no carga admin.css) */
+.admin-error {
+  background: #FDECEC; color: #B3261E; border: 1px solid #F5C2C0;
+  border-radius: var(--radius-sm); padding: .65rem .9rem; font-size: .82rem;
+  margin-bottom: 1rem; text-align: left;
+}
+.admin-success {
+  background: #E9F7EC; color: #1E7A34; border: 1px solid #BEE6C6;
+  border-radius: var(--radius-sm); padding: .65rem .9rem; font-size: .82rem;
+  margin-bottom: 1rem; text-align: left;
+}
+.admin-field { text-align: left; margin-bottom: 1rem; }
+.admin-field label {
+  display: block; font-size: .75rem; font-weight: 700; color: var(--color-text-secondary);
+  text-transform: uppercase; letter-spacing: .04em; margin-bottom: .35rem;
+}
+.admin-field input, .admin-field select, .admin-field textarea {
+  width: 100%; padding: .65rem .9rem; border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm); font-size: .95rem; font-family: inherit; background: #fff;
+}
+.admin-modal-backdrop {
+  position: fixed; inset: 0; background: rgba(14,21,47,.55);
+  display: flex; align-items: center; justify-content: center; z-index: 300; padding: 1rem;
+}
+.admin-modal {
+  background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  width: 100%; max-width: 32rem; max-height: 90vh; overflow-y: auto; padding: 1.5rem;
+}
+.admin-modal.small { max-width: 23rem; text-align: center; }
+.admin-modal h3 { font-size: 1.1rem; }

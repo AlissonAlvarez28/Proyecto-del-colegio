@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- Open Graph / Redes Sociales -->
-<meta property="og:title" content="Instituto Técnico Francisco Miranda | Sitio Oficial">
-<meta property="og:description" content="Portal académico y de servicios institucionales del Instituto Técnico Francisco Miranda.">
-<meta property="og:type" content="website">
-  <head>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio | I.G.T. Francisco Miranda</title>
@@ -41,7 +37,10 @@
     }}
   };
 </script>
+<script src="config.js"></script>
 <script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
 </head>
 <body data-page="inicio">
 <a href="#main" class="skip-link">Saltar al contenido</a>
@@ -157,7 +156,7 @@
       <div><span class="text-primary font-bold text-xs uppercase tracking-widest">Novedades</span><h2 class="text-3xl font-extrabold text-gray-900 mt-1">Noticias y Eventos Recientes</h2></div>
       <a href="Blog.html" class="text-sm font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">Ver todas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-6" data-api-noticias>
       <article class="card border-gray-200 p-0 overflow-hidden flex flex-col reveal reveal-up">
         <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,var(--color-vino),var(--color-azul-marino));">
           <i class="fa-solid fa-laptop-code" aria-hidden="true" style="font-size:2.75rem;color:var(--color-dorado-vivo);opacity:.9;"></i>

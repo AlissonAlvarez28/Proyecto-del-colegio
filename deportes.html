@@ -37,7 +37,10 @@
     }}
   };
 </script>
+<script src="config.js"></script>
 <script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
 </head>
 <body data-page="deportes">
 <a href="#main" class="skip-link">Saltar al contenido</a>
@@ -72,12 +75,12 @@
       <p class="mx-auto text-slate-600 mt-2">Desde 2015 el instituto compite formalmente fuera de sus instalaciones. Esto es lo que ha construido desde entonces.</p>
     </div>
     <div class="stat-grid">
-      <div class="stat-card reveal reveal-up"><span class="stat-num" data-count="11" data-suffix="+">0</span><span class="stat-label">Años compitiendo formalmente</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:60ms"><span class="stat-num" data-count="6">0</span><span class="stat-label">Equipos representativos (5–7)</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:120ms"><span class="stat-num" data-count="20" data-suffix="+">0</span><span class="stat-label">Competencias formales</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:180ms"><span class="stat-num" data-count="200" data-suffix="+">0</span><span class="stat-label">Estudiantes en actividad deportiva</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:240ms"><span class="stat-num" data-count="60" data-suffix="+">0</span><span class="stat-label">En selecciones oficiales</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:300ms"><span class="stat-num" data-count="6">0</span><span class="stat-label">Disciplinas deportivas</span></div>
+      <div class="stat-card reveal reveal-up"><span class="stat-num" data-count="11" data-suffix="+" data-api="anios_compitiendo">0</span><span class="stat-label">Años compitiendo formalmente</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:60ms"><span class="stat-num" data-count="6" data-api="equipos">0</span><span class="stat-label">Equipos representativos (5–7)</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:120ms"><span class="stat-num" data-count="20" data-suffix="+" data-api="competencias_formales">0</span><span class="stat-label">Competencias formales</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:180ms"><span class="stat-num" data-count="200" data-suffix="+" data-api="estudiantes_en_deporte">0</span><span class="stat-label">Estudiantes en actividad deportiva</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:240ms"><span class="stat-num" data-count="60" data-suffix="+" data-api="estudiantes_en_selecciones">0</span><span class="stat-label">En selecciones oficiales</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:300ms"><span class="stat-num" data-count="6" data-api="disciplinas">0</span><span class="stat-label">Disciplinas deportivas</span></div>
     </div>
     <p class="text-center text-xs text-muted mt-6 reveal reveal-up">Cerca de 50 encuentros por año si se suman amistosos y torneos relámpago · Fútbol (masculino y femenino), baloncesto, voleibol, atletismo, ajedrez y tenis de mesa.</p>
   </div>
@@ -119,7 +122,7 @@
         <span class="timeline-dot" aria-hidden="true"></span>
         <span class="timeline-year">Después de 2020</span>
         <h3 class="text-lg font-extrabold mb-1">Nace el fútbol femenino</h3>
-        <p class="text-slate-600 text-sm">Todo comenzó con la pregunta de una estudiante: ¿por qué solo los varones podían representar al instituto? De esa inquietud, impulsada por la Prof.ª Ada, nace el equipo femenino de fútbol.</p>
+        <p class="text-slate-600 text-sm">Todo comenzó con la pregunta de una estudiante: ¿por qué solo los varones podían representar al instituto? De esa inquietud, impulsada por la entrenadora de fútbol femenino, nace el equipo.</p>
       </div>
 
       <div class="timeline-item reveal reveal-up">
@@ -208,9 +211,9 @@
         <p class="staff-quote">"El deporte es salud."</p>
       </div>
       <div class="staff-card reveal reveal-up" style="--stagger:60ms">
-        <img class="staff-photo" src="img.png/Ada Lizeth Ordóñez.png" alt="Prof.ª Ada Lizeth Ordóñez Martínez" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;AO&lt;/div&gt;'">
-        <h3>Prof.ª Ada Lizeth Ordóñez</h3>
-        <span class="staff-role">Español · Directora de Fútbol Femenino</span>
+        <div class="staff-avatar" aria-hidden="true"><i class="fas fa-futbol"></i></div>
+        <h3>Entrenadora de Fútbol Femenino</h3>
+        <span class="staff-role">Encargada de la selección femenina</span>
         <p class="staff-bio">Impulsora del fútbol femenino desde sus primeros pasos, después de que una estudiante preguntara por qué solo los varones representaban al instituto. De esa inquietud nació un equipo que hoy compite y gana.</p>
         <p class="staff-quote">"Ser mujer no debe representar una limitación para participar en el deporte."</p>
       </div>
@@ -262,12 +265,12 @@
           <div class="carousel-slide"><div class="testimonial-card">
             <i class="fas fa-quote-left" aria-hidden="true"></i>
             <p class="quote">Ser mujer no debe representar una limitación para participar en el deporte. El fútbol femenino nació de la inquietud de una sola estudiante, y hoy es un equipo que compite de igual a igual.</p>
-            <p class="author">Prof.ª Ada Lizeth Ordóñez</p><p class="role">Directora de Fútbol Femenino</p>
+            <p class="author">Entrenadora de Fútbol Femenino</p><p class="role">Encargada de la selección femenina</p>
           </div></div>
           <div class="carousel-slide"><div class="testimonial-card">
             <i class="fas fa-quote-left" aria-hidden="true"></i>
             <p class="quote">A pesar de una cancha sin techo y de tantas limitaciones, la entrega de estas jugadoras nunca ha estado en duda. Ese compromiso es, quizás, el verdadero trofeo.</p>
-            <p class="author">Prof.ª Ada Lizeth Ordóñez</p><p class="role">Directora de Fútbol Femenino</p>
+            <p class="author">Entrenadora de Fútbol Femenino</p><p class="role">Encargada de la selección femenina</p>
           </div></div>
         </div>
       </div>

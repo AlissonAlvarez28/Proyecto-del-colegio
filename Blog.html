@@ -24,12 +24,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="institucional.css">
     <script src="https://cdn.tailwindcss.com"></script>
-<<<<<<< Updated upstream
-=======
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="institucional.css">
->>>>>>> Stashed changes
     <script>
         /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
            Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
@@ -43,17 +40,14 @@
           }}
         };
     </script>
-    <script src="nav.js" defer></script>
+    <script src="config.js"></script>
+<script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
+<script src="blog-comentarios.js" defer></script>
     
 </head>
-<<<<<<< Updated upstream
-<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen" data-page="blog">
-<a href="#main" class="skip-link">Saltar al contenido</a>
-<div class="progreso-scroll" id="progresoScroll"></div>
-<header id="navbar-root" class="navbar"></header>
-<div id="mobile-menu-root" class="mobile-menu"></div>
-=======
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen" data-page="blog">
 
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar sticky top-0 z-50">
@@ -71,7 +65,7 @@
                 <a href="personal.html">Autoridades y Personal</a>
                 <a href="estudiantes.html">Estudiantes</a>
                 <a href="deportes.html">Deportes</a>
-                <a href="blog.html" class="active">Blog y Comentarios</a>
+                <a href="Blog.html" class="active">Blog y Comentarios</a>
                 <a href="compras.html">Compras</a>
             </div>
             <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
@@ -79,7 +73,6 @@
             </a>
         </div>
     </nav>
->>>>>>> Stashed changes
 
     <!-- ENCABEZADO DE LA PÁGINA -->
     <header class="page-header">
@@ -164,8 +157,8 @@
                 <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-newspaper text-primary mr-1"></i> Actualizado periódicamente</span>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Entrada 1 -->
+            <div class="grid md:grid-cols-3 gap-6" data-api-publicaciones>
+                <!-- Entrada 1 (contenido de respaldo: se reemplaza si la API responde) -->
                 <article class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
                         <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
@@ -328,9 +321,6 @@
     </main>
 
     <!-- PIE DE PÁGINA -->
-<<<<<<< Updated upstream
-    <footer id="footer-root" class="footer"></footer>
-=======
     <footer class="footer">
         <div class="max-w-7xl mx-auto px-4 space-y-4">
             <div class="flex justify-center gap-6 text-lg">
@@ -342,7 +332,6 @@
             <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
         </div>
     </footer>
->>>>>>> Stashed changes
 
     <!-- LÓGICA DE COMENTARIOS DINÁMICOS -->
     <script>
@@ -406,7 +395,7 @@
         }
 
         // Publicar nuevo comentario
-        function publicarComentario(e) {
+        async function publicarComentario(e) {
             e.preventDefault();
 
             const nombre = document.getElementById('nombre-usuario').value.trim();
@@ -414,6 +403,17 @@
             const mensaje = document.getElementById('texto-comentario').value.trim();
 
             if (!nombre || !mensaje) return;
+
+            // Si hay API y sesión activa, el comentario se guarda en el servidor
+            // (queda visible para todos, no solo en este navegador).
+            if (typeof window.IGTFMEnviarComentario === 'function') {
+                const enviado = await window.IGTFMEnviarComentario(mensaje, rol);
+                if (enviado) {
+                    document.getElementById('texto-comentario').value = '';
+                    return;
+                }
+            }
+            // Sin API: se conserva el comportamiento anterior (este navegador).
 
             // Determinar estilo según el rol
             let estiloRol = "bg-slate-200 text-slate-800";

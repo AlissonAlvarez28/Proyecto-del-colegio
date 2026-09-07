@@ -65,6 +65,7 @@
           '</a>' +
         '</nav>' +
         '<a href="oferta_academica.html" class="btn btn-secondary btn-sm navbar-cta"><i class="fas fa-pen-to-square" aria-hidden="true"></i> Matrícula</a>' +
+        '<div id="sesion-widget" class="sesion-widget"></div>' +
         '<button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu-root">' +
           '<span></span><span></span><span></span>' +
         '</button>' +
