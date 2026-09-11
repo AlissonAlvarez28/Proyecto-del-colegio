@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Deportes — El deporte es salud | I.G.T. Francisco Miranda</title>
 <meta name="description" content="Once años de historia deportiva en el Instituto Gubernamental Técnico Francisco Miranda: equipos, torneos, logros y las personas que hacen posible el deporte escolar en Aldea Zambrano.">
+<meta property="og:title" content="Deportes | I.G.T. Francisco Miranda">
+<meta property="og:description" content="Conoce los equipos, torneos y logros deportivos del I.G.T. Francisco Miranda.">
+<meta property="og:image" content="imagenes/futbol-femenino-equipo.jpg">
+<meta property="og:image:alt" content="Equipo deportivo femenino del I.G.T. Francisco Miranda">
+<meta property="og:site_name" content="I.G.T. Francisco Miranda">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_HN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deportes | I.G.T. Francisco Miranda">
+<meta name="twitter:description" content="Conoce los equipos, torneos y logros deportivos del I.G.T. Francisco Miranda.">
+<meta name="twitter:image" content="imagenes/futbol-femenino-equipo.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
 <link rel="apple-touch-icon" href="imagenes/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +37,10 @@
     }}
   };
 </script>
+<script src="config.js"></script>
 <script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
 </head>
 <body data-page="deportes">
 <a href="#main" class="skip-link">Saltar al contenido</a>
@@ -61,12 +75,12 @@
       <p class="mx-auto text-slate-600 mt-2">Desde 2015 el instituto compite formalmente fuera de sus instalaciones. Esto es lo que ha construido desde entonces.</p>
     </div>
     <div class="stat-grid">
-      <div class="stat-card reveal reveal-up"><span class="stat-num" data-count="11" data-suffix="+">0</span><span class="stat-label">Años compitiendo formalmente</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:60ms"><span class="stat-num" data-count="6">0</span><span class="stat-label">Equipos representativos (5–7)</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:120ms"><span class="stat-num" data-count="20" data-suffix="+">0</span><span class="stat-label">Competencias formales</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:180ms"><span class="stat-num" data-count="200" data-suffix="+">0</span><span class="stat-label">Estudiantes en actividad deportiva</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:240ms"><span class="stat-num" data-count="60" data-suffix="+">0</span><span class="stat-label">En selecciones oficiales</span></div>
-      <div class="stat-card reveal reveal-up" style="--stagger:300ms"><span class="stat-num" data-count="6">0</span><span class="stat-label">Disciplinas deportivas</span></div>
+      <div class="stat-card reveal reveal-up"><span class="stat-num" data-count="11" data-suffix="+" data-api="anios_compitiendo">0</span><span class="stat-label">Años compitiendo formalmente</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:60ms"><span class="stat-num" data-count="6" data-api="equipos">0</span><span class="stat-label">Equipos representativos (5–7)</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:120ms"><span class="stat-num" data-count="20" data-suffix="+" data-api="competencias_formales">0</span><span class="stat-label">Competencias formales</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:180ms"><span class="stat-num" data-count="200" data-suffix="+" data-api="estudiantes_en_deporte">0</span><span class="stat-label">Estudiantes en actividad deportiva</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:240ms"><span class="stat-num" data-count="60" data-suffix="+" data-api="estudiantes_en_selecciones">0</span><span class="stat-label">En selecciones oficiales</span></div>
+      <div class="stat-card reveal reveal-up" style="--stagger:300ms"><span class="stat-num" data-count="6" data-api="disciplinas">0</span><span class="stat-label">Disciplinas deportivas</span></div>
     </div>
     <p class="text-center text-xs text-muted mt-6 reveal reveal-up">Cerca de 50 encuentros por año si se suman amistosos y torneos relámpago · Fútbol (masculino y femenino), baloncesto, voleibol, atletismo, ajedrez y tenis de mesa.</p>
   </div>
@@ -108,7 +122,7 @@
         <span class="timeline-dot" aria-hidden="true"></span>
         <span class="timeline-year">Después de 2020</span>
         <h3 class="text-lg font-extrabold mb-1">Nace el fútbol femenino</h3>
-        <p class="text-slate-600 text-sm">Todo comenzó con la pregunta de una estudiante: ¿por qué solo los varones podían representar al instituto? De esa inquietud, impulsada por la Prof.ª Ada, nace el equipo femenino de fútbol.</p>
+        <p class="text-slate-600 text-sm">Todo comenzó con la pregunta de una estudiante: ¿por qué solo los varones podían representar al instituto? De esa inquietud, impulsada por la entrenadora de fútbol femenino, nace el equipo.</p>
       </div>
 
       <div class="timeline-item reveal reveal-up">
@@ -197,9 +211,9 @@
         <p class="staff-quote">"El deporte es salud."</p>
       </div>
       <div class="staff-card reveal reveal-up" style="--stagger:60ms">
-        <img class="staff-photo" src="img.png/Ada Lizeth Ordóñez.png" alt="Prof.ª Ada Lizeth Ordóñez Martínez" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;AO&lt;/div&gt;'">
-        <h3>Prof.ª Ada Lizeth Ordóñez</h3>
-        <span class="staff-role">Español · Directora de Fútbol Femenino</span>
+        <div class="staff-avatar" aria-hidden="true"><i class="fas fa-futbol"></i></div>
+        <h3>Entrenadora de Fútbol Femenino</h3>
+        <span class="staff-role">Encargada de la selección femenina</span>
         <p class="staff-bio">Impulsora del fútbol femenino desde sus primeros pasos, después de que una estudiante preguntara por qué solo los varones representaban al instituto. De esa inquietud nació un equipo que hoy compite y gana.</p>
         <p class="staff-quote">"Ser mujer no debe representar una limitación para participar en el deporte."</p>
       </div>
@@ -210,10 +224,10 @@
         <p class="staff-bio">Parte del cuerpo técnico que ha acompañado al fútbol masculino torneo tras torneo, aportando la constancia que llevó al equipo de los recreos hasta las semifinales y el subcampeonato interinstitucional.</p>
       </div>
       <div class="staff-card reveal reveal-up">
-        <div class="staff-avatar">W</div>
-        <h3>Prof. Wilmer</h3>
-        <span class="staff-role">Colaborador del área deportiva</span>
-        <p class="staff-bio">Parte del equipo docente que, junto a los profesores Pineda y Fúnez, sostiene la preparación de las selecciones de fútbol del instituto.</p>
+        <img class="staff-photo" src="img.png/Wilmer Javier Aguilar Dominguez.jpeg" alt="Prof. Wilmer Javier Aguilar Domínguez" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;WA&lt;/div&gt;'">
+        <h3>Prof. Wilmer Javier Aguilar Domínguez</h3>
+        <span class="staff-role">Docente de Informática · Colaborador del área deportiva</span>
+        <p class="staff-bio">Encargado de la carrera de Informática y del laboratorio de robótica, forma parte del equipo docente que, junto a los profesores Pineda y Fúnez, sostiene la preparación de las selecciones de fútbol del instituto.</p>
       </div>
       <div class="staff-card reveal reveal-up" style="--stagger:60ms">
         <img class="staff-photo" src="img.png/Juan Izaguirre.png" alt="Subdirector Juan Andrés Izaguirre Gonzáles" loading="lazy" onerror="this.outerHTML='&lt;div class=&quot;staff-avatar&quot;&gt;JI&lt;/div&gt;'">
@@ -251,12 +265,12 @@
           <div class="carousel-slide"><div class="testimonial-card">
             <i class="fas fa-quote-left" aria-hidden="true"></i>
             <p class="quote">Ser mujer no debe representar una limitación para participar en el deporte. El fútbol femenino nació de la inquietud de una sola estudiante, y hoy es un equipo que compite de igual a igual.</p>
-            <p class="author">Prof.ª Ada Lizeth Ordóñez</p><p class="role">Directora de Fútbol Femenino</p>
+            <p class="author">Entrenadora de Fútbol Femenino</p><p class="role">Encargada de la selección femenina</p>
           </div></div>
           <div class="carousel-slide"><div class="testimonial-card">
             <i class="fas fa-quote-left" aria-hidden="true"></i>
             <p class="quote">A pesar de una cancha sin techo y de tantas limitaciones, la entrega de estas jugadoras nunca ha estado en duda. Ese compromiso es, quizás, el verdadero trofeo.</p>
-            <p class="author">Prof.ª Ada Lizeth Ordóñez</p><p class="role">Directora de Fútbol Femenino</p>
+            <p class="author">Entrenadora de Fútbol Femenino</p><p class="role">Encargada de la selección femenina</p>
           </div></div>
         </div>
       </div>
@@ -304,6 +318,37 @@
         </div>
         <p class="text-xs text-muted text-center mt-2">Fecha estimada de la 3ª edición, organizada por el propio instituto · sujeta a confirmación</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERÍA DEPORTIVA ============ -->
+<section class="section sports-gallery-section" id="galeria">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="sports-gallery-heading reveal reveal-up">
+      <div>
+        <span class="kicker">Momentos que inspiran</span>
+        <h2 class="mt-3" style="font-size:clamp(1.6rem,3.5vw,2.3rem);">Galería deportiva</h2>
+      </div>
+      <p class="text-slate-600">Entrenamientos, partidos y encuentros que convierten cada jornada en una historia compartida.</p>
+    </div>
+    <div class="sports-gallery-grid">
+      <figure class="sports-gallery-feature reveal reveal-up">
+        <img src="imagenes/futbol-femenino-partido.jpg" alt="Partido de fútbol femenino del instituto" loading="lazy">
+        <figcaption><strong>La pasión en la cancha</strong><span>Fútbol femenino</span></figcaption>
+      </figure>
+      <figure class="sports-gallery-card reveal reveal-up" style="--stagger:60ms">
+        <img src="imagenes/futbol-femenino-equipo.jpg" alt="Equipo de fútbol femenino del instituto" loading="lazy">
+        <figcaption><strong>Un equipo, una familia</strong><span>Selección femenina</span></figcaption>
+      </figure>
+      <figure class="sports-gallery-card reveal reveal-up" style="--stagger:120ms">
+        <img src="imagenes/torneo-saludo-equipos.jpg" alt="Equipos saludándose antes de un torneo" loading="lazy">
+        <figcaption><strong>Competir con respeto</strong><span>Copa Amistad</span></figcaption>
+      </figure>
+      <figure class="sports-gallery-card reveal reveal-up" style="--stagger:180ms">
+        <img src="imagenes/cancha-multiusos.jpg" alt="Cancha de usos múltiples del instituto" loading="lazy">
+        <figcaption><strong>El lugar donde todo empieza</strong><span>Instalaciones</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>

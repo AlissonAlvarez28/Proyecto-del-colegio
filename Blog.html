@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog & Comentarios | I.G.T. Francisco Miranda</title>
     <meta name="description" content="Blog institucional y comentarios del Instituto Gubernamental Técnico Francisco Miranda.">
+    <meta property="og:title" content="Blog y Comentarios | I.G.T. Francisco Miranda">
+    <meta property="og:description" content="Lee las noticias, actividades y novedades del I.G.T. Francisco Miranda.">
+    <meta property="og:image" content="imagenes/cancha-multiusos.jpg">
+    <meta property="og:image:alt" content="Cancha multiusos del I.G.T. Francisco Miranda">
+    <meta property="og:site_name" content="I.G.T. Francisco Miranda">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_HN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog y Comentarios | I.G.T. Francisco Miranda">
+    <meta name="twitter:description" content="Lee las noticias, actividades y novedades del I.G.T. Francisco Miranda.">
+    <meta name="twitter:image" content="imagenes/cancha-multiusos.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
     <link rel="apple-touch-icon" href="imagenes/favicon-180.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +24,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="institucional.css">
     <script src="https://cdn.tailwindcss.com"></script>
-<<<<<<< Updated upstream
-=======
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="institucional.css">
->>>>>>> Stashed changes
     <script>
         /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
            Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
@@ -32,43 +37,18 @@
           }}
         };
     </script>
-    <script src="nav.js" defer></script>
+    <script src="config.js"></script>
+<script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
+<script src="blog-comentarios.js" defer></script>
     
 </head>
-<<<<<<< Updated upstream
-<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen" data-page="blog">
+<body class="flex flex-col min-h-screen" data-page="blog">
 <a href="#main" class="skip-link">Saltar al contenido</a>
 <div class="progreso-scroll" id="progresoScroll"></div>
 <header id="navbar-root" class="navbar"></header>
 <div id="mobile-menu-root" class="mobile-menu"></div>
-=======
-<body class="flex flex-col min-h-screen">
-
-    <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="navbar sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <a href="inicio.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-                <div>
-                    <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-                    <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-                </div>
-            </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                <a href="inicio.html">Inicio</a>
-                <a href="oferta_academica.html">Oferta Académica</a>
-                <a href="personal.html">Autoridades y Personal</a>
-                <a href="estudiantes.html">Estudiantes</a>
-                <a href="deportes.html">Deportes</a>
-                <a href="blog.html" class="active">Blog y Comentarios</a>
-                <a href="compras.html">Compras</a>
-            </div>
-            <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
-                <i class="fa-solid fa-graduation-cap"></i> Prematricularme
-            </a>
-        </div>
-    </nav>
->>>>>>> Stashed changes
 
     <!-- ENCABEZADO DE LA PÁGINA -->
     <header class="page-header">
@@ -153,8 +133,8 @@
                 <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-newspaper text-primary mr-1"></i> Actualizado periódicamente</span>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Entrada 1 -->
+            <div class="grid md:grid-cols-3 gap-6" data-api-publicaciones>
+                <!-- Entrada 1 (contenido de respaldo: se reemplaza si la API responde) -->
                 <article class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
                         <div class="h-48 bg-slate-800 relative flex items-center justify-center text-slate-500">
@@ -316,22 +296,8 @@
 
     </main>
 
-    <!-- PIE DE PÁGINA -->
-<<<<<<< Updated upstream
     <footer id="footer-root" class="footer"></footer>
-=======
-    <footer class="footer">
-        <div class="max-w-7xl mx-auto px-4 space-y-4">
-            <div class="flex justify-center gap-6 text-lg">
-                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-            <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
-        </div>
-    </footer>
->>>>>>> Stashed changes
+    <a href="#" class="btn-volver-arriba">▲</a>
 
     <!-- LÓGICA DE COMENTARIOS DINÁMICOS -->
     <script>
@@ -395,7 +361,7 @@
         }
 
         // Publicar nuevo comentario
-        function publicarComentario(e) {
+        async function publicarComentario(e) {
             e.preventDefault();
 
             const nombre = document.getElementById('nombre-usuario').value.trim();
@@ -403,6 +369,17 @@
             const mensaje = document.getElementById('texto-comentario').value.trim();
 
             if (!nombre || !mensaje) return;
+
+            // Si hay API y sesión activa, el comentario se guarda en el servidor
+            // (queda visible para todos, no solo en este navegador).
+            if (typeof window.IGTFMEnviarComentario === 'function') {
+                const enviado = await window.IGTFMEnviarComentario(mensaje, rol);
+                if (enviado) {
+                    document.getElementById('texto-comentario').value = '';
+                    return;
+                }
+            }
+            // Sin API: se conserva el comportamiento anterior (este navegador).
 
             // Determinar estilo según el rol
             let estiloRol = "bg-slate-200 text-slate-800";

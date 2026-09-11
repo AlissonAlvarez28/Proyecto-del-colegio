@@ -1,10 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio | I.G.T. Francisco Miranda</title>
 <meta name="description" content="Instituto Gubernamental Técnico Francisco Miranda — Aldea Zambrano, M.D.C. Formación técnica de calidad desde 1988.">
+<meta property="og:title" content="I.G.T. Francisco Miranda | Formación técnica desde 1988">
+<meta property="og:description" content="Conoce la oferta académica, noticias y actividades del Instituto Gubernamental Técnico Francisco Miranda.">
+<meta property="og:image" content="imagenes/escudo-igtfm.png">
+<meta property="og:image:alt" content="Escudo del I.G.T. Francisco Miranda">
+<meta property="og:site_name" content="I.G.T. Francisco Miranda">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_HN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="I.G.T. Francisco Miranda | Formación técnica desde 1988">
+<meta name="twitter:description" content="Conoce la oferta académica, noticias y actividades del Instituto Gubernamental Técnico Francisco Miranda.">
+<meta name="twitter:image" content="imagenes/escudo-igtfm.png">
 <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
 <link rel="apple-touch-icon" href="imagenes/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +37,10 @@
     }}
   };
 </script>
+<script src="config.js"></script>
 <script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
 </head>
 <body data-page="inicio">
 <a href="#main" class="skip-link">Saltar al contenido</a>
@@ -142,7 +156,7 @@
       <div><span class="text-primary font-bold text-xs uppercase tracking-widest">Novedades</span><h2 class="text-3xl font-extrabold text-gray-900 mt-1">Noticias y Eventos Recientes</h2></div>
       <a href="Blog.html" class="text-sm font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">Ver todas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-6" data-api-noticias>
       <article class="card border-gray-200 p-0 overflow-hidden flex flex-col reveal reveal-up">
         <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,var(--color-vino),var(--color-azul-marino));">
           <i class="fa-solid fa-laptop-code" aria-hidden="true" style="font-size:2.75rem;color:var(--color-dorado-vivo);opacity:.9;"></i>
@@ -213,6 +227,63 @@
     <i class="fa-solid fa-quote-left text-4xl text-secondary" aria-hidden="true"></i>
     <p class="text-xl font-medium italic" style="color:#DCE1F5;">"Nuestra misión es brindar una formación técnica de calidad que abra puertas profesionales reales a la juventud de Zambrano y sectores aledaños."</p>
     <p class="font-bold text-secondary">Juan Carlos Herrera Espinoza — Director, I.G.T. Francisco Miranda</p>
+  </div>
+</section>
+
+<!-- ========== AGENDA INSTITUCIONAL ========== -->
+<section class="section section-alt agenda-section" id="agenda">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="agenda-heading reveal reveal-up">
+      <div>
+        <span class="kicker">Marca la fecha</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Próximos eventos institucionales</h2>
+      </div>
+      <p class="agenda-heading-copy">Lo que viene en nuestra comunidad: encuentros para aprender, representar al instituto y celebrar el talento de nuestros estudiantes.</p>
+    </div>
+
+    <div class="agenda-grid">
+      <article class="agenda-card agenda-card-featured reveal reveal-up">
+        <div class="agenda-date" aria-label="13 de septiembre">
+          <span>SEP</span>
+          <strong>13</strong>
+          <small>2026</small>
+        </div>
+        <div class="agenda-card-content">
+          <div class="agenda-meta"><i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i> Actividad institucional</div>
+          <h3>Día de las Antorchas</h3>
+          <p>El domingo 13 de septiembre, las tres carreras del instituto participarán en esta celebración comunitaria y de identidad estudiantil.</p>
+          <span class="agenda-status"><i class="fa-solid fa-circle" aria-hidden="true"></i> Nos toca a las tres carreras</span>
+        </div>
+      </article>
+
+      <article class="agenda-card reveal reveal-up" style="--stagger:70ms">
+        <div class="agenda-date agenda-date-blue" aria-label="15 de septiembre">
+          <span>SEP</span>
+          <strong>15</strong>
+          <small>2026</small>
+        </div>
+        <div class="agenda-card-content">
+          <div class="agenda-meta"><i class="fa-solid fa-flag" aria-hidden="true"></i> Actividad cívica</div>
+          <h3>Desfile Cívico Patrio</h3>
+          <p>La escolta de banderas y las bandas del instituto llenarán de orgullo las calles durante los desfiles patrios.</p>
+          <span class="agenda-status agenda-status-blue"><i class="fa-solid fa-circle" aria-hidden="true"></i> Próximamente</span>
+        </div>
+      </article>
+
+      <article class="agenda-card reveal reveal-up" style="--stagger:140ms">
+        <div class="agenda-date agenda-date-green" aria-label="Del 22 al 26 de septiembre">
+          <span>SEP</span>
+          <strong>22–26</strong>
+          <small>2026</small>
+        </div>
+        <div class="agenda-card-content">
+          <div class="agenda-meta"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Evaluación académica</div>
+          <h3>Exámenes del III Parcial</h3>
+          <p>Pruebas teóricas y prácticas en todas las áreas técnicas y académicas del ciclo lectivo.</p>
+          <span class="agenda-status agenda-status-green"><i class="fa-solid fa-circle" aria-hidden="true"></i> Fechas de evaluación</span>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 

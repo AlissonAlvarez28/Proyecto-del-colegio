@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda e Insignias | I.G.T. Francisco Miranda</title>
     <meta name="description" content="Tienda escolar: uniformes, insignias y útiles del Instituto Gubernamental Técnico Francisco Miranda.">
+    <meta property="og:title" content="Tienda Escolar | I.G.T. Francisco Miranda">
+    <meta property="og:description" content="Consulta uniformes, insignias y artículos estudiantiles del I.G.T. Francisco Miranda.">
+    <meta property="og:image" content="imagenes/escudo-igtfm.png">
+    <meta property="og:image:alt" content="Escudo del I.G.T. Francisco Miranda">
+    <meta property="og:site_name" content="I.G.T. Francisco Miranda">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_HN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tienda Escolar | I.G.T. Francisco Miranda">
+    <meta name="twitter:description" content="Consulta uniformes, insignias y artículos estudiantiles del I.G.T. Francisco Miranda.">
+    <meta name="twitter:image" content="imagenes/escudo-igtfm.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
     <link rel="apple-touch-icon" href="imagenes/favicon-180.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +24,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="institucional.css">
     <script src="https://cdn.tailwindcss.com"></script>
-<<<<<<< Updated upstream
-=======
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="institucional.css">
->>>>>>> Stashed changes
     <script>
         /* Remapea la paleta Tailwind (amber/slate) a los colores oficiales del escudo.
            Debe mantenerse IDÉNTICO en todas las páginas — fuente de verdad: institucional.css */
@@ -32,41 +37,16 @@
           }}
         };
     </script>
-    <script src="nav.js" defer></script>
+    <script src="config.js"></script>
+<script src="nav.js" defer></script>
+<script src="sesion.js" defer></script>
+<script src="api-publica.js" defer></script>
 </head>
-<<<<<<< Updated upstream
-<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen" data-page="compras">
+<body class="flex flex-col min-h-screen" data-page="compras">
 <a href="#main" class="skip-link">Saltar al contenido</a>
 <div class="progreso-scroll" id="progresoScroll"></div>
 <header id="navbar-root" class="navbar"></header>
 <div id="mobile-menu-root" class="mobile-menu"></div>
-=======
-<body class="flex flex-col min-h-screen">
-
-    <nav class="navbar sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <a href="inicio.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-black text-lg">FM</div>
-                <div>
-                    <span class="block font-black text-base leading-tight text-gray-900">I.G.T. FRANCISCO MIRANDA</span>
-                    <span class="block text-[10px] font-semibold text-secondary uppercase">Aldea Zambrano, Honduras</span>
-                </div>
-            </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                <a href="inicio.html">Inicio</a>
-                <a href="oferta_academica.html">Oferta Académica</a>
-                <a href="personal.html">Autoridades y Personal</a>
-                <a href="estudiantes.html">Estudiantes</a>
-                <a href="deportes.html">Deportes</a>
-                <a href="blog.html">Blog y Comentarios</a>
-                <a href="compras.html" class="active">Compras</a>
-            </div>
-            <a href="oferta_academica.html" class="btn btn-primary text-sm hidden sm:inline-flex">
-                <i class="fa-solid fa-graduation-cap"></i> Prematricularme
-            </a>
-        </div>
-    </nav>
->>>>>>> Stashed changes
 
     <header class="page-header">
         <span class="inline-block px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full uppercase tracking-widest mb-3">Tienda Virtual e Indumentaria</span>
@@ -76,7 +56,7 @@
 
     <main id="main" class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full grid lg:grid-cols-12 gap-8">
         
-        <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+        <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6" data-api-productos>
             
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div>
@@ -178,7 +158,7 @@
 
     </main>
 
-    <div id="modal-pago" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div id="modal-pago" class="fixed inset-0 z-[300] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
         <div class="relative bg-white rounded-xl border border-slate-200 shadow-2xl max-w-2xl w-full p-6 sm:p-8 my-8 transition-all">
             
             <button onclick="cerrarModalPago()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 hover:bg-rose-100 hover:text-rose-600 rounded-full flex items-center justify-center text-slate-500 font-bold transition-colors">
@@ -302,74 +282,93 @@
     </div>
 
     <script>
-        let total = 0;
-        let cantidad = 0;
-        let itemsNombre = [];
+        // Cesta de compras: lista de { nombre, precio }.
+        let carrito = [];
         const lista = document.getElementById('lista-carrito');
         const totalElem = document.getElementById('total-precio');
         const cantidadElem = document.getElementById('cantidad-items');
+        const btnProceder = document.getElementById('btn-proceder-pago');
 
-        // Función para comprar un producto directamente desde el botón "Comprar Ahora"
-        function comprarDirecto(nombre, precio) {
-            itemsNombre = [nombre];
-            total = precio;
-            actualizarResumenModal(nombre, precio);
-            document.getElementById('modal-pago').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+        function formatoLempiras(monto) {
+            return 'L. ' + Number(monto || 0).toFixed(2);
         }
 
-        // Función para abrir la ventana de pago desde la cesta
+        function totalCarrito() {
+            return carrito.reduce((suma, item) => suma + Number(item.precio || 0), 0);
+        }
+
+        function renderCarrito() {
+            if (!carrito.length) {
+                lista.innerHTML = '<li class="py-2 text-slate-400 italic text-center">No has agregado productos a tu cesta.</li>';
+            } else {
+                lista.innerHTML = carrito.map((item, i) =>
+                    `<li class="py-2 flex items-center justify-between gap-2">
+                        <span class="truncate">${item.nombre}</span>
+                        <span class="flex items-center gap-2 shrink-0">
+                            <span class="font-bold text-slate-800">${formatoLempiras(item.precio)}</span>
+                            <button type="button" onclick="quitarDelCarrito(${i})" aria-label="Quitar ${item.nombre}"
+                                    class="w-6 h-6 rounded-full bg-slate-100 hover:bg-rose-100 hover:text-rose-600 text-slate-500 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </span>
+                    </li>`
+                ).join('');
+            }
+            totalElem.innerText = formatoLempiras(totalCarrito());
+            cantidadElem.innerText = carrito.length + (carrito.length === 1 ? ' ítem' : ' ítems');
+            btnProceder.disabled = carrito.length === 0;
+            btnProceder.classList.toggle('opacity-50', carrito.length === 0);
+            btnProceder.classList.toggle('cursor-not-allowed', carrito.length === 0);
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre: nombre, precio: Number(precio) || 0 });
+            renderCarrito();
+        }
+
+        function quitarDelCarrito(indice) {
+            carrito.splice(indice, 1);
+            renderCarrito();
+        }
+
+        // Botón "Comprar Ahora": agrega el producto a la cesta y abre el pago.
+        function comprarDirecto(nombre, precio) {
+            agregarAlCarrito(nombre, precio);
+            abrirModalPago();
+        }
+
         function abrirModalPago() {
-            if (total === 0) {
+            if (!carrito.length) {
                 alert('Por favor agrega al menos un producto a tu cesta antes de proceder al pago.');
                 return;
             }
-            actualizarResumenModal(itemsNombre.join(', '), total);
+            actualizarResumenModal(carrito.map(i => i.nombre).join(', '), totalCarrito());
             document.getElementById('modal-pago').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function cerrarModalPago() {
             document.getElementById('modal-pago').classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
         }
 
         function actualizarResumenModal(nombre, monto) {
             document.getElementById('modal-articulo-resumen').innerText = nombre;
-            document.getElementById('modal-monto-total').innerText = `L. ${monto}.00`;
+            document.getElementById('modal-monto-total').innerText = formatoLempiras(monto);
         }
 
         function procesarPago(event) {
             event.preventDefault();
             alert('¡Pago procesado exitosamente! Se ha enviado el comprobante digital a tu correo electrónico. Puedes retirar tus artículos en la colecturía del instituto.');
-            
-            // Limpiar carrito
-            total = 0;
-            cantidad = 0;
-            itemsNombre = [];
-            lista.innerHTML = '<li class="py-2 text-slate-400 italic text-center">No has agregado productos a tu cesta.</li>';
-            totalElem.innerText = 'L. 0.00';
-            cantidadElem.innerText = '0 ítems';
-
+            carrito = [];
+            renderCarrito();
             cerrarModalPago();
         }
+
+        renderCarrito();
     </script>
 
-<<<<<<< Updated upstream
     <footer id="footer-root" class="footer"></footer>
-=======
-    <footer class="footer">
-        <div class="max-w-7xl mx-auto px-4 space-y-4">
-            <div class="flex justify-center gap-6 text-lg">
-                <a href="https://www.facebook.com/share/1JbkamZUK5/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igt_franciscomiranda?igsh=MWdwcnBwbG0zYzV6Yw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <p class="font-bold text-gray-300">INSTITUTO GUBERNAMENTAL TÉCNICO FRANCISCO MIRANDA</p>
-            <p>Aldea Zambrano, M.D.C., Francisco Morazán, Honduras &copy; 2026</p>
-        </div>
-    </footer>
->>>>>>> Stashed changes
 <a href="#" class="btn-volver-arriba">▲</a>
 </body>
 </html>
