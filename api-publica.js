@@ -250,35 +250,11 @@
     }
   }
 
-  /* ============================================================
-     PERSONAL (directorio)
-     ============================================================ */
-  async function cargarPersonal() {
-    var r = await pedir('/personal');
-    if (!r || !r.datos.length) return;
-
-    // El buscador y el modal de personal.html trabajan sobre la variable
-    // global `personal`. Se reemplaza su contenido con los datos reales de
-    // la base y se vuelve a dibujar, sin tocar esa lógica existente.
-    if (typeof window.personal !== 'undefined' && Array.isArray(window.personal)) {
-      window.personal.length = 0;
-      r.datos.forEach(function (p) {
-        window.personal.push({
-          nombre: p.nombre_completo,
-          cargo: p.cargo,
-          titulos: p.biografia || '',
-          materia: p.materia || '',
-          experiencia: p.anios_experiencia ? p.anios_experiencia + ' años en la institución' : '',
-          categoria: (p.departamento || '').toLowerCase(),
-          foto: p.foto_url || '',
-          correo: p.correo || '',
-          ubicacion: p.ubicacion || '',
-          horario: p.horario_atencion || ''
-        });
-      });
-      if (typeof window.renderizarPersonal === 'function') window.renderizarPersonal();
-    }
-  }
+  /* NOTA: El directorio de personal (personal.html) y los horarios de
+     estudiantes (estudiantes.html) NO se cargan desde la API. La única
+     fuente de verdad de los nombres del personal es el arreglo `personal`
+     dentro de personal.html, y los horarios se publican como documentos
+     oficiales (PDF/imagen) en estudiantes.html. */
 
   /* ============================================================
      BLOG (publicaciones)
@@ -378,51 +354,13 @@
   }
 
   /* ============================================================
-     ESTUDIANTES (horarios)
-     ============================================================ */
-  async function cargarHorarios() {
-    var r = await pedir('/secciones');
-    var selector = document.getElementById('selector-curso');
-    if (!r || !r.datos.length || !selector) return;
-
-    selector.innerHTML = '<option value="">— Elige tu sección —</option>' +
-      r.datos.map(function (s) {
-        return '<option value="' + s.id + '">' + esc(s.carrera) + ' · ' + esc(s.nombre) + '</option>';
-      }).join('');
-
-    selector.addEventListener('change', async function () {
-      if (!selector.value) return;
-      var h = await pedir('/secciones/' + selector.value + '/horarios');
-      var cont = document.getElementById('contenedor-horario-tabla');
-      if (!h || !cont) return;
-
-      var dias = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'];
-      var encabezado = '<tr><th>Hora</th>' + dias.map(function (d) {
-        return '<th style="text-transform:capitalize;">' + d + '</th>';
-      }).join('') + '</tr>';
-
-      var filas = h.horario.map(function (f) {
-        return '<tr><td class="font-bold">' + esc(f.hora) + '</td>' +
-          dias.map(function (d) { return '<td>' + esc(f[d] || '—') + '</td>'; }).join('') + '</tr>';
-      }).join('');
-
-      cont.innerHTML = '<h3 class="text-lg font-bold mb-3">' + esc(h.seccion.carrera) + ' · ' +
-        esc(h.seccion.nombre) + '</h3>' +
-        '<div class="admin-table-wrap print-area"><table class="admin-table w-full">' +
-        '<thead>' + encabezado + '</thead><tbody>' + filas + '</tbody></table></div>';
-    });
-  }
-
-  /* ============================================================
      Arranque según la página
      ============================================================ */
   document.addEventListener('DOMContentLoaded', function () {
     if (pagina === 'deportes') cargarDeportes();
-    if (pagina === 'personal') cargarPersonal();
     if (pagina === 'blog') cargarBlog();
     if (pagina === 'inicio') cargarInicio();
     if (pagina === 'compras') cargarProductos();
     if (pagina === 'oferta') cargarCarreras();
-    if (pagina === 'estudiantes') cargarHorarios();
   });
 })();

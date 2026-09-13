@@ -60,6 +60,47 @@
         body.modal-abierto {
             overflow: hidden;
         }
+
+        /* Fotos del personal: se muestran COMPLETAS (sin recortes ni deformación).
+           El fondo es la misma foto difuminada para rellenar el espacio sobrante
+           cuando la proporción de la imagen no coincide con la del contenedor. */
+        .foto-marco {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #0f172a;
+            overflow: hidden;
+        }
+        .foto-marco .foto-fondo {
+            position: absolute;
+            inset: -8%;
+            width: 116%;
+            height: 116%;
+            object-fit: cover;
+            filter: blur(18px) brightness(.55);
+            transform: scale(1.1);
+        }
+        .foto-marco .foto-principal {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+        .foto-marco .foto-iniciales {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .foto-marco.sin-foto .foto-fondo,
+        .foto-marco.sin-foto .foto-principal { display: none; }
+        .foto-marco.sin-foto .foto-iniciales { display: flex; }
+        #modal-foto-marco { aspect-ratio: 1 / 1; }
     </style>
 
 </head>
@@ -161,13 +202,14 @@
 
             <div class="bg-slate-900 px-6 sm:px-8 pt-8 pb-7 text-white">
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 pr-8">
-                    <div class="w-28 h-28 sm:w-32 sm:h-32 shrink-0 rounded-2xl overflow-hidden bg-slate-800 border-2 border-amber-500 shadow-xl flex items-center justify-center">
-                        <img id="modal-foto" src="" alt="" class="w-full h-full object-cover">
-                        <div id="modal-iniciales" class="hidden w-full h-full items-center justify-center text-amber-400 font-black text-4xl"></div>
+                    <div id="modal-foto-marco" class="foto-marco w-40 sm:w-44 shrink-0 rounded-2xl overflow-hidden bg-slate-800 border-2 border-amber-500 shadow-xl">
+                        <img id="modal-foto-fondo" src="" alt="" aria-hidden="true" class="foto-fondo">
+                        <img id="modal-foto" src="" alt="" class="foto-principal">
+                        <div id="modal-iniciales" class="foto-iniciales text-amber-400 font-black text-4xl"></div>
                     </div>
                     <div class="text-center sm:text-left">
                         <span id="modal-cargo" class="inline-block px-3 py-1 bg-amber-500 text-slate-950 text-[10px] font-black uppercase rounded-lg mb-2"></span>
-                        <h2 id="modal-nombre" class="text-2xl sm:text-3xl font-black leading-tight"></h2>
+                        <h2 id="modal-nombre" class="text-white text-2xl sm:text-3xl font-black leading-tight break-words"></h2>
                         <p id="modal-materia" class="mt-2 text-slate-300 text-sm font-semibold">
                             <i class="fa-solid fa-book-open text-amber-400 mr-1"></i>
                         </p>
@@ -789,16 +831,18 @@
                 card.addEventListener("keydown", (evento) => { if (evento.key === "Enter" || evento.key === " ") { evento.preventDefault(); abrirModal(persona); } });
 
                 card.innerHTML = `
-                    <div class="relative h-52 bg-slate-900 overflow-hidden">
-                        <img src="${persona.foto}" alt="Fotografía de ${persona.nombre}"
-                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hidden w-full h-full bg-gradient-to-br from-slate-800 to-slate-950 text-amber-400 font-black text-5xl items-center justify-center uppercase tracking-widest">
-                            ${iniciales}
+                    <div class="relative bg-slate-900 overflow-hidden">
+                        <div class="foto-marco">
+                            <img src="${persona.foto}" alt="" aria-hidden="true" class="foto-fondo" loading="lazy">
+                            <img src="${persona.foto}" alt="Fotografía de ${persona.nombre}" class="foto-principal group-hover:scale-105 transition-transform duration-500" loading="lazy"
+                                 onerror="this.closest('.foto-marco').classList.add('sin-foto')">
+                            <div class="foto-iniciales bg-gradient-to-br from-slate-800 to-slate-950 text-amber-400 font-black text-5xl uppercase tracking-widest">
+                                ${iniciales}
+                            </div>
                         </div>
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-transparent pt-10 pb-3 px-4">
+                        <div class="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent pt-12 pb-3 px-4">
                             <span class="inline-block px-2 py-0.5 bg-amber-500 text-slate-950 text-[10px] font-black uppercase rounded mb-1">${persona.cargo}</span>
-                            <h3 class="text-white font-black text-lg leading-tight drop-shadow">${persona.nombre}</h3>
+                            <h3 class="text-white font-black text-base sm:text-lg leading-tight drop-shadow break-words">${persona.nombre}</h3>
                         </div>
                     </div>
 
@@ -854,17 +898,19 @@
             const inicialesTexto = (partes[0] ? partes[0][0] : '') + (partes[1] ? partes[1][0] : '');
             iniciales.textContent = inicialesTexto.toUpperCase();
 
-            foto.src = persona.foto || '';
+            const marco = document.getElementById('modal-foto-marco');
+            const fondo = document.getElementById('modal-foto-fondo');
+            marco.classList.remove('sin-foto');
+            foto.onerror = function() { marco.classList.add('sin-foto'); };
+            if (persona.foto) {
+                foto.src = persona.foto;
+                fondo.src = persona.foto;
+            } else {
+                foto.removeAttribute('src');
+                fondo.removeAttribute('src');
+                marco.classList.add('sin-foto');
+            }
             foto.alt = persona.nombre || 'Foto del personal';
-            foto.style.display = 'block';
-            iniciales.classList.add('hidden');
-            iniciales.classList.remove('flex');
-
-            foto.onerror = function() {
-                this.style.display = 'none';
-                iniciales.classList.remove('hidden');
-                iniciales.classList.add('flex');
-            };
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -923,5 +969,6 @@
         });
     </script>
     <a href="#" class="btn-volver-arriba">▲</a>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>

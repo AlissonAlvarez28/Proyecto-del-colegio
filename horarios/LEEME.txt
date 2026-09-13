@@ -1,0 +1,18 @@
+Carpeta de HORARIOS OFICIALES
+=============================
+
+Aquí van los documentos oficiales de horarios (PDF, JPG o PNG) tal como los
+emite la Dirección / Secretaría. El sitio NO genera horarios por su cuenta:
+solo muestra y permite descargar los archivos de esta carpeta.
+
+Para publicar un horario:
+  1. Copia el archivo a esta carpeta (usa nombres sin espacios ni tildes,
+     por ejemplo: septimo-matutina-2026.pdf).
+  2. En estudiantes.html, dentro del arreglo `documentosHorarios`, agrega:
+       { titulo: "Séptimo grado — Jornada Matutina",
+         descripcion: "Secciones 1, 2 y 3",
+         archivo: "horarios/septimo-matutina-2026.pdf" },
+     Opcional: pagina: N  -> abre el PDF en esa página (útil cuando un solo
+     documento contiene varias secciones).
+
+Documento actual: horarios-clases-2026.pdf (20 páginas, una por sección).
